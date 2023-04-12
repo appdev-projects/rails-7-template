@@ -74,3 +74,7 @@ end
 # AppDev Gems
 # ===========
 gem "appdev_support", github: "firstdraft/appdev_support"
+
+group :development do
+  gem "annotate"
+end

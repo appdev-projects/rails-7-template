@@ -77,6 +77,7 @@ gem "appdev_support", github: "firstdraft/appdev_support"
 gem "awesome_print"
 gem "dotenv-rails"
 gem "faker"
+gem "htmlbeautifier"
 
 group :development do
   gem "annotate"

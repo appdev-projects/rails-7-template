@@ -75,6 +75,8 @@ end
 # ===========
 gem "appdev_support", github: "firstdraft/appdev_support"
 gem "awesome_print"
+gem "dotenv-rails"
+
 group :development do
   gem "annotate"
   gem "better_errors"

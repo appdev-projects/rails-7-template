@@ -15,7 +15,6 @@ We've added additional Ruby gems and other software that aren't automatically av
 - [`awesome_print`](https://github.com/awesome-print/awesome_print)
 - [`better_errors`](https://github.com/BetterErrors/better_errors)
 - [`binding_of_caller`](https://github.com/banister/binding_of_caller)
-- [`capybara`](https://github.com/teamcapybara/capybara)
 - [`dotenv-rails`](https://github.com/bkeepers/dotenv)
 - [`draft_generators`](https://github.com/firstdraft/draft_generators/)
 - [`faker`](https://github.com/faker-ruby/faker)
@@ -26,13 +25,10 @@ We've added additional Ruby gems and other software that aren't automatically av
 - [`rails_db`](https://github.com/igorkasyanchuk/rails_db)
 - [`rails_erd`](https://github.com/voormedia/rails-erd)
 - [`rspec-html-matchers`](https://github.com/kucaahbe/rspec-html-matchers)
-- [`rubocop-rails`](https://github.com/rubocop/rubocop-rails)
-- [`rubocop-rspec`](https://github.com/rubocop/rubocop-rspec)
 - [`rufo`](https://github.com/ruby-formatter/rufo)
 - [`selenium-webdriver`](https://github.com/SeleniumHQ/selenium/tree/trunk/rb)
 - [`table_print`](https://github.com/arches/table_print)
 - [`web_git`](https://github.com/firstdraft/web_git)
-- [`webdrivers`](https://github.com/titusfortner/webdrivers)
 - [`webmock`](https://github.com/bblimke/webmock)
 
 ### Additional software:

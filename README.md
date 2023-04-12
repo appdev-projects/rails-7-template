@@ -27,7 +27,6 @@ We've added additional Ruby gems and other software that aren't automatically av
 - [`rspec-html-matchers`](https://github.com/kucaahbe/rspec-html-matchers)
 - [`rspec-rails`](https://github.com/rspec/rspec-rails)
 - [`rufo`](https://github.com/ruby-formatter/rufo)
-- [`selenium-webdriver`](https://github.com/SeleniumHQ/selenium/tree/trunk/rb)
 - [`table_print`](https://github.com/arches/table_print)
 - [`web_git`](https://github.com/firstdraft/web_git)
 - [`webmock`](https://github.com/bblimke/webmock)

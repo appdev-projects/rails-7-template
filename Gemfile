@@ -92,5 +92,9 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 6.0.0'
+  gem "rspec-rails", "~> 6.0.0"
+end
+
+group :test do
+  gem "rspec-html-matchers"
 end

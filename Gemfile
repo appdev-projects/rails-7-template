@@ -91,6 +91,7 @@ group :development do
   gem "rails_db"
   gem "rails-erd"
   gem "rufo"
+  gem "web_git", git: "https://github.com/firstdraft/web_git"
 end
 
 group :development, :test do

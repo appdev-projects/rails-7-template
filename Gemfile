@@ -86,4 +86,5 @@ group :development do
   gem "binding_of_caller"
   gem "draft_generators", github: "firstdraft/draft_generators"
   gem "grade_runner", github: "firstdraft/grade_runner"
+  gem "pry-rails"
 end

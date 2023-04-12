@@ -79,6 +79,7 @@ gem "dotenv-rails"
 gem "faker"
 gem "htmlbeautifier"
 gem "http"
+gem "table_print"
 
 group :development do
   gem "annotate"

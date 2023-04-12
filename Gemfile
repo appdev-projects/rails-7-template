@@ -88,4 +88,5 @@ group :development do
   gem "grade_runner", github: "firstdraft/grade_runner"
   gem "pry-rails"
   gem "rails_db"
+  gem "rails-erd"
 end

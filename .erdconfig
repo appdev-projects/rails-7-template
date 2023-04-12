@@ -1,0 +1,22 @@
+attributes:
+  - content
+  - foreign_key
+  - inheritance
+disconnected: true
+filename: erd
+filetype: png
+indirect: true
+inheritance: false
+markup: true
+notation: bachman
+orientation: vertical
+polymorphism: false
+sort: true
+warn: false
+title: false
+exclude: ActiveRecord::InternalMetadata,ActiveRecord::SchemaMigration,ActiveStorage::Attachment,ActiveStorage::Blob,AdminUser,ActiveAdmin::Comment,primary::SchemaMigration
+only: null
+only_recursion_depth: null
+prepend_primary: false
+cluster: false
+splines: spline

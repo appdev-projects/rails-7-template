@@ -23,7 +23,7 @@ We've added additional Ruby gems and other software that aren't automatically av
 - [`http`](https://github.com/httprb/http)
 - [`pry_rails`](https://github.com/pry/pry-rails)
 - [`rails_db`](https://github.com/igorkasyanchuk/rails_db)
-- [`rails_erd`](https://github.com/voormedia/rails-erd)
+- [`rails-erd`](https://github.com/voormedia/rails-erd)
 - [`rspec-html-matchers`](https://github.com/kucaahbe/rspec-html-matchers)
 - [`rufo`](https://github.com/ruby-formatter/rufo)
 - [`selenium-webdriver`](https://github.com/SeleniumHQ/selenium/tree/trunk/rb)

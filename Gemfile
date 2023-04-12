@@ -83,4 +83,5 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "draft_generators", github: "firstdraft/draft_generators"
+  gem "grade_runner", github: "firstdraft/grade_runner"
 end

@@ -22,8 +22,14 @@ GIT
       oj (~> 3.10.6)
 
 GIT
-  remote: https://github.com/firstdraft/web_git
-  revision: 883da228ca1caf2e2887b59ffc85432917778865
+  remote: https://github.com/firstdraft/specs_to_readme.git
+  revision: d073796b8bdf02894b52d4e9dade9aa191863768
+  specs:
+    specs_to_readme (0.1.0)
+
+GIT
+  remote: https://github.com/firstdraft/web_git.git
+  revision: d1d7d2d70cb66ec233229e53f2ec578df0c585b0
   specs:
     web_git (0.1.0)
       actionview
@@ -433,6 +439,7 @@ DEPENDENCIES
   rspec-rails (~> 6.0.0)
   rufo
   selenium-webdriver
+  specs_to_readme!
   sprockets-rails
   stimulus-rails
   table_print

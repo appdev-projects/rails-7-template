@@ -77,4 +77,6 @@ gem "appdev_support", github: "firstdraft/appdev_support"
 gem "awesome_print"
 group :development do
   gem "annotate"
+  gem "better_errors"
+  gem "binding_of_caller"
 end

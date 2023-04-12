@@ -87,4 +87,5 @@ group :development do
   gem "draft_generators", github: "firstdraft/draft_generators"
   gem "grade_runner", github: "firstdraft/grade_runner"
   gem "pry-rails"
+  gem "rails_db"
 end

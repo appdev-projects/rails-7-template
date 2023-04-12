@@ -76,6 +76,7 @@ end
 gem "appdev_support", github: "firstdraft/appdev_support"
 gem "awesome_print"
 gem "dotenv-rails"
+gem "faker"
 
 group :development do
   gem "annotate"

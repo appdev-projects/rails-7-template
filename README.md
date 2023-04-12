@@ -25,6 +25,7 @@ We've added additional Ruby gems and other software that aren't automatically av
 - [`rails_db`](https://github.com/igorkasyanchuk/rails_db)
 - [`rails-erd`](https://github.com/voormedia/rails-erd)
 - [`rspec-html-matchers`](https://github.com/kucaahbe/rspec-html-matchers)
+- [`rspec-rails`](https://github.com/rspec/rspec-rails)
 - [`rufo`](https://github.com/ruby-formatter/rufo)
 - [`selenium-webdriver`](https://github.com/SeleniumHQ/selenium/tree/trunk/rb)
 - [`table_print`](https://github.com/arches/table_print)

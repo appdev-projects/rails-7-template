@@ -90,3 +90,7 @@ group :development do
   gem "rails_db"
   gem "rails-erd"
 end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 6.0.0'
+end

@@ -70,3 +70,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# AppDev Gems
+# ===========
+gem "appdev_support", github: "firstdraft/appdev_support"

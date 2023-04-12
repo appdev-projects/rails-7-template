@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/firstdraft/appdev_support.git
+  revision: 2c14232dbc2c4b6dd5f5bb948cdde3ababf0990a
+  specs:
+    appdev_support (0.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -210,6 +216,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  appdev_support!
   bootsnap
   capybara
   debug

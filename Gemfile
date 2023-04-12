@@ -74,7 +74,7 @@ end
 # AppDev Gems
 # ===========
 gem "appdev_support", github: "firstdraft/appdev_support"
-
+gem "awesome_print"
 group :development do
   gem "annotate"
 end

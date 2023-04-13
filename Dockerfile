@@ -80,7 +80,7 @@ WORKDIR /rails-template
 # Pre-install gems into /rails-template/gems/
 COPY Gemfile /rails-template/Gemfile
 COPY --chown=student:student Gemfile.lock /rails-template/Gemfile.lock
-RUN /bin/bash -l -c "mkdir /rails-template/gems/ && bundle config set --local path 'gems'"
+# RUN /bin/bash -l -c "mkdir /rails-template/gems/ && bundle config set --local path 'gems'"
 RUN /bin/bash -l -c "bundle install"
 
 # Install Google Chrome

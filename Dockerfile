@@ -64,9 +64,9 @@ RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - \
     && echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*' >> /home/student/.bashrc.d/70-ruby
 RUN echo "rvm_gems_path=/home/student/.rvm" > ~/.rvmrc
 
-ENV GEM_HOME=/workspace/.rvm
+ENV GEM_HOME=/workspaces/.rvm
 ENV GEM_PATH=$GEM_HOME:$GEM_PATH
-ENV PATH=/workspace/.rvm/bin:$PATH
+ENV PATH=/workspaces/.rvm/bin:$PATH
 
 USER student
 
@@ -103,7 +103,7 @@ RUN sudo install-packages postgresql-12 postgresql-contrib-12
 
 # Setup PostgreSQL server for user student
 ENV PATH="$PATH:/usr/lib/postgresql/12/bin"
-ENV PGDATA="/workspace/.pgsql/data"
+ENV PGDATA="/workspaces/.pgsql/data"
 RUN mkdir -p ~/.pg_ctl/bin ~/.pg_ctl/sockets \
  && printf '#!/bin/bash\n[ ! -d $PGDATA ] && mkdir -p $PGDATA && initdb -D $PGDATA\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" start\n' > ~/.pg_ctl/bin/pg_start \
  && printf '#!/bin/bash\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" stop\n' > ~/.pg_ctl/bin/pg_stop \

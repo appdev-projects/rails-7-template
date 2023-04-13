@@ -22,9 +22,28 @@ RUN BROWSER_MAJOR=$(google-chrome --version | sed 's/Google Chrome \([0-9]*\).*/
     echo "chromedriver version: $DRIVER_MAJOR" && \
     if [ $BROWSER_MAJOR != $DRIVER_MAJOR ]; then echo "VERSION MISMATCH"; exit 1; fi
 
-# Install Postgresql 12
-RUN apt install postgresql postgresql-contrib -y \
-  && systemctl enable postgresql
+# Get install-packages
+RUN wget -qO /usr/bin/install-packages "https://gist.githubusercontent.com/jelaniwoods/d5cc8157a0de0f449de748f75e2e182e/raw/c45b0f2947975ff7bb53cbddb8a2fe2e6241db8e/install-packages" \
+  && chmod 775 /usr/bin/install-packages
+# Install PostgreSQL
+RUN install-packages postgresql postgresql-contrib
+
+# Setup PostgreSQL server
+ENV PATH="$PATH:/usr/lib/postgresql/12/bin"
+ENV PGDATA="/workspace/.pgsql/data"
+RUN mkdir -p ~/.pg_ctl/bin ~/.pg_ctl/sockets \
+ && printf '#!/bin/bash\n[ ! -d $PGDATA ] && mkdir -p $PGDATA && initdb -D $PGDATA\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" start\n' > ~/.pg_ctl/bin/pg_start \
+ && printf '#!/bin/bash\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" stop\n' > ~/.pg_ctl/bin/pg_stop \
+ && chmod +x ~/.pg_ctl/bin/*
+ENV PATH="$PATH:$HOME/.pg_ctl/bin"
+ENV DATABASE_URL="postgresql://root@localhost"
+ENV PGHOSTADDR="127.0.0.1"
+ENV PGDATABASE="postgres"
+
+# This is a bit of a hack. At the moment we have no means of starting background
+# tasks from a Dockerfile. This workaround checks, on each bashrc eval, if the
+# PostgreSQL server is running, and if not starts it.
+RUN printf "\n# Auto-start PostgreSQL server.\n[[ \$(pg_ctl status | grep PID) ]] || pg_start > /dev/null\n" >> ~/.bashrc
 
 # Install Graphviz
 RUN apt-get update \

@@ -3,7 +3,7 @@
 {
   "name": "Container",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "jelaniwoods/appdev2023-rails-template-test:4.4",
+  "image": "jelaniwoods/appdev2023-rails-template-test:4.5",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
@@ -19,7 +19,7 @@
   },
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "bin/setup",
+  "postCreateCommand": "bin/setup",
 
   // Configure tool-specific properties.
   "customizations": {

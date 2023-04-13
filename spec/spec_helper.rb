@@ -19,6 +19,7 @@ require "#{File.expand_path("../support/hint_formatter", __FILE__)}"
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include RSpecHtmlMatchers
+  config.example_status_persistence_file_path = "examples.txt"
 
   def h(hint_identifiers)
     hint_identifiers.split.map { |identifier| I18n.t("hints.#{identifier}") }

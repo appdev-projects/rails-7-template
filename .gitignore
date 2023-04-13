@@ -31,4 +31,5 @@
 /config/master.key
 # AppDev files
 core.chrome*
+examples.txt
 .vscode/.ltici_apitoken.yml

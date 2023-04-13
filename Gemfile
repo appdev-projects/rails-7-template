@@ -79,6 +79,7 @@ gem "dotenv-rails"
 gem "faker"
 gem "htmlbeautifier"
 gem "http"
+gem "sqlite3", "~> 1.4"
 gem "table_print"
 
 group :development do
@@ -100,6 +101,7 @@ group :development, :test do
 end
 
 group :test do
+  gem "draft_matchers", github: "jelaniwoods/draft_matchers"
   gem "rspec-html-matchers"
   gem "webmock"
 end

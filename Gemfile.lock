@@ -39,6 +39,15 @@ GIT
       sinatra
       tzinfo-data
 
+GIT
+  remote: https://github.com/jelaniwoods/draft_matchers.git
+  revision: 6ef3d143725cfece23affa4d2e4be009996b7054
+  specs:
+    draft_matchers (0.0.1)
+      capybara
+      color_namer
+      rspec
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -136,6 +145,9 @@ GEM
       xpath (~> 3.2)
     choice (0.2.0)
     coderay (1.1.3)
+    color (1.8)
+    color_namer (0.1.0)
+      color (>= 1.4.1)
     concurrent-ruby (1.2.2)
     crack (0.4.5)
       rexml
@@ -365,6 +377,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.6.2-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     table_print (1.5.7)
@@ -422,6 +435,7 @@ DEPENDENCIES
   debug
   dotenv-rails
   draft_generators!
+  draft_matchers!
   faker
   grade_runner!
   htmlbeautifier
@@ -441,6 +455,7 @@ DEPENDENCIES
   selenium-webdriver
   specs_to_readme!
   sprockets-rails
+  sqlite3 (~> 1.4)
   stimulus-rails
   table_print
   turbo-rails

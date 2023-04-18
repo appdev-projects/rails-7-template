@@ -433,6 +433,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  devise
   dotenv-rails
   draft_generators!
   draft_matchers!

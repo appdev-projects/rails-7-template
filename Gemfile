@@ -75,6 +75,7 @@ end
 # ===========
 gem "appdev_support", github: "firstdraft/appdev_support"
 gem "awesome_print"
+gem "devise"       # to be removed
 gem "dotenv-rails"
 gem "faker"
 gem "htmlbeautifier"

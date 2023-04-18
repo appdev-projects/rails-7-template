@@ -18,6 +18,7 @@ We've added additional Ruby gems and other software that aren't automatically av
 - [`dotenv-rails`](https://github.com/bkeepers/dotenv)
 - [`draft_generators`](https://github.com/firstdraft/draft_generators/)
 - [`draft_matchers`](https://github.com/jelaniwoods/draft_matchers/)
+- [`devise`](https://github.com/heartcombo/devise)
 - [`faker`](https://github.com/faker-ruby/faker)
 - [`grade_runner`](https://github.com/firstdraft/grade_runner/)
 - [`htmlbeautifier`](https://github.com/threedaymonk/htmlbeautifier/)

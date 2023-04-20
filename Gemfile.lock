@@ -14,12 +14,14 @@ GIT
 
 GIT
   remote: https://github.com/firstdraft/grade_runner.git
-  revision: e19ab1764a5a4e0a89731fcab76e352d60240ddf
+  revision: 9d0576befbc698d3171d5f25d488b7a6438e6bda
   specs:
-    grade_runner (0.0.5)
+    grade_runner (0.0.7)
+      activesupport (>= 2.3.5)
       faraday-retry (~> 1.0.3)
       octokit (~> 5.0)
-      oj (~> 3.10.6)
+      oj (~> 3.13.12)
+      rake (~> 13)
 
 GIT
   remote: https://github.com/firstdraft/specs_to_readme.git
@@ -257,7 +259,7 @@ GEM
     octokit (5.6.1)
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
-    oj (3.10.18)
+    oj (3.13.23)
     orm_adapter (0.5.0)
     pg (1.4.6)
     pry (0.14.2)

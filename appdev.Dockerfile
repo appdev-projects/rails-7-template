@@ -3,6 +3,7 @@ FROM buildpack-deps:focal
 ### base ###
 RUN yes | unminimize \
     && apt-get install -yq \
+        acl \
         zip \
         unzip \
         bash-completion \
@@ -32,7 +33,7 @@ RUN add-apt-repository -y ppa:git-core/ppa \
 
 ### Container user ###
 # '-l': see https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
-RUN useradd -l -u 33333 -G sudo -md /home/student -s /bin/bash -p student student \
+RUN useradd -l -u 33334 -G sudo -md /home/student -s /bin/bash -p student student \
     # passwordless sudo for users in the 'sudo' group
     && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
 ENV HOME=/home/student
@@ -109,10 +110,17 @@ RUN sudo install-packages postgresql-12 postgresql-contrib-12
 # Setup PostgreSQL server for user student
 ENV PATH="$PATH:/usr/lib/postgresql/12/bin"
 ENV PGDATA="/workspaces/.pgsql/data"
-RUN mkdir -p ~/.pg_ctl/bin ~/.pg_ctl/sockets \
+RUN sudo mkdir -p $PGDATA
+RUN mkdir -p $PGDATA ~/.pg_ctl/bin ~/.pg_ctl/sockets \
  && printf '#!/bin/bash\n[ ! -d $PGDATA ] && mkdir -p $PGDATA && initdb -D $PGDATA\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" start\n' > ~/.pg_ctl/bin/pg_start \
  && printf '#!/bin/bash\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" stop\n' > ~/.pg_ctl/bin/pg_stop \
- && chmod +x ~/.pg_ctl/bin/*
+ && chmod +x ~/.pg_ctl/bin/* \
+ && sudo addgroup dev \
+ && sudo adduser student dev \
+ && sudo chgrp -R dev $PGDATA \
+ && sudo chmod -R 775 $PGDATA \
+ && sudo setfacl -dR -m g:staff:rwx $PGDATA \
+ && sudo chmod 777 /var/run/postgresql
 ENV PATH="$PATH:$HOME/.pg_ctl/bin"
 ENV DATABASE_URL="postgresql://student@localhost"
 ENV PGHOSTADDR="127.0.0.1"
@@ -192,3 +200,4 @@ __git_complete g __git_main" >> ~/.bash_aliases
 
 # Alias bundle exec to be
 RUN echo "alias be='bundle exec'" >> ~/.bash_aliases
+RUN sudo cp -r /home/student /home/gitpod && sudo chmod 777 /home/gitpod

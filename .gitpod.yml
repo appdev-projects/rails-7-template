@@ -1,0 +1,19 @@
+image: jelaniwoods/appdev2023-rails-template-test-5
+
+tasks:
+  - env:
+      DATABASE_URL: "postgresql://gitpod@localhost"
+    before: |
+      echo 'export DATABASE_URL="postgresql://gitpod@localhost"' | sudo tee -a ~/.bashrc
+      bin/setup
+ports:
+  - port: 3000
+    onOpen: open-preview
+    visibility: public
+  - port: 5432
+    onOpen: ignore
+
+vscode:
+  extensions:
+    - vortizhe.simple-ruby-erb
+    - aliariff.vscode-erb-beautify

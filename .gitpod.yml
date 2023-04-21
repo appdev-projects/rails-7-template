@@ -1,4 +1,4 @@
-image: jelaniwoods/appdev2023-rails-template-test-4-8-b
+image: jelaniwoods/appdev2023-rails-template-test-4-8-c
 
 tasks:
   - before: |

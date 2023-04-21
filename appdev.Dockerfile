@@ -35,7 +35,7 @@ RUN add-apt-repository -y ppa:git-core/ppa \
 RUN useradd -l -u 33334 -G sudo -md /home/student -s /bin/bash -p student student \
     # passwordless sudo for users in the 'sudo' group
     && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
-ENV HOME=/rails-template
+ENV HOME=/home/student
 WORKDIR $HOME
 # custom Bash prompt
 RUN { echo && echo "PS1='\[\e]0;\u \w\a\]\[\033[01;32m\]\u\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\] \\\$ '" ; } >> .bashrc
@@ -52,7 +52,6 @@ RUN sudo echo "Running 'sudo' for container: success" && \
 LABEL dazzle/layer=lang-ruby
 LABEL dazzle/test=tests/lang-ruby.yaml
 USER student
-RUN sudo chown -R student:student /rails-template
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - \
     && curl -sSL https://rvm.io/pkuczynski.asc | gpg --import - \
     && curl -fsSL https://get.rvm.io | bash -s stable \
@@ -193,3 +192,4 @@ __git_complete g __git_main" >> ~/.bash_aliases
 
 # Alias bundle exec to be
 RUN echo "alias be='bundle exec'" >> ~/.bash_aliases
+RUN sudo cp -r /home/student /home/gitpod && sudo chmod 777 /home/gitpod

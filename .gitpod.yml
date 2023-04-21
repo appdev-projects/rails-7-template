@@ -2,7 +2,6 @@ image: jelaniwoods/appdev2023-rails-template-test-4-8-a
 
 tasks:
   - before: |
-      source $(rvm 3.0.3 do rvm env --path)
       bin/setup
 ports:
   - port: 3000

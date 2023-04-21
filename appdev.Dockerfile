@@ -32,7 +32,7 @@ RUN add-apt-repository -y ppa:git-core/ppa \
 
 ### Container user ###
 # '-l': see https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
-RUN useradd -l -u 33333 -G sudo -md /home/student -s /bin/bash -p student student \
+RUN useradd -l -u 33334 -G sudo -md /home/student -s /bin/bash -p student student \
     # passwordless sudo for users in the 'sudo' group
     && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
 ENV HOME=/rails-template

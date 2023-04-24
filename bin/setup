@@ -12,6 +12,10 @@ FileUtils.chdir APP_ROOT do
   # This script is a way to set up or update your development environment automatically.
   # This script is idempotent, so that you can run it at any time and get an expectable outcome.
   # Add necessary setup steps to this file.
+  if `cat /etc/passwd`.include?("gitpod")
+    puts "updating db permissions"
+    system! "sudo adduser gitpod dev"
+  end
 
   puts "== Installing dependencies =="
   system!("bundle install")

@@ -109,7 +109,8 @@ RUN sudo install-packages postgresql-12 postgresql-contrib-12
 
 # Setup PostgreSQL server for user student
 ENV PATH="$PATH:/usr/lib/postgresql/12/bin"
-ENV PGDATA="$HOME/.pgsql/data"
+ENV PGDATA="/workspaces/.pgsql/data"
+RUN sudo mkdir -p $PGDATA
 RUN mkdir -p $PGDATA ~/.pg_ctl/bin ~/.pg_ctl/sockets \
  && printf '#!/bin/bash\n[ ! -d $PGDATA ] && mkdir -p $PGDATA && initdb -D $PGDATA\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" start\n' > ~/.pg_ctl/bin/pg_start \
  && printf '#!/bin/bash\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" stop\n' > ~/.pg_ctl/bin/pg_stop \

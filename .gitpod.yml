@@ -3,8 +3,9 @@ image: jelaniwoods/appdev2023-rails-template-test-4-8-i
 tasks:
   - env:
       DATABASE_URL: "postgresql://gitpod@localhost"
-  - before: |
+    before: |
       bin/setup
+    command: echo $DATABASE_URL
 ports:
   - port: 3000
     onOpen: open-preview

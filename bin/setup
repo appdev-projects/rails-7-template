@@ -16,7 +16,9 @@ FileUtils.chdir APP_ROOT do
     puts "updating db permissions"
     system! "sudo adduser gitpod dev"
     system! "sudo chown gitpod $PGDATA"
-    system! 'export DATABASE_URL="postgresql://gitpod@localhost"'
+    print "resetting db url..."
+    %x[export DATABASE_URL="postgresql://gitpod@localhost"]
+    print ENV["DATABASE_URL"] + "\n--------------------------\n\n"
     system! "initdb -D $PGDATA"
     system! "pg_ctl start"
   end

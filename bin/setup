@@ -15,6 +15,10 @@ FileUtils.chdir APP_ROOT do
   if `cat /etc/passwd`.include?("gitpod")
     puts "updating db permissions"
     system! "sudo adduser gitpod dev"
+    system! "sudo chown gitpod $PGDATA"
+    system! 'export DATABASE_URL="postgresql://gitpod@localhost"'
+    system! "initdb -D $PGDATA"
+    system! "pg_ctl start"
   end
 
   puts "== Installing dependencies =="

@@ -3,7 +3,7 @@
 {
   "name": "Container",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "jelaniwoods/appdev2023-rails-template-test-4-8-e",
+  "image": "jelaniwoods/appdev2023-rails-template-test-4-8-e:2",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},

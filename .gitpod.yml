@@ -5,7 +5,7 @@ tasks:
       DATABASE_URL: "postgresql://gitpod@localhost"
     before: |
       bin/setup
-    command: echo $DATABASE_URL
+      sudo echo "export DATABASE_URL=\"postgresql://gitpod@localhost\"" >> ~/.bashrc
 ports:
   - port: 3000
     onOpen: open-preview

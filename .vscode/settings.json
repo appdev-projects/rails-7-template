@@ -34,6 +34,7 @@
   "vscode-erb-beautify.keepBlankLines": 1,
   "ruby.intellisense": false,
   "gitpod.openInStable.neverPrompt": true,
+  "gitlens.showWelcomeOnInstall": false,
   "redhat.telemetry.enabled": false,
   "emmet.includeLanguages": {
     "erb": "html"

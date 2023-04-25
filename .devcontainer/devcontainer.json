@@ -26,7 +26,9 @@
     "vscode": {
       "extensions": ["vortizhe.simple-ruby-erb",
                      "mbessey.vscode-rufo",
-                     "aliariff.vscode-erb-beautify"]
+                     "aliariff.vscode-erb-beautify",
+                     "eamodio.gitlens",
+                     "mhutchie.git-graph"]
     }
   }
 

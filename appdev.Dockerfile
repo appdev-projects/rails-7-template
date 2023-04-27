@@ -201,3 +201,6 @@ __git_complete g __git_main" >> ~/.bash_aliases
 # Alias bundle exec to be
 RUN echo "alias be='bundle exec'" >> ~/.bash_aliases
 RUN sudo cp -r /home/student /home/gitpod && sudo chmod 777 /home/gitpod
+
+# Add trusted IP for better_errors use with Sinatra on cloud IDEs
+RUN echo "export TRUSTED_IP='0.0.0.0/0.0.0.0'" >> ~/.bashrc

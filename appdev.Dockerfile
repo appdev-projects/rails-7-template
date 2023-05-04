@@ -207,4 +207,4 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\W \[\033[01;34m\]$(parse_
 
 # Alias bundle exec to be
 RUN echo "alias be='bundle exec'" >> ~/.bash_aliases
-RUN sudo cp -r /home/student /home/gitpod && sudo chmod 777 /home/gitpod
+# RUN sudo cp -r /home/student /home/gitpod && sudo chmod 777 /home/gitpod

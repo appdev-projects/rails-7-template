@@ -172,11 +172,14 @@ RUN /bin/bash -l -c "curl -L https://fly.io/install.sh | sh"
 RUN echo "export PATH=\"/home/student/.fly/bin:\$PATH\"" >> ~/.bashrc
 
 # Thoughtbot style bash prompt
-RUN echo "# Add current git branch to prompt\n\
-parse_git_branch() {\n\
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/1/'\n\
-}\n\n" >> ~/.bashrc
-RUN echo 'PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\W \[\033[01;34m\]$(parse_git_branch)\[\033[00m\] % "' >> ~/.bashrc
+RUN /bin/bash -l -c "echo \"parse_git_branch() { \
+
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' \
+
+}\" >> ~/.bashrc"
+
+RUN /bin/bash -l -c "echo \"PS1='${debian_chroot:+($debian_chroot)}\[[01;32m\]\W \[[01;34m\]$(parse_git_branch)\[[00m\] % '\" >> ~/.bashrc"
+# RUN echo 'PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\W \[\033[01;34m\]$(parse_git_branch)\[\033[00m\] % "' >> ~/.bashrc
 
 # Git global configuration
 RUN git config --global push.default upstream \

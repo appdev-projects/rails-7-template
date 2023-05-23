@@ -200,7 +200,7 @@ __git_complete g __git_main" >> ~/.bash_aliases
 
 # Thoughtbot style bash prompt
 
-RUN echo "# Add current git branch to prompt\n\
+RUN touch ~/.bash_prompt && echo "# Add current git branch to prompt\n\
 parse_git_branch() {\n\
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'\n\
 }\n\

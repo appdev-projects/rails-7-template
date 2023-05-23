@@ -174,10 +174,9 @@ RUN echo "export PATH=\"/home/student/.fly/bin:\$PATH\"" >> ~/.bashrc
 # Thoughtbot style bash prompt
 RUN echo "# Add current git branch to prompt\n\
 parse_git_branch() {\n\
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'\n\
-}\n\
-\n\
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\W \[\033[01;34m\]$(parse_git_branch)\[\033[00m\] % '" >> ~/.bashrc
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/1/'\n\
+}\n\n" >> ~/.bashrc
+RUN echo 'PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\W \[\033[01;34m\]$(parse_git_branch)\[\033[00m\] % "' >> ~/.bashrc
 
 # Git global configuration
 RUN git config --global push.default upstream \

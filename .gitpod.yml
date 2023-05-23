@@ -1,4 +1,4 @@
-image: jelaniwoods/appdev2023-rails-template-test-8
+image: jelaniwoods/appdev2023-rails-template-test-9
 
 tasks:
   - env:

@@ -197,13 +197,17 @@ g() {\n\
 }\n# Complete g like git\n\
 source /usr/share/bash-completion/completions/git\n\
 __git_complete g __git_main" >> ~/.bash_aliases
+
 # Thoughtbot style bash prompt
+
 RUN echo "# Add current git branch to prompt\n\
 parse_git_branch() {\n\
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'\n\
 }\n\
 \n\
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\W \[\033[01;34m\]$(parse_git_branch)\[\033[00m\] % '" >> ~/.bashrc
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\W \[\033[01;34m\]$(parse_git_branch)\[\033[00m\] % '" >> ~/.bash_prompt
+
+RUN echo "[ -f ~/.bash_prompt ] && . ~/.bash_prompt" >> ~/.bashrc
 
 # Alias bundle exec to be
 RUN echo "alias be='bundle exec'" >> ~/.bash_aliases

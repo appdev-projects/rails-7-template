@@ -1,10 +1,14 @@
-image: jelaniwoods/appdev2023-rails-template-test-5
+image: jelaniwoods/appdev2023-rails-template
 
 tasks:
   - env:
       DATABASE_URL: "postgresql://gitpod@localhost"
     before: |
-      echo 'export DATABASE_URL="postgresql://gitpod@localhost"' | sudo tee -a ~/.bashrc
+      sudo echo 'export DATABASE_URL="postgresql://gitpod@localhost"' | sudo tee -a ~/.bashrc
+      sudo cp -r /home/student /home/gitpod && sudo chmod 777 /home/gitpod && chown -R gitpod /home/gitpod
+      export GEM_HOME=/workspace/.rvm
+      export GEM_PATH=$GEM_HOME:$GEM_PATH
+      export PATH=/workspace/.rvm/bin:$PATH
       bin/setup
 ports:
   - port: 3000

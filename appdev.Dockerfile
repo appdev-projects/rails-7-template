@@ -171,6 +171,10 @@ RUN /bin/bash -l -c "curl https://cli-assets.heroku.com/install.sh | sh"
 RUN /bin/bash -l -c "curl -L https://fly.io/install.sh | sh"
 RUN echo "export PATH=\"/home/student/.fly/bin:\$PATH\"" >> ~/.bashrc
 
+# Thoughtbot style bash prompt
+RUN sudo wget -qO ./prompt "https://gist.githubusercontent.com/jelaniwoods/7e5db8d72b3dfac257b7eb562cfebf11/raw/af43083d91c0eb1489059a2ad9c39474a34ddbda/thoughtbot-style-prompt"
+RUN /bin/bash -l -c "cat ./prompt >> ~/.bashrc"
+
 # Git global configuration
 RUN git config --global push.default upstream \
     && git config --global merge.ff only \
@@ -200,4 +204,4 @@ __git_complete g __git_main" >> ~/.bash_aliases
 
 # Alias bundle exec to be
 RUN echo "alias be='bundle exec'" >> ~/.bash_aliases
-RUN sudo cp -r /home/student /home/gitpod && sudo chmod 777 /home/gitpod
+# RUN sudo cp -r /home/student /home/gitpod && sudo chmod 777 /home/gitpod

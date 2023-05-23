@@ -172,14 +172,8 @@ RUN /bin/bash -l -c "curl -L https://fly.io/install.sh | sh"
 RUN echo "export PATH=\"/home/student/.fly/bin:\$PATH\"" >> ~/.bashrc
 
 # Thoughtbot style bash prompt
-RUN /bin/bash -l -c "echo \"parse_git_branch() { \
-
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' \
-
-}\" >> ~/.bashrc"
-
-RUN /bin/bash -l -c "echo \"PS1='${debian_chroot:+($debian_chroot)}\[[01;32m\]\W \[[01;34m\]$(parse_git_branch)\[[00m\] % '\" >> ~/.bashrc"
-# RUN echo 'PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\W \[\033[01;34m\]$(parse_git_branch)\[\033[00m\] % "' >> ~/.bashrc
+RUN sudo wget -qO ./prompt "https://gist.githubusercontent.com/jelaniwoods/7e5db8d72b3dfac257b7eb562cfebf11/raw/af43083d91c0eb1489059a2ad9c39474a34ddbda/thoughtbot-style-prompt"
+RUN /bin/bash -l -c "cat ./prompt >> ~/.bashrc"
 
 # Git global configuration
 RUN git config --global push.default upstream \

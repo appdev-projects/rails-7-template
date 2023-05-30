@@ -73,7 +73,7 @@ end
 
 # AppDev Gems
 # ===========
-gem "appdev_support", github: "firstdraft/appdev_support"
+gem "appdev_support"
 gem "awesome_print"
 gem "devise"       # to be removed
 gem "dotenv-rails"
@@ -87,14 +87,14 @@ group :development do
   gem "annotate"
   gem "better_errors"
   gem "binding_of_caller"
-  gem "draft_generators", github: "firstdraft/draft_generators"
-  gem "grade_runner", github: "firstdraft/grade_runner"
+  gem "draft_generators"
+  gem "grade_runner"
   gem "pry-rails"
   gem "rails_db"
   gem "rails-erd"
   gem "rufo"
-  gem "specs_to_readme", github: "firstdraft/specs_to_readme"
-  gem "web_git", github: "firstdraft/web_git"
+  gem "specs_to_readme"
+  gem "web_git"
 end
 
 group :development, :test do
@@ -102,7 +102,7 @@ group :development, :test do
 end
 
 group :test do
-  gem "draft_matchers", github: "jelaniwoods/draft_matchers"
+  gem "draft_matchers"
   gem "rspec-html-matchers"
   gem "webmock"
 end

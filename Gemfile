@@ -102,7 +102,8 @@ group :development, :test do
 end
 
 group :test do
-  gem "draft_matchers"
+  gem "draft_matchers"#, "0.0.2"#path: "../../my_stuff/draft_matchers"
+  # gem "draft_matchers"
   gem "rspec-html-matchers"
   gem "webmock"
 end

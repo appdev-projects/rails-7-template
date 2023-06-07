@@ -1,6 +1,6 @@
 # Rails Template
 
-This is a base Ruby on Rails repository configured for learning with Gitpod.
+This is a base Ruby on Rails repository configured for learning with Codespaces (and Gitpod).
 
 - Ruby version: `3.2.1`
 - Rails version: `7.0.4.3`

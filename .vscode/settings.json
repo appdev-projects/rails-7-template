@@ -60,11 +60,11 @@
   },
   "[ruby]": {
     "editor.defaultFormatter": "mbessey.vscode-rufo",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": false
   },
   "[erb]": {
     "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": false
   },
   "files.associations": {
     "*.html.erb": "erb"

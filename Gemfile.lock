@@ -123,7 +123,7 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
-    draft_generators (0.0.3)
+    draft_generators (0.0.4)
       devise
       indefinite_article
     draft_matchers (0.0.2)
@@ -412,7 +412,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
-  draft_generators
+  draft_generators (~> 0.0.4)
   draft_matchers
   faker
   grade_runner

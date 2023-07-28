@@ -412,7 +412,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
-  draft_generators (~> 0.0.4)
+  draft_generators
   draft_matchers
   faker
   grade_runner

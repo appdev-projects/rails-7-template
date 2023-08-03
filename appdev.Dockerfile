@@ -183,7 +183,8 @@ RUN git config --global push.default upstream \
     && git config --global alias.sla 'log --oneline --decorate --graph --all' \
     && git config --global alias.co 'checkout' \
     && git config --global alias.cob 'checkout -b' \
-    && git config --global --add --bool push.autoSetupRemote true
+    && git config --global --add --bool push.autoSetupRemote true \
+    && git config --global core.editor "code --wait"
 
 # Alias 'git' to 'g'
 # RUN echo 'export PATH="$PATH:$GITPOD_REPO_ROOT/bin"' >> ~/.bashrc

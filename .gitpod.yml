@@ -1,4 +1,4 @@
-image: jelaniwoods/appdev2023-rails-template-chown-issue
+image: jelaniwoods/appdev2023-rails-template
 
 tasks:
   - before: |

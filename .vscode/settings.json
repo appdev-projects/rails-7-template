@@ -49,6 +49,7 @@
   "html.format.preserveNewLines": true,
   "html.format.templating": true,
   "terminal.integrated.altClickMovesCursor": true,
+  "terminal.integrated.defaultProfile.linux": "bash",
   "vscode-erb-beautify.keepBlankLines": 1,
   "ruby.intellisense": false,
   "gitpod.openInStable.neverPrompt": true,

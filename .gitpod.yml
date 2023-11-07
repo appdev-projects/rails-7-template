@@ -5,7 +5,7 @@ tasks:
       sudo cp -r /home/student /home/gitpod
       (cd /home/gitpod/student; sudo find . -maxdepth 1 -exec mv {} .. \;)
       source ~/.bashrc
-      sudo chmod 777 /home/gitpod && sudo chown -R gitpod /home/gitpod
+      sudo chmod 777 /home/gitpod && sudo chown -R gitpod /home/gitpod /home/student
       export GEM_HOME=/workspace/.rvm
       export GEM_PATH=$GEM_HOME:$GEM_PATH
       export PATH=/workspace/.rvm/bin:$PATH

@@ -1,4 +1,8 @@
-# Rails Template
+# The Prettiest Price - v1
+
+The Prettiest Price is a price comparison tool that allows savvy shoppers to find the lowest (aka "prettiest") prices on all of their personal care and beauty staples. 
+
+# Ruby & Rails info
 
 This is a base Ruby on Rails repository configured for learning with Codespaces (and Gitpod).
 

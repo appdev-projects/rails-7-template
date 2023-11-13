@@ -9,4 +9,5 @@
 #  listing_id :integer
 #
 class Snapshot < ApplicationRecord
+  belongs_to :listing, required: true, class_name: "Listing", foreign_key: "listing_id"
 end

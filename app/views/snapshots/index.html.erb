@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Snapshots</h1>
+
+<div id="snapshots">
+  <% @snapshots.each do |snapshot| %>
+    <%= render snapshot %>
+    <p>
+      <%= link_to "Show this snapshot", snapshot %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New snapshot", new_snapshot_path %>

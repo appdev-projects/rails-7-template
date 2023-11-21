@@ -6,11 +6,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- Render bootstrap, JS, and Font Awesome -->
+    <%= render partial: "shared/cdn_assets" %>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+
+    <%= render partial: "shared/navbar" %>
+
     <%= yield %>
   </body>
 </html>

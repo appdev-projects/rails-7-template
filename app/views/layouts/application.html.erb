@@ -14,10 +14,13 @@
   </head>
 
   <body>
+    <div class="has-bg-img">
+      <div class="bg-img bg-cover" style="background-image: url('<%= asset_path("/images/background.jpg")%>'); background-repeat: no-repeat; background-size: cover;">
 
-    <%= render partial: "shared/navbar" %>
+        <%= render partial: "shared/navbar" %>
 
         <%= yield %>
-
-    </body>
-  </html>
+      </div>
+    </div>
+  </body>
+</html>

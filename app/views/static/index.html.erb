@@ -1,31 +1,37 @@
 <main class="main">
-  <section class="hero-section">
-    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
-      <div class="row align-items-center g-lg-5 py-5">
-        <div class="col-lg-7 text-center text-lg-start">
-          <h1 class="display-4 fw-bold lh-1 mb-3">Highlighting the <br>
-            (low) price of beauty.</h1>
-          <p class="col-lg-10 fs-4">The Prettiest Price is coming soon! <br> Join us on our mission to help savvy shoppers find the best deals on all things personal care and makeup. Sign-up for the waitlist!  </p>
-        </div>
-        <div class="col-md-10 mx-auto col-lg-5">
-          <form class="p-4 p-md-5 border rounded-3 bg-light">
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="floatingName" placeholder="Janeisha Doe">
-              <label for="floatingName">Your name</label>
+  <div class="has-bg-img">
+    <div class="bg-img bg-cover" style="background-image: url('<%= asset_path("/images/background.jpg")%>')">
+
+      <section class="hero-section" style="width: 100vw; height: 100vh;">
+        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+          <div class="row align-items-center g-lg-5 py-5">
+            <div class="col-lg-7 text-center text-lg-start">
+              <h1 class="display-4 fw-bold lh-1 mb-3">Highlighting the <br>
+                (low) price of beauty.</h1>
+              <p class="col-lg-10 fs-4">The Prettiest Price is coming soon! <br>
+                Join us on our mission to help savvy shoppers find the best deals on all things personal care and makeup. Sign-up for the waitlist!  </p>
             </div>
-            <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-              <label for="floatingInput">Email address</label>
+            <div class="col-md-10 mx-auto col-lg-5">
+              <form class="p-4 p-md-5 border rounded-3 bg-light">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingName" placeholder="Janeisha Doe">
+                  <label for="floatingName">Your name</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                  <label for="floatingInput">Email address</label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Join the Waitlist</button>
+                <hr class="my-4">
+                <small class="text-muted">By clicking "Join the Waitlist", you agree to the terms of use.</small>
+              </form>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Join the Waitlist</button>
-            <hr class="my-4">
-            <small class="text-muted">By clicking "Join the Waitlist", you agree to the terms of use.</small>
-          </form>
+          </div>
         </div>
-      </div>
+        <div class="hero-section-wave">
+          <img>
+        </div>
+      </section>
     </div>
-    <div class="hero-section-wave">
-      <img>
-    </div>
-  </section>
+  </div>
 </main>

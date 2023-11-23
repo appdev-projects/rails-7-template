@@ -1,0 +1,2 @@
+class WaitlistEntriesController < ApplicationController
+end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'errors/not_found'
-  get 'errors/internal_server_error'
+  get '/404', to: 'erros#not_found'
+  get '/500', to: 'erros#internal_server_error'
   # resources :listings
   # resources :retailers
   # resources :snapshots

@@ -19,3 +19,6 @@
   background-color: #F84791;
   color: white;
 }
+.error-msg {
+  min-height: 100vh;
+}

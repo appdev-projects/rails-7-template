@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get '/404', to: 'erros#not_found'
-  get '/500', to: 'erros#internal_server_error'
+  get '/404', to: 'errors#not_found'
+  get '/500', to: 'errors#internal_server_error'
   # resources :listings
   # resources :retailers
   # resources :snapshots
@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   root "static#index"
+
+  match '*umatched_route', to: 'errors#not_found', via: :all
 end

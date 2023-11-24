@@ -7,6 +7,7 @@ class WaitlistEntriesController < ApplicationController
       flash[:alert] = 'Error adding to the waitlist. Please try again.'
     end
     redirect_to root_path 
+  end  
 
     private
 

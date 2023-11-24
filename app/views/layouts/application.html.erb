@@ -18,7 +18,12 @@
     <div class="has-bg-img">
       <div class="bg-img bg-cover " id="background-img">
         <%= render partial: "shared/navbar"  %>
-
+        <% if alert.present?%>
+          <%= render partial: "shared/flash", locals: {message: alert, css_class: "danger"} %>
+        <% end %>
+        <% if notice.present?%>
+          <%= render partial: "shared/flash", locals: {message: notice, css_class: "success"} %>
+        <% end %>
         <%= yield %>
       </div>
     </div>

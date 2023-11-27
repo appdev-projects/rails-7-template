@@ -8,6 +8,10 @@ Bundler.require(*Rails.groups)
 
 module RailsTemplate
   class Application < Rails::Application
+    # Configure application to use custom error pages
+    config.exceptions_app = self.routes
+    # config.action_dispatch.show_exceptions = true
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 

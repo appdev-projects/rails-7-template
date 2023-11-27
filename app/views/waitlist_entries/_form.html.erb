@@ -1,0 +1,15 @@
+<div class="col-md-10 mx-auto col-lg-5">
+  <%= form_with(model: WaitlistEntry.new, url: waitlist_entries_path, local: true, html: { class: 'p-4 p-md-5 border rounded-3 bg-light' }) do |form| %>
+    <div class="form-floating mb-3">
+      <%= form.text_field :name, class: 'form-control', id: 'floatingName', placeholder: 'Janeisha Doe' %>
+      <%= form.label :name, 'Your name', class: 'form-label', for: 'floatingName' %>
+    </div>
+    <div class="form-floating mb-3">
+      <%= form.email_field :email, class: 'form-control', id: 'floatingInput', placeholder: 'name@example.com' %>
+      <%= form.label :email, 'Email address', class: 'form-label', for: 'floatingInput' %>
+    </div>
+    <%= form.button 'Join the Waitlist', class: 'w-100 btn btn-lg', id: 'join-waitlist-btn', type: 'submit' %>
+    <hr class="my-4">
+    <small class="text-muted">By clicking "Join the Waitlist", you agree to the terms of use.</small>
+  <% end %>
+</div>

@@ -27,7 +27,7 @@ module RailsTemplate
       g.helper false
     end
 
-    config.action_controller.default_protect_from_forgery = false
+    config.action_controller.default_protect_from_forgery = true
     config.generators.system_tests = nil
   end
 end

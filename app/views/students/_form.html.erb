@@ -1,0 +1,113 @@
+<%= form_with(model: student) do |form| %>
+  <% if student.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+        <% student.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :first_name, style: "display: block" %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= form.label :last_name, style: "display: block" %>
+    <%= form.text_field :last_name %>
+  </div>
+<br>
+
+  <div>
+  <%= form.label :school_id, "Select Schools",style: "display: block" %>
+  <%= form.collection_select(:school_id, School.all, :id, :name, {}, { multiple: false }) %>
+  </div>
+<br>
+ <!-- <div>-->
+    <%#= form.label :school_id, style: "display: block" %>
+    <%#= form.text_field :school_id %>
+<!--  </div>-->
+
+  <div>
+    <%= form.label :parent_first_name, style: "display: block" %>
+    <%= form.text_field :parent_first_name %>
+  </div>
+
+  <div>
+    <%= form.label :parent_last_name, style: "display: block" %>
+    <%= form.text_field :parent_last_name %>
+  </div>
+
+  <div>
+    <%= form.label :parent_relationship, style: "display: block" %>
+    <%= form.text_field :parent_relationship %>
+  </div>
+
+  <div>
+    <%= form.label :parent_phone_number, style: "display: block" %>
+    <%= form.number_field :parent_phone_number %>
+  </div>
+
+  <div>
+    <%= form.label :emergency_first_name, style: "display: block" %>
+    <%= form.text_field :emergency_first_name %>
+  </div>
+
+  <div>
+    <%= form.label :emergency_last_name, style: "display: block" %>
+    <%= form.text_field :emergency_last_name %>
+  </div>
+
+  <div>
+    <%= form.label :emergency_phone, style: "display: block" %>
+    <%= form.number_field :emergency_phone %>
+  </div>
+
+  <div>
+    <%= form.label :pre_survey, style: "display: block" %>
+    <%= form.check_box :pre_survey %>
+  </div>
+
+  <div>
+    <%= form.label :post_survey, style: "display: block" %>
+    <%= form.check_box :post_survey %>
+  </div>
+
+  <div>
+    <%= form.label :interest_survey, style: "display: block" %>
+    <%= form.check_box :interest_survey %>
+  </div>
+
+  <div>
+    <%= form.label :iep_or_504, style: "display: block" %>
+    <%= form.check_box :iep_or_504 %>
+  </div>
+
+  <div>
+    <%= form.label :progress_report_1, style: "display: block" %>
+    <%= form.check_box :progress_report_1 %>
+  </div>
+
+  <div>
+    <%= form.label :progress_report_2, style: "display: block" %>
+    <%= form.check_box :progress_report_2 %>
+  </div>
+
+  <div>
+    <%= form.label :progress_report_3, style: "display: block" %>
+    <%= form.check_box :progress_report_3 %>
+  </div>
+
+  <div>
+    <%= form.label :progress_report_4, style: "display: block" %>
+    <%= form.check_box :progress_report_4 %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

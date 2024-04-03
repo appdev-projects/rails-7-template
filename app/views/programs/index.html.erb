@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Programs</h1>
+
+<div id="programs">
+  <% @programs.each do |program| %>
+    <%= render program %>
+    <p>
+      <%= link_to "Show this program", program %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New program", new_program_path %>

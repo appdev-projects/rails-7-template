@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <nav>
+    <a href="/users/sign_in">sign in</a>
+    <a href="/users/sign_up">sign up</a>
+<%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete} %>
+    
+    </nav>
+      <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>

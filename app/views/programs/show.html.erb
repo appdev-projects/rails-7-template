@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @program %>
+
+<div>
+  <%= link_to "Edit this program", edit_program_path(@program) %> |
+  <%= link_to "Back to programs", programs_path %>
+
+  <%= button_to "Destroy this program", @program, method: :delete %>
+</div>

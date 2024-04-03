@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @curriculum %>
+
+<div>
+  <%= link_to "Edit this curriculum", edit_curriculum_path(@curriculum) %> |
+  <%= link_to "Back to curriculums", curriculums_path %>
+
+  <%= button_to "Destroy this curriculum", @curriculum, method: :delete %>
+</div>

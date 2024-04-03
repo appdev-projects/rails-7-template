@@ -1,0 +1,27 @@
+<%= form_with(model: curriculum) do |form| %>
+  <% if curriculum.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(curriculum.errors.count, "error") %> prohibited this curriculum from being saved:</h2>
+
+      <ul>
+        <% curriculum.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :grade_level, style: "display: block" %>
+    <%= form.text_field :grade_level %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,69 @@
+<%= form_with(model: program) do |form| %>
+  <% if program.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(program.errors.count, "error") %> prohibited this program from being saved:</h2>
+
+      <ul>
+        <% program.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+  <%= form.label :user_id, "Select Facilitators",style: "display: block" %>
+  <%= form.collection_select(:user_id, User.where(facilitator: true), :id, :full_name, {}, { multiple: false }) %>
+  </div>
+<!--  <div>-->
+    <%#= form.label :user_id, style: "display: block" %>
+    <%#= form.text_field :user_id %>
+<!--  </div>-->
+
+
+  <div>
+  <%= form.label :school_id, "Select Schools",style: "display: block" %>
+  <%= form.collection_select(:school_id, School.all, :id, :name, {}, { multiple: false }) %>
+  </div>
+
+  <div>
+  <%= form.label :curriculum_id, "Select Curriculum",style: "display: block" %>
+  <%= form.collection_select(:curriculum_id, Curriculum.all, :id, :name, {}, { multiple: false }) %>
+  </div>
+
+<!--  <div>-->
+    <%#= form.label :curriculum_id, style: "display: block" %>
+    <%#= form.text_field :curriculum_id %>
+<!--  </div>-->
+
+  <div>
+
+  <%= form.label :student_id, "Select Students", style: "display: block"%>
+  <%= form.collection_select(:student_id, Student.all, :id, :full_name, {}, { multiple: true }) %>
+  <%#= form.collection_select(:student_id, Student.all, "#{:first_name}", "#{:last_name}", {}, { multiple: true }) %>
+<!---->  </div>
+
+<!--  <div>-->
+    <%#= form.label :student_id, style: "display: block" %>
+    <%#= form.text_field :student_id %>
+<!--  </div>-->
+
+  <div>
+    <%= form.label :season, style: "display: block" %>
+    <%= form.text_field :season %>
+  </div>
+
+  <div>
+    <%= form.label :days, style: "display: block" %>
+    <%= form.text_field :days %>
+  </div>
+
+  <div>
+    <%= form.label :times, style: "display: block" %>
+    <%= form.text_field :times %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

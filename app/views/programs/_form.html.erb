@@ -39,9 +39,8 @@
   <div>
 
   <%= form.label :student_id, "Select Students", style: "display: block"%>
-  <%= form.collection_select(:student_id, Student.all, :id, :full_name, {}, { multiple: true }) %>
-  <%#= form.collection_select(:student_id, Student.all, "#{:first_name}", "#{:last_name}", {}, { multiple: true }) %>
-<!---->  </div>
+  <%= form.collection_select(:student_id, Student.all, :id, :full_name, {:include_hidden => false}, { multiple: true }) %>
+   </div>
 
 <!--  <div>-->
     <%#= form.label :student_id, style: "display: block" %>

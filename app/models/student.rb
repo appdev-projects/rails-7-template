@@ -33,10 +33,12 @@
 #  school_id  (school_id => schools.id)
 #
 class Student < ApplicationRecord
+  has_many :enrollments
+  has_many :programs, through: :enrollments
   belongs_to :school
-  has_many :programs
-
+ 
   def full_name
     "#{first_name} #{last_name}" 
   end
+
 end

@@ -10,4 +10,5 @@
 #
 class Curriculum < ApplicationRecord
   has_many :programs
+  has_many :schools
 end

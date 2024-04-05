@@ -26,6 +26,7 @@
   <%= form.label :school_id, "Select Schools",style: "display: block" %>
   <%= form.collection_select(:school_id, School.all, :id, :name, {}, { multiple: false }) %>
   </div>
+
 <br>
  <!-- <div>-->
     <%#= form.label :school_id, style: "display: block" %>

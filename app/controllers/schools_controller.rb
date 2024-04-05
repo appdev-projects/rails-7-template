@@ -21,8 +21,7 @@ class SchoolsController < ApplicationController
 
   # POST /schools or /schools.json
   def create
-    @school = School.new(school_params)
-
+    @school = current_user.schools.build(school_params)
     respond_to do |format|
       if @school.save
         format.html { redirect_to school_url(@school), notice: "School was successfully created." }

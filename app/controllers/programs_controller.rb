@@ -5,23 +5,39 @@ class ProgramsController < ApplicationController
   def index
     @programs = Program.all
   end
+  def show
+    @program = Program.find(params[:id])
+
+  end
 
   # GET /programs/1 or /programs/1.json
-  def show
-  end
+  # def add_students
+  #   @program = Program.find(params[:id])
+  #   students_to_add = Student.where(id: params[:student_ids])
+
+  #   @program.students << students_to_add
+
+  #   redirect_to @program, notice: "Students added successfully to the program."
+  # end
 
   # GET /programs/new
   def new
     @program = Program.new
+    @program.students.build
   end
 
   # GET /programs/1/edit
   def edit
+    @program = Program.find(params[:id])
+    @program.students.build if @program.students.empty?
   end
 
   # POST /programs or /programs.json
   def create
     @program = Program.new(program_params)
+    # students_to_add = Student.where(id: params[:student_ids])
+
+    # @program.students << students_to_add
 
     respond_to do |format|
       if @program.save
@@ -63,8 +79,9 @@ class ProgramsController < ApplicationController
       @program = Program.find(params[:id])
     end
 
+
     # Only allow a list of trusted parameters through.
     def program_params
-      params.require(:program).permit(:user_id, :school_id, :curriculum_id, :student_id, :season, :days, :times)
-    end
+      params.require(:program).permit(:user_id, :school_id, :curriculum_id, :season, :days, :times, :student_id, :program_id, :id, student_ids: [])
+    end    
 end

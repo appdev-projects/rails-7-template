@@ -4,19 +4,33 @@
     <%= program.user_id %>
   </p>
 
-  <p>
+<!--  <p>
     <strong>School:</strong>
-    <%= program.school_id %>
-  </p>
-
+    <%#= program.school_id %>-->
+<!--  </p>
+-->
   <p>
     <strong>Curriculum:</strong>
     <%= program.curriculum_id %>
   </p>
 
+<h2>Associated Students</h2>
+<%# if @program.students.any? %>
+<!--  <ul>-->
+    <%# @program.students.each do |student| %>
+<!--      <li><%#= student.full_name %></li>-->
+    <%# end %>
+<!--  </ul>-->
+<%# else %>
+<!--  <p>No students associated with this program.</p>-->
+<%# end %>
+
+
   <p>
-    <strong>Student:</strong>
-    <%= program.student_id %>
+  <strong>Student:</strong>
+     <% program.students.each do |student| %>
+        <%= student.full_name %>
+      <% end %>
   </p>
 
   <p>

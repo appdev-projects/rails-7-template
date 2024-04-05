@@ -1,4 +1,4 @@
-<%= form_with(model: program) do |form| %>
+<%= form_with(model: @program) do |form| %>
   <% if program.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(program.errors.count, "error") %> prohibited this program from being saved:</h2>
@@ -38,8 +38,16 @@
 
   <div>
 
-  <%= form.label :student_id, "Select Students", style: "display: block"%>
-  <%= form.collection_select(:student_id, Student.all, :id, :full_name, {:include_hidden => false}, { multiple: true }) %>
+<%= form.label :student_ids, "Select Students" %>
+  <%= form.collection_select :student_ids, Student.all, :id, :full_name, {}, multiple: true %>
+ <!--   <h3>Select Students to Add:</h3>-->
+  <%# Student.all.each do |student| %>
+    <%#= check_box_tag 'student_ids[]', student.id %>
+    <%#= label_tag "student_ids_#{student.id}", student.full_name %><br>
+  <%# end %>
+
+  <%#= form.label :student_id, "Select Students", style: "display: block"%>
+  <%#= form.collection_select(:student_id, Student.all, :id, :full_name, {:include_hidden => false}, { multiple: true }) %>
    </div>
 
 <!--  <div>-->

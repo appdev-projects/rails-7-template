@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_02_203041) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_05_171946) do
   create_table "curriculums", force: :cascade do |t|
     t.string "name"
     t.string "grade_level"
@@ -18,19 +18,26 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_02_203041) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "enrollments", force: :cascade do |t|
+    t.integer "program_id", null: false
+    t.integer "student_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["program_id"], name: "index_enrollments_on_program_id"
+    t.index ["student_id"], name: "index_enrollments_on_student_id"
+  end
+
   create_table "programs", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "school_id", null: false
     t.integer "curriculum_id", null: false
-    t.integer "student_id", null: false
     t.string "season"
     t.string "days"
     t.string "times"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "school_id", default: 0, null: false
     t.index ["curriculum_id"], name: "index_programs_on_curriculum_id"
     t.index ["school_id"], name: "index_programs_on_school_id"
-    t.index ["student_id"], name: "index_programs_on_student_id"
     t.index ["user_id"], name: "index_programs_on_user_id"
   end
 
@@ -82,9 +89,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_02_203041) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "enrollments", "programs"
+  add_foreign_key "enrollments", "students"
   add_foreign_key "programs", "curriculums"
   add_foreign_key "programs", "schools"
-  add_foreign_key "programs", "students"
   add_foreign_key "programs", "users"
   add_foreign_key "students", "schools"
 end

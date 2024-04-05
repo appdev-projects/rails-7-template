@@ -12,10 +12,23 @@
 
   <body>
     <nav>
-    <a href="/users/sign_in">sign in</a>
-    <a href="/users/sign_up">sign up</a>
-<%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete} %>
-    
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/programs">Programs</a></li>
+    <li><a href="/students">Students</a></li>
+    <li><a href="/schools">Schools</a></li>
+    <li><a href="/curriculums">Curriculums</a></li>
+
+    <!-- Add more links as needed -->
+  </ul>
+  <ul>
+    <% if user_signed_in? %>
+      <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to 'Sign in', new_user_session_path %></li>
+      <li><%= link_to 'Sign up', new_user_registration_path %></li>
+    <% end %>
+    </ul>
     </nav>
       <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>

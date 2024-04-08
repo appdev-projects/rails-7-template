@@ -5,6 +5,8 @@ ruby "3.2.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 
+gem 'bootstrap', '~> 5.0.0'
+
 gem "simple_form"
 
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"

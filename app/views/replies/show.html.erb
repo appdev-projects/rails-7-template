@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Reply #<%= @the_reply.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/replies">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_reply/<%= @the_reply.id %>">
+          Delete reply
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Post
+      </dt>
+      <dd>
+        <%= @the_reply.post_id %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_reply.user_id %>
+      </dd>
+
+      <dt>
+        Content
+      </dt>
+      <dd>
+        <%= @the_reply.content %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_reply.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_reply.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit reply
+    </h2>
+
+    <form action="/modify_reply/<%= @the_reply.id %>"  method="post" >
+      <div>
+        <label for="post_id_box">
+          Post
+        </label>
+
+        <input type="text" id="post_id_box" name="query_post_id" value="<%= @the_reply.post_id %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_reply.user_id %>">
+      </div>
+
+      <div>
+        <label for="content_box">
+          Content
+        </label>
+
+        <textarea id="content_box" name="query_content"><%= @the_reply.content %></textarea>
+      </div>
+
+      <button>
+        Update reply
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

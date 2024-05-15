@@ -1,0 +1,136 @@
+<div>
+  <div>
+    <h1>
+      List of all posts
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new post
+    </h2>
+
+    <form action="/insert_post" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="subject_box">
+          Subject
+        </label>
+
+        <input type="text" id="subject_box" name="query_subject">
+      </div>
+
+      <div>
+        <label for="content_box">
+          Content
+        </label>
+
+        <textarea id="content_box" name="query_content" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+      </div>
+
+      <button>
+        Create post
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Subject
+        </th>
+
+        <th>
+          Content
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_posts.each do |a_post| %>
+      <tr>
+        <td>
+          <%= a_post.id %>
+        </td>
+
+        <td>
+        <% matching_users = User.where({ :id => a_post.user_id }) %>
+        <% the_user = matching_users[0] %>
+        <%= the_user.name %>
+        </td>
+
+        <td>
+          <%= a_post.subject %>
+        </td>
+
+        <td>
+          <%= a_post.content %>
+        </td>
+
+        <td>
+          <img src="<%= a_post.image %>" height="50px">
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_post.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_post.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/posts/<%= a_post.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

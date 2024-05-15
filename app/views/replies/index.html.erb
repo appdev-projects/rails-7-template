@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all replies
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new reply
+    </h2>
+
+    <form action="/insert_reply" method="post">
+      <div>
+        <label for="post_id_box">
+          Post
+        </label>
+
+        <input type="text" id="post_id_box" name="query_post_id">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="content_box">
+          Content
+        </label>
+
+        <textarea id="content_box" name="query_content" rows="3"></textarea>
+      </div>
+
+      <button>
+        Create reply
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Post
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Content
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_replies.each do |a_reply| %>
+      <tr>
+        <td>
+          <%= a_reply.id %>
+        </td>
+
+        <td>
+          <%= a_reply.post_id %>
+        </td>
+
+        <td>
+          <%= a_reply.user_id %>
+        </td>
+
+        <td>
+          <%= a_reply.content %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_reply.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_reply.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/replies/<%= a_reply.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

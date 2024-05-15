@@ -1,6 +1,7 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Allow server to be hosted on any URL
   config.hosts.clear
   # Allow better_errors to work in online IDE

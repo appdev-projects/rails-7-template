@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all posts
+      Forum - All posts
     </h1>
   </div>
 </div>
@@ -14,14 +14,8 @@
       Add a new post
     </h2>
 
+<% if current_user != nil %>
     <form action="/insert_post" method="post">
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
 
       <div>
         <label for="subject_box">
@@ -48,9 +42,14 @@
       </div>
 
       <button>
-        Create post
+        Add post
       </button>
     </form>
+
+    <% else %>
+      <p>You must <a href="/users/sign_in">sign in</a> to add a board.</p>
+    <% end %>
+
   </div>
 </div>
 

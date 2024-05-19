@@ -22,6 +22,7 @@ class RepliesController < ApplicationController
     the_reply.post_id = params.fetch("query_post_id")
     the_reply.user_id = params.fetch("query_user_id")
     the_reply.content = params.fetch("query_content")
+    the_reply.user_id = current_user.id
 
     if the_reply.valid?
       the_reply.save

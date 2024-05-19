@@ -19,10 +19,11 @@ class PostsController < ApplicationController
 
   def create
     the_post = Post.new
-    the_post.user_id = params.fetch("query_user_id")
     the_post.subject = params.fetch("query_subject")
     the_post.content = params.fetch("query_content")
     the_post.image = params.fetch("query_image")
+    
+    the_post.user_id = current_user.id
 
     if the_post.valid?
       the_post.save

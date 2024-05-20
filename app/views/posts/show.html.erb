@@ -1,22 +1,10 @@
 <div>
   <div>
     <h1>
-      Post #<%= @the_post.id %> details
+      <%= @the_post.subject %>
     </h1>
 
-    <div>
-      <div>
-        <a href="/posts">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_post/<%= @the_post.id %>">
-          Delete post
-        </a>
-      </div>
-    </div>
+   <hr>
 
     <dl>
       <dt>
@@ -67,50 +55,22 @@
 <hr>
 
 
-<div>
-  <div>
-    <h2>
-      Edit post
-    </h2>
+<h2>Active Replies</h2>
 
-    <form action="/modify_post/<%= @the_post.id %>"  method="post" >
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
+<table border="1">
+  <tr>
+    <th>User</th>
+    <th>Content</th>
+    <th>Posted on</th>
+  </tr>
 
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_post.user_id %>">
-      </div>
-
-      <div>
-        <label for="subject_box">
-          Subject
-        </label>
-
-        <input type="text" id="subject_box" name="query_subject" value="<%= @the_post.subject %>">
-      </div>
-
-      <div>
-        <label for="content_box">
-          Content
-        </label>
-
-        <textarea id="content_box" name="query_content"><%= @the_post.content %></textarea>
-      </div>
-
-      <div>
-        <label for="image_box">
-          Image
-        </label>
-
-        <input type="text" id="image_box" name="query_image" value="<%= @the_post.image %>">
-      </div>
-
-      <button>
-        Update post
-      </button>
-    </form>
-  </div>
-</div>
-
-<hr>
+  <% @matching_replies.each do |a_reply| %>
+    <tr>
+      <% matching_users = User.where({ :id => a_reply.user_id }) %>
+      <% the_user = matching_users[0] %> 
+      <td><%= the_user.name %></td>
+      <td><%= a_reply.content %></td>
+      <td><%= a_reply.created_at.strftime("%b %e, %Y") %></td>
+    </tr>
+  <% end %>
+</table>

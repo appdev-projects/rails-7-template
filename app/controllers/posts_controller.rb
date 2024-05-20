@@ -14,6 +14,13 @@ class PostsController < ApplicationController
 
     @the_post = matching_posts.at(0)
 
+    @matching_replies = Reply.where({ :post_id => @the_post.id })
+
+   # @active_replies = @matching_replies.where({ :expires_on => (Time.current...) }).order(:expires_on)
+    
+    #@expired_replies = @matching_replies.where.not({ :expires_on => (Time.current...) }).order({ :expires_on => :desc })
+
+
     render({ :template => "posts/show" })
   end
 

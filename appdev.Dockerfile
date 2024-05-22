@@ -204,5 +204,8 @@ __git_complete g __git_main" >> ~/.bash_aliases
 RUN echo "alias be='bundle exec'" >> ~/.bash_aliases
 # RUN sudo cp -r /home/student /home/gitpod && sudo chmod 777 /home/gitpod
 
+# Alias rake grade to grade
+RUN echo "alias grade='rake grade'" >> ~/.bash_aliases
+
 # Add bin/rake to path for non-Rails projects
 RUN echo 'export PATH="$PWD/bin:$PATH"' >> ~/.bashrc

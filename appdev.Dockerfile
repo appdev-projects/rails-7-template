@@ -1,22 +1,22 @@
 FROM ubuntu:focal
 
 ### base ###
+ENV DEBIAN_FRONTEND=noninteractive
 RUN yes | unminimize \
     && apt-get install -yq \
+        curl \
+        wget \
         acl \
         zip \
         unzip \
         bash-completion \
         build-essential \
         jq \
-        less \
         locales \
         man-db \
         software-properties-common \
+        libpq-dev \
         sudo \
-        time \
-        multitail \
-        lsof \
     && locale-gen en_US.UTF-8 \
     && mkdir /var/lib/apt/dazzle-marks \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
@@ -81,7 +81,7 @@ COPY --chown=student:student Gemfile.lock /rails-template/Gemfile.lock
 RUN /bin/bash -l -c "bundle install"
 
 # Install Google Chrome
-RUN sudo apt-get update && sudo apt-get install -y libxss1
+RUN sudo apt-get update && sudo apt-get install -y libxss1 && sudo rm -rf /var/lib/atp/lists/*
 RUN wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_114.0.5735.198-1_amd64.deb && \
     sudo apt-get install -y ./google-chrome-stable_114.0.5735.198-1_amd64.deb
 
@@ -144,7 +144,8 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - \
     && sudo apt-get install -y yarn \
     && sudo npm install -g n \
     && sudo n 18 \
-    && hash -r
+    && hash -r \
+    && sudo rm -rf /var/lib/apt/lists/*
 
 # Install Redis.
 RUN sudo apt-get update \

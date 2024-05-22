@@ -136,12 +136,6 @@ RUN /bin/bash -l -c "sudo apt update && sudo apt install -y graphviz=2.42.2-3bui
 # Install fuser (bin/server) and expect (web_git)
 RUN sudo apt install -y libpq-dev psmisc lsof expect
 
-# Install parity
-RUN wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add - \
-    && echo "deb http://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list \
-    && sudo apt-get update \
-    && sudo apt-get -y install parity=3.5.0-2
-
 # Install Node and npm
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - \
     && sudo apt-get install -y nodejs

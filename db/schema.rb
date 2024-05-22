@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_20_025244) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_22_205953) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
     t.string "subject"
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_20_025244) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "details"
   end
 
   create_table "replies", force: :cascade do |t|

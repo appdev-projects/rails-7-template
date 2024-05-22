@@ -11,7 +11,10 @@
         User
       </dt>
       <dd>
-        <%= @the_post.user_id %>
+      <% matching_users = User.where({ :id => @the_post.user_id }) %>
+      <% the_user = matching_users[0] %> 
+     <%= the_user.name %>
+      
       </dd>
 
       <dt>
@@ -21,25 +24,26 @@
         <%= @the_post.subject %>
       </dd>
 
-      <dt>
-        Content
+      
+<dt>
+        Details
       </dt>
       <dd>
-        <%= @the_post.content %>
+        <%= @the_post.details %>
       </dd>
 
       <dt>
         Image
       </dt>
       <dd>
-        <%= @the_post.image %>
+      <img src="<%= @the_post.image %>" height="200px">
       </dd>
 
       <dt>
         Created at
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_post.created_at) %> ago
+        <%= @the_post.created_at.strftime("%b %e, %Y")%>
       </dd>
 
       <dt>

@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Forum - All posts
+      KittyWell Forum
     </h1>
   </div>
 </div>
@@ -58,9 +58,6 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           User
@@ -71,11 +68,11 @@
         </th>
 
         <th>
-          Content
+         Image
         </th>
 
         <th>
-          Image
+          Content 
         </th>
 
         <th>
@@ -92,9 +89,6 @@
 
       <% @list_of_posts.each do |a_post| %>
       <tr>
-        <td>
-          <%= a_post.id %>
-        </td>
 
         <td>
         <% matching_users = User.where({ :id => a_post.user_id }) %>
@@ -106,16 +100,17 @@
           <%= a_post.subject %>
         </td>
 
-        <td>
-          <%= a_post.content %>
-        </td>
-
-        <td>
+ <td>
           <img src="<%= a_post.image %>" height="50px">
         </td>
 
         <td>
-          <%= time_ago_in_words(a_post.created_at) %> ago
+          <%= a_post.content %>
+        </td>
+
+
+        <td>
+          <%= a_post.created_at.strftime("%b %e, %Y") %>
         </td>
         <td>
           <%= time_ago_in_words(a_post.updated_at) %> ago

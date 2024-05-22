@@ -1,4 +1,4 @@
-FROM buildpack-deps:focal
+FROM ubuntu:focal
 
 ### base ###
 RUN yes | unminimize \
@@ -8,16 +8,13 @@ RUN yes | unminimize \
         unzip \
         bash-completion \
         build-essential \
-        htop \
         jq \
         less \
         locales \
         man-db \
-        nano \
         software-properties-common \
         sudo \
         time \
-        vim \
         multitail \
         lsof \
     && locale-gen en_US.UTF-8 \

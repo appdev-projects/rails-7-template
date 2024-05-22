@@ -155,9 +155,6 @@ RUN sudo apt-get update \
   redis-server=5:5.0.7-2ubuntu0.1 \
  && sudo rm -rf /var/lib/apt/lists/*
 
-# Install heroku-cli
-RUN /bin/bash -l -c "curl https://cli-assets.heroku.com/install.sh | sh"
-
 # Install flyyctl
 RUN /bin/bash -l -c "curl -L https://fly.io/install.sh | sh"
 RUN echo "export PATH=\"/home/student/.fly/bin:\$PATH\"" >> ~/.bashrc

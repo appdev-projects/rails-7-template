@@ -1,11 +1,4 @@
-<div>
-  <div>
-    <h1>
-      KittyWell Forum
-    </h1>
-  </div>
-</div>
-
+<link rel="stylesheet" href="my_styles.css">
 <hr>
 
 <div>
@@ -41,7 +34,7 @@
         <input type="text" id="image_box" name="query_image">
       </div>
 
-      <button>
+      <button class="add-button">
         Add post
       </button>
     </form>
@@ -52,79 +45,36 @@
 
   </div>
 </div>
-
-<hr>
-<div>
-  <div>
-    <table border="1">
-      <tr>
-
-        <th>
-          User
-        </th>
-
-        <th>
-          Subject
-        </th>
-
-        <th>
-         Image
-        </th>
-
-        <th>
-          Content 
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_posts.each do |a_post| %>
-      <tr>
-
-        <td>
-        <% matching_users = User.where({ :id => a_post.user_id }) %>
-        <% the_user = matching_users[0] %>
-        <%= the_user.name %>
-        </td>
-
-        <td>
-          <%= a_post.subject %>
-        </td>
-
- <td>
-          <img src="<%= a_post.image %>" height="50px">
-        </td>
-
-        <td>
-          <%= a_post.content %>
-        </td>
-
-
-        <td>
-          <%= a_post.created_at.strftime("%b %e, %Y") %>
-        </td>
-        <td>
-          <%= time_ago_in_words(a_post.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/posts/<%= a_post.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8 col-md-8">
+      <div class="card">
+        <div  class="card-header custom-header">
+          All Posts
+        </div>
+        <ul class="list-group list-group-flush">
+          <% @list_of_posts.each do |a_post| %>
+          <div class="list-group-item list-group-item-action">
+            <div class="d-flex w-100">
+              <img src="<%= a_post.image %>" alt="Image" class="me-3" style="width: 80px; height: 80px; border-radius: 15%;">
+              <div class="flex-grow-1">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1"><%= a_post.subject %></h5>
+                  <!-- Move the date section outside the flex container -->
+                </div>
+                <p class="mb-1"><%= a_post.content %></p>
+                <% matching_users = User.where({ :id => a_post.user_id }) %>
+                <% the_user = matching_users[0] %>
+                <small class="text-body-secondary"><%= the_user.name %></small>
+              </div>
+              <div class="d-flex align-items-center">
+                <small class="text-body-secondary ms-auto"><%= a_post.created_at.strftime("%b %e, %Y") %></small>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
-
-<hr>

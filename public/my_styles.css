@@ -1,0 +1,36 @@
+.list-group-item-action:hover {
+  background-color: #cce5ff;
+}
+
+.list-group-item-action:active {
+  background-color: #99c2ff;
+}
+
+.custom-header {
+  font-size: 24px; 
+  padding-top: 15px;
+  padding-bottom:15px;
+}
+
+
+.add-button{
+  background-color: blue;
+  color: white;
+  padding-top: 5px;
+  padding-buttom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+
+  box-shadow: 2px -1px 66px 39px rgba(0,0,0,0.33) inset;
+  -webkit-box-shadow: 2px -1px 66px 39px rgba(0,0,0,0.33) inset;
+  -moz-box-shadow: 2px -1px 66px 39px rgba(0,0,0,0.33) inset;
+
+.add-button:hover {
+    background-color: darkblue;
+  }
+  .add-button:active {
+    background-color: red;
+  }
+
+}

@@ -1,3 +1,17 @@
+<!-- Connect Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+
+<!-- Connect Bootstrap JavaScript and its dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Connect Font Awesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://kit.fontawesome.com/09c056dea7.js" crossorigin="anonymous"></script>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,6 +25,23 @@
   </head>
 
   <body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">KittyWell</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">All Posts</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
   <nav>
       
 
@@ -22,8 +53,6 @@
         <a href="/users/sign_in">Sign in</a>
       <% end %>
   </nav>
-<a href="/">Forum Homepage</a>
-  <hr>
 
    <% if notice.present? %>
       <div style="color: green">

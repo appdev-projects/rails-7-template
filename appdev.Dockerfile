@@ -130,8 +130,8 @@ USER student
 # Install graphviz (Rails ERD)
 RUN /bin/bash -l -c "sudo apt update && sudo apt install -y graphviz=2.42.2-3build2"
 
-# Install fuser (bin/server) and expect (web_git)
-RUN sudo apt install -y libpq-dev psmisc lsof expect
+# Install fuser (bin/server)
+RUN sudo apt install -y psmisc
 
 # Install Node and npm
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - \

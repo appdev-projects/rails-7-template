@@ -25,7 +25,6 @@ ports:
 
 vscode:
   extensions:
-    - shopify.ruby-lsp
     - mbessey.vscode-rufo
     - aliariff.vscode-erb-beautify
     - eamodio.gitlens

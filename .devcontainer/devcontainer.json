@@ -31,8 +31,7 @@
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
-      "extensions": ["shopify.ruby-lsp",
-                     "mbessey.vscode-rufo",
+      "extensions": ["mbessey.vscode-rufo",
                      "aliariff.vscode-erb-beautify",
                      "eamodio.gitlens",
                      "setobiralo.erb-commenter"]

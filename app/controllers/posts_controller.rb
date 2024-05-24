@@ -29,6 +29,7 @@ class PostsController < ApplicationController
     the_post.subject = params.fetch("query_subject")
     the_post.content = params.fetch("query_content")
     the_post.image = params.fetch("query_image")
+    the_post.details = params.fetch("query_details")
     
     the_post.user_id = current_user.id
 

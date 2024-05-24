@@ -1,5 +1,8 @@
+
+
 <link rel="stylesheet" href="my_styles.css">
 
+<br>
 
 <div class="container">
   <div class="row justify-content-center">
@@ -14,23 +17,25 @@
         
         <ul class="list-group list-group-flush">
           <% @list_of_posts.each do |a_post| %>
+          <a href="/posts/<%= a_post.id %>" class="text-decoration-none">
           <div class="list-group-item list-group-item-action">
-            <div class="d-flex w-100">
-              <img src="<%= a_post.image %>" alt="Image" class="me-3" style="width: 80px; height: 80px; border-radius: 15%;">
-              <div class="flex-grow-1">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1"><%= a_post.subject %></h5>
+              <div class="d-flex w-100">
+                <img src="<%= a_post.image %>" alt="Image" class="me-3" style="width: 80px; height: 80px; border-radius: 15%;">
+                <div class="flex-grow-1">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><%= a_post.subject %></h5>
+                  </div>
+                  <p class="mb-1"><%= a_post.content %></p>
+                  <% matching_users = User.where({ :id => a_post.user_id }) %>
+                  <% the_user = matching_users[0] %>
+                  <small class="text-body-secondary"><%= the_user.name %></small>
                 </div>
-                <p class="mb-1"><%= a_post.content %></p>
-                <% matching_users = User.where({ :id => a_post.user_id }) %>
-                <% the_user = matching_users[0] %>
-                <small class="text-body-secondary"><%= the_user.name %></small>
-              </div>
-              <div class="d-flex align-items-center">
-                <small class="text-body-secondary ms-auto"><%= a_post.created_at.strftime("%b %e, %Y") %></small>
+                <div class="d-flex align-items-center">
+                  <small class="text-body-secondary ms-auto"><%= a_post.created_at.strftime("%b %e, %Y") %></small>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
           <% end %>
         </ul>
       </div>
@@ -66,7 +71,7 @@
               <input type="text" id="image_url_box" name="query_image" class="form-control">
             </div>
             <div class="d-grid">
-              <button type="submit" class="btn btn-success">Add Post</button>
+              <button type="submit" class="btn btn-primary">Add Post</button>
             </div>
           </form>
         <% else %>
@@ -80,6 +85,6 @@
   </div>
 </div>
 
-<!-- Include Bootstrap JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>

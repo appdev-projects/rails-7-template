@@ -26,7 +26,7 @@ class RepliesController < ApplicationController
 
     if the_reply.valid?
       the_reply.save
-      redirect_to("/replies", { :notice => "Reply created successfully." })
+      redirect_to("/posts/#{the_reply.post_id}", { :notice => "Reply created successfully." })
     else
       redirect_to("/replies", { :alert => the_reply.errors.full_messages.to_sentence })
     end

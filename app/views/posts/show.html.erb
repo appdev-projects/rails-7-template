@@ -1,85 +1,96 @@
-<div>
-  <div>
-    <h1>
-      <%= @the_post.subject %>
-    </h1>
 
-   <hr>
 
-    <dl>
-      <dt>
-        User
-      </dt>
-      <dd>
-      <% matching_users = User.where({ :id => @the_post.user_id }) %>
-      <% the_user = matching_users[0] %> 
-     <%= the_user.name %>
-      
-      </dd>
+<br>
 
-      <dt>
-        Subject
-      </dt>
-      <dd>
-        <%= @the_post.subject %>
-      </dd>
-
-      
-<dt>
-        Details
-      </dt>
-      <dd>
-        <%= @the_post.details %>
-      </dd>
-
-      <dt>
-        Image
-      </dt>
-     
-
-      <div class="card" style="width: 18rem;">
-      <img src="<%= @the_post.image %>" class="card-img-top">
-      <div class="card-body">
-     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="card mb-3" style="max-width: 1180px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="<%= @the_post.image %>" class="img-fluid rounded-start">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= @the_post.subject %></h5>
+              <p class="card-text"><%= @the_post.details %></p>
+              <p class="card-text"><small class="text-body-secondary">Created at: <%= @the_post.created_at.strftime("%b %e, %Y") %></small></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <% matching_users = User.where({ id: @the_post.user_id }) %>
+              <% the_user = matching_users[0] %>
+              <li class="list-group-item">Cat Parent: <%= the_user.name %></li>
+            </ul>
+            <div class="card-body">
+              <% if current_user.id == @the_post.user_id %>
+                <a href="/delete_post/<%= @the_post.id %>" class="btn btn-danger">Delete this post</a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= @the_post.created_at.strftime("%b %e, %Y")%>
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_post.updated_at) %> ago
-      </dd>
-    </dl>
   </div>
 </div>
 
-<hr>
+<br>
 
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="card" style="width: 100%;">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <span>Active Replies</span>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newReplyModal">
+            Add new reply
+          </button>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered mb-0">
+            <thead>
+              <tr>
+                <th scope="col">User</th>
+                <th scope="col">Content</th>
+                <th scope="col">Posted on</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @matching_replies.each do |a_reply| %>
+                <% matching_users = User.where(id: a_reply.user_id) %>
+                <% the_user = matching_users[0] %> 
+                <tr>
+                  <td><%= the_user.name %></td>
+                  <td><%= a_reply.content %></td>
+                  <td><%= a_reply.created_at.strftime("%b %e, %Y") %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h2>Active Replies</h2>
-
-<table border="1">
-  <tr>
-    <th>User</th>
-    <th>Content</th>
-    <th>Posted on</th>
-  </tr>
-
-  <% @matching_replies.each do |a_reply| %>
-    <tr>
-      <% matching_users = User.where({ :id => a_reply.user_id }) %>
-      <% the_user = matching_users[0] %> 
-      <td><%= the_user.name %></td>
-      <td><%= a_reply.content %></td>
-      <td><%= a_reply.created_at.strftime("%b %e, %Y") %></td>
-    </tr>
-  <% end %>
-</table>
+<!-- Modal -->
+<div class="modal fade" id="newReplyModal" tabindex="-1" aria-labelledby="newReplyModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newReplyModalLabel">Add New Reply</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/insert_reply" method="post">
+          <div class="mb-3">
+            <label for="content_box" class="form-label">Content</label>
+            <textarea id="content_box" name="query_content" rows="3" class="form-control"></textarea>
+          </div>
+          <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_post.user_id %>">
+          <input type="hidden" id="post_id_box" name="query_post_id" value="<%= @the_post.id %>">
+          <button type="submit" class="btn btn-primary">Add reply</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

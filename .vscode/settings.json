@@ -22,7 +22,13 @@
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
-  "screencastMode.onlyKeyboardShortcuts": true,
+  "screencastMode.keyboardOptions": {
+    "showKeys": false,
+    "showKeybindings": true,
+    "showCommands": false,
+    "showCommandGroups": false,
+    "showSingleEditorCursorMoves": true
+  },
   "screencastMode.verticalOffset": 10,
   "explorer.compactFolders": false,
   "explorer.incrementalNaming": "smart",

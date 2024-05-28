@@ -47,7 +47,6 @@ We've added additional Ruby gems and other software that aren't automatically av
 - Yarn
 
 ### VS Code extensions:
-- shopify.ruby-lsp
 - mbessey.vscode-rufo
 - aliariff.vscode-erb-beautify
 - eamodio.gitlens

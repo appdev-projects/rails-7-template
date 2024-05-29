@@ -40,15 +40,15 @@ We've added additional Ruby gems and other software that aren't automatically av
 - Fly.io's `flyctl`
 - Google Chrome (headless browser)
 - Graphviz
-- Heroku 
 - Node JS 18
 - NPM 8.19.3
-- Parity
 - Postgresql 12
 - Redis
 - Yarn
 
 ### VS Code extensions:
-- aliariff.vscode-erb-beautify
-- mbessey.vscode-rufo
 - vortizhe.simple-ruby-erb
+- mbessey.vscode-rufo
+- aliariff.vscode-erb-beautify
+- eamodio.gitlens
+- setobiralo.erb-commenter

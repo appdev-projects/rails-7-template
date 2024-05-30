@@ -5,8 +5,28 @@ This is a base Ruby on Rails repository configured for learning with Codespaces 
 - Ruby version: `3.2.1`
 - Rails version: `7.1.3.3`
 
+We've added additional Ruby gems and other software that aren't automatically available in a new Rails app, and configured 
 
-We've added additional Ruby gems and other software that aren't automatically available in a new Rails app.
+### UJS and Turbo
+
+In Rails version 7, support for Unobtrusive JavaScript (UJS) is not the default. Rather, [this has been replaced with Turbo](https://guides.rubyonrails.org/working_with_javascript_in_rails.html#turbo).
+
+However, in AppDev, we typically want to first demonstrate UJS and then enable Turbo manually when we want it.
+
+Therefore, UJS is set up via:
+
+
+
+Also, by default, Turbo is disabled via:
+
+```js
+// app/javascript/application.js
+import { Turbo } from "@hotwired/turbo-rails"
+Turbo.session.drive = false
+```
+
+Set it to `true` to enable Turbo everywhere, or you can use `data-turbo="true"` to enable Drive on a per-element basis while leaving it globally `false`.
+
 
 ### Additional gems:
 

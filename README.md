@@ -13,9 +13,29 @@ In Rails version 7, support for Unobtrusive JavaScript (UJS) is not the default.
 
 However, in AppDev, we typically want to first demonstrate UJS and then enable Turbo manually when we want it.
 
-Therefore, UJS has been pre-configured in this app per [these instructions](https://github.com/hotwired/turbo-rails/blob/main/UPGRADING.md#upgrading-from-rails-ujs--turbolinks-to-turbo).
+Therefore, UJS has been pre-configured here with these steps: 
 
-Also, by default, Turbo is disabled via:
+- Pin UJS + jQuery in `config/importmap.rb` by running:
+
+    ```
+    % ./bin/importmap pin @rails/ujs
+    % ./bin/importmap pin jquery
+    ```
+
+- Add UJS + jQuery via:
+
+    ```js
+    // app/javascript/application.js
+    import jquery from "jquery";
+    window.jQuery = jquery;
+    window.$ = jquery;
+    import Rails from "@rails/ujs"
+    Rails.start();
+    ```
+
+UJS and Turbo can co-exist side-by-side with [these instructions, which we already implemented here](https://github.com/hotwired/turbo-rails/blob/main/UPGRADING.md#upgrading-from-rails-ujs--turbolinks-to-turbo).
+
+By default, Turbo is disabled via:
 
 ```js
 // app/javascript/application.js

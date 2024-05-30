@@ -13,9 +13,7 @@ In Rails version 7, support for Unobtrusive JavaScript (UJS) is not the default.
 
 However, in AppDev, we typically want to first demonstrate UJS and then enable Turbo manually when we want it.
 
-Therefore, UJS is set up via:
-
-
+Therefore, UJS has been pre-configured in this app per [these instructions](https://github.com/hotwired/turbo-rails/blob/main/UPGRADING.md#upgrading-from-rails-ujs--turbolinks-to-turbo).
 
 Also, by default, Turbo is disabled via:
 

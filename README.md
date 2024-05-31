@@ -6,7 +6,45 @@ This is a base Ruby on Rails repository configured for learning with Codespaces 
 - Rails version: `7.1.3.3`
 
 
-We've added additional Ruby gems and other software that aren't automatically available in a new Rails app.
+We've added additional Ruby gems and other software that aren't automatically available in a new Rails app, and configured 
+
+### UJS and Turbo
+
+In Rails version 7, support for Unobtrusive JavaScript (UJS) is not the default. Rather, [this has been replaced with Turbo](https://guides.rubyonrails.org/working_with_javascript_in_rails.html#turbo).
+
+However, in AppDev, we typically want to first demonstrate UJS and then enable Turbo manually when we want it.
+
+Therefore, UJS has been pre-configured here with these steps: 
+
+- Pin UJS + jQuery in `config/importmap.rb` by running:
+
+    ```
+    % ./bin/importmap pin @rails/ujs
+    % ./bin/importmap pin jquery
+    ```
+
+- Add UJS + jQuery via:
+
+    ```js
+    // app/javascript/application.js
+    import jquery from "jquery";
+    window.jQuery = jquery;
+    window.$ = jquery;
+    import Rails from "@rails/ujs"
+    Rails.start();
+    ```
+
+UJS and Turbo can co-exist side-by-side with [these instructions, which we already implemented here](https://github.com/hotwired/turbo-rails/blob/main/UPGRADING.md#upgrading-from-rails-ujs--turbolinks-to-turbo).
+
+By default, Turbo is disabled via:
+
+```js
+// app/javascript/application.js
+import { Turbo } from "@hotwired/turbo-rails"
+Turbo.session.drive = false
+```
+
+Set it to `true` to enable Turbo everywhere, or you can use `data-turbo="true"` to enable Drive on a per-element basis while leaving it globally `false`.
 
 ### Additional gems:
 

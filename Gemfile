@@ -90,7 +90,7 @@ group :development do
   gem "draft_generators"
   gem "grade_runner"
   gem "pry-rails"
-  gem "rails_db", git: "https://github.com/bpurinton/rails_db.git", branch: "bp-fix-for-rails-7-1"
+  gem "rails_db"
   gem "rails-erd"
   gem "rufo"
   gem "specs_to_readme"

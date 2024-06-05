@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/bpurinton/rails_db.git
+  revision: 9980d54b1b95277e502a9b47cac96f90fb896d0b
+  branch: bp-fix-for-rails-7-1
+  specs:
+    rails_db (2.4.2)
+      activerecord
+      kaminari
+      rails (>= 5.0.0)
+      ransack (>= 2.3.2)
+      simple_form (>= 5.0.1)
+      terminal-table
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -284,13 +297,6 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
-    rails_db (2.4.2)
-      activerecord
-      kaminari
-      rails (>= 5.0.0)
-      ransack (>= 2.3.2)
-      simple_form (>= 5.0.1)
-      terminal-table
     railties (7.1.3.3)
       actionpack (= 7.1.3.3)
       activesupport (= 7.1.3.3)
@@ -410,6 +416,7 @@ GEM
     zeitwerk (2.6.15)
 
 PLATFORMS
+  x86_64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
@@ -436,7 +443,7 @@ DEPENDENCIES
   puma
   rails (~> 7.1.3, >= 7.1.3.2)
   rails-erd
-  rails_db
+  rails_db!
   redis (~> 4.0)
   rspec-html-matchers
   rspec-rails (~> 6.0.0)

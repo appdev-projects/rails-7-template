@@ -82,7 +82,7 @@ RUN /bin/bash -l -c "bundle install"
 
 # Install Google Chrome
 RUN sudo apt-get update && sudo apt-get install -y libxss1 && sudo rm -rf /var/lib/atp/lists/*
-RUN wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_114.0.5735.198-1_amd64.deb && \
+RUN wget https://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/google-chrome-stable_114.0.5735.198-1_amd64.deb && \
     sudo apt-get install -y ./google-chrome-stable_114.0.5735.198-1_amd64.deb
 
 # Install Chromedriver (compatable with Google Chrome version)
@@ -98,11 +98,15 @@ RUN BROWSER_MAJOR=$(google-chrome --version | sed 's/Google Chrome \([0-9]*\).*/
     if [ $BROWSER_MAJOR != $DRIVER_MAJOR ]; then echo "VERSION MISMATCH"; exit 1; fi
 
 
-# Install PostgreSQL
-RUN sudo install-packages postgresql-12 postgresql-contrib-12
+# Install PostgreSQL v14
+# https://ethanmick.com/how-to-install-and-setup-postgresql-14-on-ubuntu-20-04/
+RUN sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' \
+    && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - \
+    && sudo apt-get update \
+    && sudo apt-get -y install postgresql-14
 
 # Setup PostgreSQL server for user student
-ENV PATH="$PATH:/usr/lib/postgresql/12/bin"
+ENV PATH="$PATH:/usr/lib/postgresql/14/bin"
 ENV PGDATA="/workspaces/.pgsql/data"
 RUN sudo mkdir -p $PGDATA
 RUN mkdir -p $PGDATA ~/.pg_ctl/bin ~/.pg_ctl/sockets \
@@ -145,6 +149,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - \
     && sudo npm install -g n \
     && sudo n 18 \
     && hash -r \
+    && sudo chmod 777 /home/student/.cache \
     && sudo rm -rf /var/lib/apt/lists/*
 
 # Install Redis.

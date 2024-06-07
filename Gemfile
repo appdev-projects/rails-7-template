@@ -73,6 +73,7 @@ end
 
 # AppDev Gems
 # ===========
+gem "foreman"
 gem "appdev_support"
 gem "awesome_print"
 gem "devise"

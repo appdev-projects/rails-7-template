@@ -49,7 +49,8 @@
   },
   "[erb]": {
     "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
+    "editor.autoClosingBrackets": "beforeWhitespace"
   },
   "files.associations": {
     "*.html.erb": "erb"

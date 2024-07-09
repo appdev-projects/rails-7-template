@@ -82,7 +82,7 @@ RUN /bin/bash -l -c "bundle install"
 
 # Install Google Chrome
 RUN sudo apt-get update && sudo apt-get install -y libxss1 && sudo rm -rf /var/lib/atp/lists/*
-RUN wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_114.0.5735.198-1_amd64.deb && \
+RUN wget https://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/google-chrome-stable_114.0.5735.198-1_amd64.deb && \
     sudo apt-get install -y ./google-chrome-stable_114.0.5735.198-1_amd64.deb
 
 # Install Chromedriver (compatable with Google Chrome version)

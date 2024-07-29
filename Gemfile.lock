@@ -463,6 +463,7 @@ DEPENDENCIES
   rspec-rails (~> 6.0.0)
   rufo
   selenium-webdriver
+  simple_form
   specs_to_readme
   sprockets-rails
   sqlite3 (~> 1.4)

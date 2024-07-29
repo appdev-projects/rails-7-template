@@ -3,7 +3,7 @@
 require_relative "config/environment"
 
 map '/' do
-	run Rails.application
+  run Rails.application
 end
 
 Rails.application.load_server

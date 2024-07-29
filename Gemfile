@@ -104,6 +104,7 @@ end
 
 group :test do
   gem "draft_matchers"
+  gem "shoulda-matchers", "~> 4.0"
   gem "rspec-html-matchers"
   gem "webmock"
 end

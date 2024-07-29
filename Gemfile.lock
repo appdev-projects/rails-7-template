@@ -370,6 +370,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    shoulda-matchers (4.5.1)
+      activesupport (>= 4.2.0)
     simple_form (5.3.1)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -464,6 +466,7 @@ DEPENDENCIES
   rspec-rails (~> 6.0.0)
   rufo
   selenium-webdriver
+  shoulda-matchers (~> 4.0)
   simple_form
   specs_to_readme
   sprockets-rails

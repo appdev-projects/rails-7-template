@@ -152,9 +152,10 @@ GEM
     erubi (1.12.0)
     faker (3.4.1)
       i18n (>= 1.8.11, < 2)
-    faraday (2.9.0)
+    faraday (2.10.0)
       faraday-net_http (>= 2.0, < 3.2)
-    faraday-net_http (3.1.0)
+      logger
+    faraday-net_http (3.1.1)
       net-http
     faraday-retry (1.0.3)
     ffi (1.16.3)
@@ -163,7 +164,7 @@ GEM
       rake
     globalid (1.2.1)
       activesupport (>= 6.1)
-    grade_runner (0.0.10)
+    grade_runner (0.0.11)
       activesupport (>= 2.3.5)
       faraday-retry (~> 1.0.3)
       octokit (~> 5.0)

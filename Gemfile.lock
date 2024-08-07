@@ -452,7 +452,7 @@ DEPENDENCIES
   draft_generators
   draft_matchers
   faker
-  grade_runner (~> 0.0.12)
+  grade_runner
   htmlbeautifier
   http
   importmap-rails

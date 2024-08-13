@@ -98,11 +98,16 @@ RUN BROWSER_MAJOR=$(google-chrome --version | sed 's/Google Chrome \([0-9]*\).*/
     if [ $BROWSER_MAJOR != $DRIVER_MAJOR ]; then echo "VERSION MISMATCH"; exit 1; fi
 
 
+# Add PostgreSQL repository
+RUN sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt `lsb_release -cs`-pgdg main" > /etc/apt/sources.list.d/pgdg.list' \
+ && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
 # Install PostgreSQL
-RUN sudo install-packages postgresql-12 postgresql-contrib-12
+RUN sudo apt-get update \
+ && sudo apt-get install -y postgresql-16 postgresql-contrib-16
 
 # Setup PostgreSQL server for user student
-ENV PATH="$PATH:/usr/lib/postgresql/12/bin"
+ENV PATH="$PATH:/usr/lib/postgresql/16/bin"
 ENV PGDATA="/workspaces/.pgsql/data"
 RUN sudo mkdir -p $PGDATA
 RUN mkdir -p $PGDATA ~/.pg_ctl/bin ~/.pg_ctl/sockets \

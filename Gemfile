@@ -73,6 +73,7 @@ end
 
 # AppDev Gems
 # ===========
+gem "active_link_to"
 gem "appdev_support"
 gem "awesome_print"
 gem "devise"

@@ -132,6 +132,8 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     debug_inspector (1.2.0)
+    dev_toolbar (1.2.0)
+      rails (~> 7.0)
     devise (4.9.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -448,6 +450,7 @@ DEPENDENCIES
   capybara
   carrierwave
   debug
+  dev_toolbar
   devise
   dotenv
   draft_generators

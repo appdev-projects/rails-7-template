@@ -1,7 +1,7 @@
 services:
   - type: web
     name: my-app-name # the name of this service, you should change this
-    env: ruby # this app is written in ruby
+    runtime: ruby # this app is written in ruby
     plan: free # make sure to set this to free or you'll get billed $$$
     buildCommand: "./bin/render-build.sh" # we already created these two files for you
     startCommand: "./bin/render-start.sh"
@@ -12,6 +12,8 @@ services:
         fromDatabase:
           name: db
           property: connectionString
+      - key: WEB_CONCURRENCY
+        value: 2
 databases: # this section provides some additional database configuration
   - name: db
     plan: free

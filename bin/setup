@@ -28,6 +28,9 @@ FileUtils.chdir APP_ROOT do
   #   FileUtils.cp "config/database.yml.sample", "config/database.yml"
   # end
 
+  puts "\n== Starting postgres =="
+  system! "if pg_ctl status | grep -q 'no server running'; then pg_start; fi"
+
   puts "\n== Preparing database =="
   system! "bin/rails db:prepare"
 

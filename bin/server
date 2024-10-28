@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if pg_ctl status | grep -q 'no server running'; then
+  pg_start;
+fi
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 parentdir="$(dirname "$DIR")"
 pid="$parentdir/tmp/pids/server.pid"

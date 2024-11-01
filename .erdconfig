@@ -1,7 +1,9 @@
 attributes:
   - content
-  - foreign_key
+  - primary_keys
+  - foreign_keys
   - inheritance
+  - timestamps
 disconnected: true
 filename: erd
 filetype: png

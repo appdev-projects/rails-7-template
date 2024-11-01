@@ -7,7 +7,7 @@ if Object.const_defined?('RailsDb')
     # config.automatic_routes_mount = true
 
     # set tables which you want to hide ONLY
-    # config.black_list_tables = ['users', 'accounts']
+    config.black_list_tables = ["ar_internal_metadata"]
 
     # set tables which you want to show ONLY
     # config.white_list_tables = ['posts', 'comments']

@@ -124,4 +124,5 @@ __git_complete g __git_main" >> ~/.bash_aliases \
     && echo "alias be='bundle exec'" >> ~/.bash_aliases \
     && echo "alias grade='rake grade'" >> ~/.bash_aliases \
     && echo "alias grade:reset_token='rake grade:reset_token'" >> ~/.bash_aliases \
-    && echo 'export PATH="$PWD/bin:$PATH"' >> ~/.bashrc
+    && echo 'export PATH="$PWD/bin:$PATH"' >> ~/.bashrc \
+    && echo "nohup /workspaces/*/bin/postgres-monitor > /dev/null 2>&1 &" >> ~/.bashrc

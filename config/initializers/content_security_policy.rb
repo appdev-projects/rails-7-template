@@ -23,3 +23,9 @@
 #   # Report violations without enforcing the policy.
 #   # config.content_security_policy_report_only = true
 # end
+
+Rails.application.configure do
+  config.content_security_policy do |policy|
+    policy.frame_ancestors :self, "https://envoy.firstdraft.com"
+  end
+end

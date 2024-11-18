@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :employees
+  root "testers#index"
+  resources :testers
+  resources :products
+  resources :brands
+  resources :departments
+  resources :stores
+  resources :roles
 
-  # This is a blank app! Pick your first screen, build out the RCAV, and go from there. E.g.:
-
-  # get "/your_first_screen" => "pages#first"
-  
 end

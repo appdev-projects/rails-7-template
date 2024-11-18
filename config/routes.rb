@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :survey_responses
+  resources :surveys
+  resources :reviews
   devise_for :users
   root "home#index"
 

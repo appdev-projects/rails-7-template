@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "photos#index"
+  devise_for :users
+  root "home#index"
 
   # This is a blank app! Pick your first screen, build out the RCAV, and go from there. E.g.:
 

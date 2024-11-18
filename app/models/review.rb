@@ -11,4 +11,6 @@
 #  sender_id    :integer
 #
 class Review < ApplicationRecord
+  belongs_to :user, required: true, class_name: "User", foreign_key: "sender_id"
+  belongs_to :recipient, required: true, class_name: "User", foreign_key: "recipient_id"
 end

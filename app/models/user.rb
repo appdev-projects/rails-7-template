@@ -36,4 +36,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :sent_feedbacks, class_name: "Review", foreign_key: "sender_id", dependent: :destroy
+  has_many  :received_feedbacks, class_name: "Review", foreign_key: "recipient_id", dependent: :destroy
+  has_many  :user_results, class_name: "SurveyResponse", foreign_key: "user_id", dependent: :destroy
 end

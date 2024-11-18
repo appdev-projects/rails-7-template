@@ -9,4 +9,5 @@
 #  updated_at     :datetime         not null
 #
 class Survey < ApplicationRecord
+  has_many  :user_results, class_name: "SurveyResponse", foreign_key: "survey_id", dependent: :destroy
 end

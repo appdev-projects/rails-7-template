@@ -10,8 +10,80 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 0) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_18_221834) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.integer "employee_number", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email", default: "", null: false
+    t.bigint "role_id"
+    t.bigint "store_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_number"], name: "index_employees_on_employee_number", unique: true
+    t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_employees_on_role_id"
+    t.index ["store_id"], name: "index_employees_on_store_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.bigint "brand_id", null: false
+    t.string "image"
+    t.bigint "department_id", null: false
+    t.integer "sku"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["department_id"], name: "index_products_on_department_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.integer "store_number"
+    t.string "address"
+    t.boolean "at_kohls"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "testers", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "store_id", null: false
+    t.string "condition"
+    t.datetime "trashed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_testers_on_product_id"
+    t.index ["store_id"], name: "index_testers_on_store_id"
+  end
+
+  add_foreign_key "products", "brands"
+  add_foreign_key "products", "departments"
+  add_foreign_key "testers", "products"
+  add_foreign_key "testers", "stores"
 end

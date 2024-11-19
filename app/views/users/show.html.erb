@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container my-5">
 
   <div class="row">
     <div class="col text-center mb-3">
@@ -16,8 +16,12 @@
       </div>
       <%= @user.bio %>
       <%= @user.video_url %>
-      <%= @user.instagram_url %>
-      <%= @user.facebook_url %>
+      <div class="d-flex my-4 gap-3">
+      <h5><i class="fa-brands fa-facebook-f"></i><%= @user.facebook_url %></h5>
+      <h5><i class="fa-brands fa-instagram"></i><%= @user.instagram_url %></h5>
+      <h5><i class="fa-brands fa-linkedin"></i></h5>
+      
+      </div>
     </div>
     <div class="col text-center mb-3">
       <%= @user.trust_score %>

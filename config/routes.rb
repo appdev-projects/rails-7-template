@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "home#index"
+  root "users#index"
 
   devise_for :users
 
@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :surveys
   resources :reviews
 
-  get "/:username" => "users#show", as: :user
+  get "/:id" => "users#show", as: :user
 end

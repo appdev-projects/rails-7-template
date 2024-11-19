@@ -1,0 +1,12 @@
+<div class="container">
+  <% @users.each do |user| %>
+    <div class="card" style="width: 18rem;">
+      <%= image_tag user.avatar, class: "card-img-top" %>
+      <div class="card-body">
+        <h5 class="card-title"><%= user.first_name %> <%= user.last_name %></h5>
+        <p class="card-text"><%= user.bio %></p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,18 +1,37 @@
-<h1>
-  <%= @user.first_name %> <%= @user.last_name %>
-</h1>
-<div class="d-flex">
-<img src="<%= @user.avatar %>" class="rounded-circle mt-4 float-start" width="300" alt="photo of <%= @user.first_name %>">
+<div class="container text-center">
 
-<ul> 
-<li><%= @user.age %></li>
-<li><%= @user.gender %></li>
-<li><%= @user.location %></li>
-<li><%= @user.budget %></li>
-<li><%= @user.occupation %></li>
-<li><%= @user.trust_score %></li>
-<li><%= @user.video_url %></li>
-<li><%= @user.instagram_url %></li>
-<li><%= @user.facebook_url %></li>
-</ul>
+  <div class="row">
+    <div class="col items-center mb-3">
+      <img src="<%= @user.avatar %>" class="rounded-circle" width="250" alt="photo of <%= @user.first_name %>">
+
+    </div>
+    <div class="col items-center mb-3">
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <%= @user.age %>
+      <%= @user.gender %>
+      <%= @user.location %>
+      $<%= @user.budget %>
+      <%= @user.occupation %>
+      <%= @user.bio %>
+      <%= @user.video_url %>
+      <%= @user.instagram_url %>
+      <%= @user.facebook_url %>
+    </div>
+    <div class="col items-center mb-3">
+      <%= @user.trust_score %>
+    </div>
+  </div>
+</div>
+
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+    <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+
 </div>

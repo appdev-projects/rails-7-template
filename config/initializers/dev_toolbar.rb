@@ -3,7 +3,7 @@ if Rails.env.development?
     config.links = [
       { name: "Routes", path: "/rails/info/routes" },
       { name: "Database", path: "/rails/db" },
-      { name: "Data Model", path: "/erd.png" }
+      { name: "ERD", path: "/erd" }
     ]
   end
 end

@@ -1,7 +1,9 @@
 <h1>
   <%= @user.first_name %> <%= @user.last_name %>
 </h1>
-<%= @user.avatar %>
+<div>
+<img src="<%= @user.avatar %>" alt="photo of <%= @user.first_name %>">
+</div>
 <ul> 
 <li><%= @user.gender %></li>
 <li><%= @user.location %></li>

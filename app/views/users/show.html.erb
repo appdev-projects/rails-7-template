@@ -1,37 +1,41 @@
-<div class="container text-center">
+<div class="container">
 
   <div class="row">
-    <div class="col items-center mb-3">
+    <div class="col text-center mb-3">
       <img src="<%= @user.avatar %>" class="rounded-circle" width="250" alt="photo of <%= @user.first_name %>">
 
     </div>
-    <div class="col items-center mb-3">
+    <div class="col text-left mb-3">
       <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-      <%= @user.age %>
-      <%= @user.gender %>
-      <%= @user.location %>
-      $<%= @user.budget %>
-      <%= @user.occupation %>
+      <div class="d-flex my-4 gap-3">
+        <div><%= @user.age %></div>
+        <div><%= @user.gender %></div>
+        <div><%= @user.location %></div>
+        <div>$<%= @user.budget %></div>
+        <div><%= @user.occupation %></div>
+      </div>
       <%= @user.bio %>
       <%= @user.video_url %>
       <%= @user.instagram_url %>
       <%= @user.facebook_url %>
     </div>
-    <div class="col items-center mb-3">
+    <div class="col text-center mb-3">
       <%= @user.trust_score %>
     </div>
   </div>
 </div>
 
+<hr style="border: 1px solid black; width: 100%; margin: 50px 0 30px 0;" />
 
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-    <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+<div class="container d-flex w-50 gap-4">
 
-</div>
+  <div class="mb-3 w-50">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="exampleFormControlTextarea1" class="form-label">Write a review</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <button type="submit" class="btn btn-success my-3">Submit</button>
+
+  </div>

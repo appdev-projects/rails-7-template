@@ -1,0 +1,16 @@
+
+<%= simple_form_for(@tester) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.association :product %>
+    <%= f.association :shop %>
+    <%= f.input :condition %>
+    <%= f.input :trashed_at %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

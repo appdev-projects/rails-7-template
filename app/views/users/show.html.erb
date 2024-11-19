@@ -1,3 +1,14 @@
 <h1>
-  <%= @user.username %>
+  <%= @user.first_name %> <%= @user.last_name %>
 </h1>
+<%= @user.avatar %>
+<ul> 
+<li><%= @user.gender %></li>
+<li><%= @user.location %></li>
+<li><%= @user.budget %></li>
+<li><%= @user.occupation %></li>
+<li><%= @user.trust_score %></li>
+<li><%= @user.video_url %></li>
+<li><%= @user.instagram_url %></li>
+<li><%= @user.facebook_url %></li>
+</ul>

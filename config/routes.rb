@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :survey_responses
   resources :surveys
   resources :reviews
-  resources :users, only: :show
 
-  get "/users/:id" => "users#show", as: :user
+  get "/:username" => "users#show", as: :user
 end

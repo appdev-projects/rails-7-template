@@ -99,7 +99,7 @@
 
           <div class="col-12 form-floating">
             <%= f.input :password_confirmation,
-              required: false,
+              required: true,
               input_html: { class: "form-control", id: "password_confirmation", autocomplete: "new-password" },
               label_html: { class: "form-label" } %>
           </div>
@@ -107,7 +107,7 @@
           <div class="col-12 form-floating">
             <%= f.input :current_password,
               hint: "We need your current password to confirm your changes",
-              required: true,
+              required: false,
               input_html: { class: "form-control", id: "current_password", placeholder: "Current Password", autocomplete: "current-password" },
               label_html: { class: "form-label" } %>
           </div>

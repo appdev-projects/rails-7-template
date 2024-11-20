@@ -8,4 +8,7 @@ class ApplicationController < ActionController::Base
       user_params.permit(:username, :email, :last_name, :avatar,:age, :gender, :occupation, :location, :budget, :bio, :instagram_url, :facebook_url, :video_url, :password, :password_confirmation, :current_password)
     end
   end
+
+
+
 end

@@ -1,0 +1,45 @@
+<div class="container my-5">
+<h2>Edit my profile</h2>
+<div class="form-group">
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true %>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <% end %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :avatar %>
+    <%= f.input :age %>
+    <%= f.input :gender %>
+    <%= f.input :occupation %>
+    <%= f.input :location %>
+    <%= f.input :budget %>
+    <%= f.input :bio %>
+    <%= f.input :instagram_url %>
+    <%= f.input :facebook_url %>
+    <%= f.input :video_url %>
+
+    <%= f.input :password,
+                hint: "leave it blank if you don't want to change it",
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :current_password,
+                hint: "we need your current password to confirm your changes",
+                required: true,
+                input_html: { autocomplete: "current-password" } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Update", class: "btn btn-success" %>
+  </div>
+<% end %>
+</div>
+
+</div>

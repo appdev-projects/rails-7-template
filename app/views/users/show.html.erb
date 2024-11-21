@@ -1,0 +1,53 @@
+<div class="container my-5">
+
+  <div class="row">
+    <div class="col text-center mb-3">
+      <img src="<%= @user.avatar %>" class="rounded-circle" width="250" alt="photo of <%= @user.first_name %>">
+
+    </div>
+    <div class="col text-left mb-3">
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <div class="d-flex my-4 gap-2">
+        <div class="small text-muted"><%= @user.age %></div>
+        <span>&middot;</span>
+        <div class="small text-muted"><%= @user.gender %></div>
+        <span>&middot;</span>
+        <div class="small text-muted"><%= @user.occupation %></div>
+        <span>&middot;</span>
+        <div class="small text-muted">$<%= @user.budget %></div>
+        <span>&middot;</span>
+        <div class="small text-muted"><%= @user.location %></div>
+      </div>
+      <%= @user.bio %>
+      <%= @user.video_url %>
+      <div class="d-flex my-4 gap-3 text-green">
+        <% if @user.facebook_url.present? %>
+          <h5><%= link_to @user.facebook_url, target: "_blank", class: "social-icon" do %><i class="fa-brands fa-facebook-f"></i><% end %></h5>
+        <% end %>
+
+        <% if @user.instagram_url.present? %>
+          <h5><%= link_to @user.instagram_url, target: "_blank", class: "social-icon" do %><i class="fa-brands fa-instagram"></i><% end %></h5>
+        <% end %>
+      </div>
+
+    </div>
+    <div class="col text-center mb-3">
+      <%= @user.trust_score %>
+    </div>
+  </div>
+</div>
+
+<hr style="border: 1px solid black; width: 100%; margin: 50px 0 30px 0;" />
+
+<div class="container d-flex w-50 gap-4">
+
+  <div class="mb-3 w-50">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="exampleFormControlTextarea1" class="form-label">Write a review</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <button type="submit" class="btn btn-success my-3">Submit</button>
+
+  </div>

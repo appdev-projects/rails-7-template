@@ -1,0 +1,99 @@
+<div class="container my-5" style="max-width: 600px;">
+  <h2 class="mb-4 text-center">Edit My Profile</h2>
+  <div class="card">
+    <div class="card-body">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs row g-3">
+          <div class="col-12 form-floating">
+            <%= f.input :email, required: true, autofocus: true,
+              input_html: { class: "form-control", id: "email", placeholder: "Email" },
+              label_html: { class: "form-label" } %>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div class="col-12">
+              <p class="text-muted">
+                Currently waiting for confirmation for: <%= resource.unconfirmed_email %>
+              </p>
+            </div>
+          <% end %>
+
+          <div class="col-6 form-floating">
+            <%= f.input :first_name,
+              input_html: { class: "form-control", id: "first_name", placeholder: "First Name" },
+              label_html: { class: "form-label" } %>
+          </div>
+
+          <div class="col-6 form-floating">
+            <%= f.input :last_name,
+              input_html: { class: "form-control", id: "last_name", placeholder: "Last Name" },
+              label_html: { class: "form-label" } %>
+          </div>
+
+          <div class="col-12 form-floating">
+            <%= f.input :avatar,
+              input_html: { class: "form-control", id: "avatar", placeholder: "Avatar URL" },
+              label_html: { class: "form-label" } %>
+          </div>
+
+          <div class="col-md-6 form-floating">
+            <%= f.input :age,
+              input_html: { class: "form-control", id: "age", placeholder: "Age" },
+              label_html: { class: "form-label" } %>
+          </div>
+
+          <div class="col-md-6 form-floating">
+            <%= f.input :gender,
+              input_html: { class: "form-control", id: "gender", placeholder: "Gender" },
+              label_html: { class: "form-label" } %>
+          </div>
+
+          <div class="col-md-6 form-floating">
+            <%= f.input :occupation,
+              input_html: { class: "form-control", id: "occupation", placeholder: "Occupation" },
+              label_html: { class: "form-label" } %>
+          </div>
+
+          <div class="col-md-6 form-floating">
+            <%= f.input :location,
+              input_html: { class: "form-control", id: "location", placeholder: "Location" },
+              label_html: { class: "form-label" } %>
+          </div>
+
+          <div class="col-12 form-floating">
+            <%= f.input :bio,
+              input_html: { class: "form-control", id: "bio", placeholder: "Bio", rows: 3 },
+              label_html: { class: "form-label" } %>
+          </div>
+
+          <div class="col-md-6 form-floating">
+            <%= f.input :instagram_url, label: "Instagram",
+              hint: "Add link to your facebook to increase your trust score",
+              input_html: { class: "form-control", id: "instagram_url" },
+              label_html: { class: "form-label" } %>
+          </div>
+
+          <div class="col-md-6 form-floating">
+            <%= f.input :facebook_url, label: "Facebook",
+              hint: "Add link to your facebook to increase your trust score",
+              input_html: { class: "form-control", id: "facebook_url" },
+              label_html: { class: "form-label" } %>
+          </div>
+
+          <div class="col-12 form-floating">
+            <%= f.input :current_password,
+              hint: "We need your current password to confirm your changes",
+              input_html: { class: "form-control", id: "current_password", placeholder: "Current Password", autocomplete: "current-password" },
+              label_html: { class: "form-label" } %>
+          </div>
+        </div>
+
+        <div class="form-actions mt-4 text-center">
+          <%= f.button :submit, "Update", class: "btn btn-success px-4" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

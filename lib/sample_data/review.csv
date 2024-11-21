@@ -1,0 +1,11 @@
+id,created_at,rating,body,user_id,recipient_id
+1,11/15/2024,5,Sara is a great roommate! She keeps everything tidy and is easy to get along with. We had some fun cooking sessions and shared a lot of laughs. Highly recommend!,5,6
+2,11/15/2024,3,"Carlos is a really chill guy, but his late-night music practice sometimes disturbed my sleep. Overall, he’s respectful and considerate.",6,7
+3,11/15/2024,5,"Laura is an amazing roommate—friendly, respectful, and always up for a good time. She’s very clean and keeps things organized.",7,8
+4,11/15/2024,3,"Ben is a great roommate, but his gaming can get pretty loud sometimes, especially late at night. I wish he’d turn down the volume a bit.",8,9
+5,11/15/2024,4,"Kate is a responsible and thoughtful roommate, but her dog sometimes caused a bit of chaos, which was hard to adjust to at first.",9,10
+6,11/15/2024,4,"Mark is easygoing and respectful, but he occasionally left dishes in the sink for a little too long. Still, a great roommate overall.",10,5
+7,11/15/2024,5,"Ethan is a great roommate! He’s respectful of space, easy to talk to, and loves keeping things light and fun. We had a peaceful, comfortable living arrangement and enjoyed some great conversations.",1,2
+8,11/15/2024,3,"Marcus is an easygoing guy, but sometimes his late-night baking sessions can be a bit disruptive. Overall, he’s friendly, thoughtful, and a good roommate.",2,3
+9,11/15/2024,3,"Jemma is full of energy, and she definitely knows how to keep things lively. However, her party schedule doesn’t always mesh well with my quieter routine.",3,4
+10,11/15/2024,5,"Lily is a calm and considerate roommate. Her love for her cat makes the space feel warm and cozy, and we kept a peaceful, friendly environment.",4,1

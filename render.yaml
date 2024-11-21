@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: my-app-name # the name of this service, you should change this
+    name: perfect-pals # the name of this service, you should change this
     runtime: ruby # this app is written in ruby
     plan: free # make sure to set this to free or you'll get billed $$$
     buildCommand: "./bin/render-build.sh" # we already created these two files for you

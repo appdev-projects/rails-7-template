@@ -6,7 +6,6 @@
         <%= f.error_notification %>
 
         <div class="form-inputs row g-3">
-          <!-- Email -->
           <div class="col-12 form-floating">
             <%= f.input :email, required: true, autofocus: true,
               input_html: { class: "form-control", id: "email", placeholder: "Email" },
@@ -21,28 +20,24 @@
             </div>
           <% end %>
 
-          <!-- First Name -->
           <div class="col-6 form-floating">
             <%= f.input :first_name,
               input_html: { class: "form-control", id: "first_name", placeholder: "First Name" },
               label_html: { class: "form-label" } %>
           </div>
 
-          <!-- Last Name -->
           <div class="col-6 form-floating">
             <%= f.input :last_name,
               input_html: { class: "form-control", id: "last_name", placeholder: "Last Name" },
               label_html: { class: "form-label" } %>
           </div>
 
-          <!-- Avatar -->
           <div class="col-12 form-floating">
             <%= f.input :avatar,
               input_html: { class: "form-control", id: "avatar", placeholder: "Avatar URL" },
               label_html: { class: "form-label" } %>
           </div>
 
-          <!-- Additional Fields -->
           <div class="col-md-6 form-floating">
             <%= f.input :age,
               input_html: { class: "form-control", id: "age", placeholder: "Age" },
@@ -73,7 +68,6 @@
               label_html: { class: "form-label" } %>
           </div>
 
-          <!-- Social Links -->
           <div class="col-md-6 form-floating">
             <%= f.input :instagram_url, label: "Instagram",
               hint: "Add link to your facebook to increase your trust score",

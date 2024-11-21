@@ -66,3 +66,7 @@ select:focus,
 .social-icon:hover {
   opacity: 0.7; /* Fades the icon when hovered */
 }
+
+.form-control::placeholder {
+  color: #a9a9a9;
+}

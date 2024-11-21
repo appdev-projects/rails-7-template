@@ -1,11 +1,11 @@
 <div class="card hover-card my-2" style="width: 18rem;">
   <%= link_to user, class: "text-decoration-none text-dark" do %>
-    <%= image_tag user.avatar, class: "card-img-top" %>
+    <%= image_tag user.avatar.present? ? user.avatar : "default_avatar.png", class: "card-img-top" %>
 
     <div class="card-body">
       <h5 class="card-title"><%= user.first_name %> <%= user.last_name %></h5>
       <p class="card-text font-weight-light small text-muted"><%= user.location %></p>
-      <p class="card-text"><%= user.bio.truncate_words(15) %></p>
+      <p class="card-text"><%= user.bio&.truncate_words(15) %></p>
     </div>
   <% end %>
 </div>

@@ -13,6 +13,16 @@
  *= require_tree .
  *= require_self
  */
+ /* Make sure the green outline is applied to all form fields */
+input:focus, 
+textarea:focus, 
+select:focus, 
+.form-control:focus {
+  outline-color: #4CAF50 !important;  /* Green outline */
+  border-color: #4CAF50 !important;   /* Green border */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.6) !important; /* Green shadow */
+}
+
 
  .hint{
   color: grey;

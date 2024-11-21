@@ -4,7 +4,6 @@
     <div class="card-body">
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs row g-3">
-          <!-- Email -->
           <div class="col-12 form-floating">
             <%= f.input :email,
               required: false,
@@ -13,7 +12,6 @@
               label_html: { class: "form-label" } %>
           </div>
 
-          <!-- Password -->
           <div class="col-12 form-floating">
             <%= f.input :password,
               required: false,
@@ -21,7 +19,6 @@
               label_html: { class: "form-label" } %>
           </div>
 
-          <!-- Remember Me -->
           <% if devise_mapping.rememberable? %>
             <div class="col-12 form-check">
               <%= f.input :remember_me,

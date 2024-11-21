@@ -4,7 +4,6 @@
     <div class="card-body">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <div class="form-inputs row g-3">
-          <!-- Email -->
           <div class="col-12 form-floating">
             <%= f.input :email,
               required: true,
@@ -13,7 +12,6 @@
               label_html: { class: "form-label" } %>
           </div>
 
-          <!-- Password -->
           <div class="col-12 form-floating">
             <%= f.input :password,
               required: true,
@@ -23,7 +21,6 @@
               hint_html: { class: "form-text text-muted" } %>
           </div>
 
-          <!-- Password Confirmation -->
           <div class="col-12 form-floating">
             <%= f.input :password_confirmation,
               required: true,
@@ -33,7 +30,7 @@
         </div>
 
         <div class="form-actions mt-4 text-center">
-          <%= f.button :submit, "Sign Up", class: "btn btn-primary px-4" %>
+          <%= f.button :submit, "Sign Up", class: "btn btn-success px-4" %>
         </div>
       <% end %>
 
@@ -43,4 +40,3 @@
     </div>
   </div>
 </div>
-

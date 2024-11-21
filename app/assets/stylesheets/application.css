@@ -22,3 +22,37 @@
 .text-green {
   color: green;
 }
+
+.hover-card {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s; /* Smooth transition for hover */
+
+}
+
+.hover-card-body {
+  flex-grow: 1; /* Makes the body fill the available space */
+}
+
+.hover-card:hover {
+  background-color: #e8f5e9;
+  cursor: pointer;   
+  transform: scale(1.01);       
+}
+
+.card-img-top {
+  transition: opacity 0.3s ease;
+}
+
+.card-img-top:hover {
+  opacity: 0.7;
+}
+
+.social-icon {
+  color: green;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+  opacity: 0.7; /* Fades the icon when hovered */
+}

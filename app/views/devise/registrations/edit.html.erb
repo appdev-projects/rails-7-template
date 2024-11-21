@@ -69,6 +69,18 @@
           </div>
 
           <div class="col-md-6 form-floating">
+            <%= f.input :budget,
+              input_html: { class: "form-control", id: "budget", placeholder: "$1000" },
+              label_html: { class: "form-label" } %>
+          </div>
+
+          <div class="col-6 form-floating">
+            <%= f.input :video_url, label: "Inroduction video",
+              input_html: { class: "form-control", id: "video_url" },
+              label_html: { class: "form-label" } %>
+          </div>
+
+          <div class="col-md-6 form-floating">
             <%= f.input :instagram_url, label: "Instagram",
               hint: "Add link to your facebook to increase your trust score",
               input_html: { class: "form-control", id: "instagram_url" },

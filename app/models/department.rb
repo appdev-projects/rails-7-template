@@ -9,4 +9,5 @@
 #
 class Department < ApplicationRecord
   has_many :products
+  has_many :testers, through: :products
 end

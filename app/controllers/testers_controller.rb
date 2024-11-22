@@ -57,6 +57,39 @@ class TestersController < ApplicationController
     end
   end
 
+  # /makeup
+  def makeup
+    makeup_department=Department.find_by(name: "Makeup")
+    @testers = makeup_department.testers
+    render "department_testers"
+  end
+
+  # /skincare
+  def skincare
+    skincare_department=Department.find_by(name: "Skincare")
+    @testers = skincare_department.testers
+    render "department_testers"
+  end
+
+  # /hair
+  def hair
+    hair_department=Department.find_by(name: "Hair")
+    @testers = hair_department.testers
+    render "department_testers"
+  end
+  
+  # /fragrance
+  def fragrance
+    fragrance_department=Department.find_by(name: "Fragrance")
+    @testers = fragrance_department.testers
+    render "department_testers"
+  end
+
+  # /manage_testers
+  def manage
+    @testers = Tester.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tester

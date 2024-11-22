@@ -25,4 +25,11 @@ class Product < ApplicationRecord
   belongs_to :brand
   belongs_to :department
   has_many :testers
+
+  validates :sku, uniqueness: true
+
+  scope :makeup, -> { where(department_id => Department.makeup) }
+  scope :skincare, -> { where(department_id => Department.skincare) }
+  scope :hair, -> { where(department_id => Department.hair) }
+  scope :fragrance, -> { where(department_id => Department.fragrance) }
 end

@@ -1,14 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Testers</h1>
+<div class="container" style="margin-top: 200px;">
+<div style="text-align: center;">
+  <h1>What are you looking for?</h1>
+<div>
 
-<div id="testers">
-  <% @testers.each do |tester| %>
-    <%= render tester %>
-    <p>
-      <%= link_to "Show this tester", tester %>
-    </p>
-  <% end %>
+<div>
+   <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
 </div>
-
-<%= link_to "New tester", new_tester_path %>

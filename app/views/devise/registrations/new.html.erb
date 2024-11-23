@@ -25,7 +25,7 @@
 
   <div class="field">
     <%= f.label :role %><br />
-    <%= f.collection_select(:role_id, Role.all, :id, :name, prompt: "Select a Role") %>
+    <%= f.collection_select(:role_id, Role.all, :id, :title, prompt: "Select a Role") %>
   </div>
 
   <div class="field">

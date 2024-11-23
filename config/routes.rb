@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'populate', to: 'populate#populate' if Rails.env.production?
   devise_for :employees
   root "testers#index"
   resources :testers

@@ -17,7 +17,7 @@
 
  <body>
 
-   
+   <% if current_employee != nil %>
     <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <%= link_to 'Tester Tracker', testers_path, class:"navbar-brand" %>
@@ -62,7 +62,7 @@
       </div>
 </nav>
 </div>
-
+<% end %>
     <%= yield %>
   </body>
 </html>

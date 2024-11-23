@@ -3,6 +3,7 @@ class TestersController < ApplicationController
 
   # GET /testers or /testers.json
   def index
+    @q = Tester.ransack(params[:q])
     @testers = Tester.all
   end
 

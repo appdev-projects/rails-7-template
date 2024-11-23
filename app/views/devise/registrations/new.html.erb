@@ -30,7 +30,7 @@
 
   <div class="field">
     <%= f.label :shop %><br />
-    <%= f.collection_select(:shop_id, Shop.all, :id, :number, prompt: "Select a Shop") %>
+    <%= f.collection_select(:shop_id, Shop.all, :id, :shop_number, prompt: "Select a Shop") %>
   </div>
 
   <div class="field">

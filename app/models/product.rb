@@ -5,7 +5,7 @@
 #  id            :bigint           not null, primary key
 #  image         :string
 #  name          :string
-#  sku           :integer
+#  sku           :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  brand_id      :bigint           not null
@@ -32,4 +32,12 @@ class Product < ApplicationRecord
   scope :skincare, -> { where(department_id => Department.skincare) }
   scope :hair, -> { where(department_id => Department.hair) }
   scope :fragrance, -> { where(department_id => Department.fragrance) }
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["name", "sku"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["testers"]
+  end
 end

@@ -3,8 +3,10 @@ class TestersController < ApplicationController
 
   # GET /testers or /testers.json
   def index
-    @q = Tester.ransack(params[:q])
-    @testers = Tester.all
+    @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil)
+    @q = @testers.ransack(params[:q])
+    @searchable_testers = @q.result.includes(:product)
+    
   end
 
   # GET /testers/1 or /testers/1.json
@@ -61,34 +63,50 @@ class TestersController < ApplicationController
   # /makeup
   def makeup
     makeup_department=Department.find_by(name: "Makeup")
-    @testers = makeup_department.testers
+    @testers = Tester.where(
+      shop_id: current_employee.shop_id,
+      product_id: Product.where(department_id: makeup_department.id).pluck(:id),
+      trashed_at: nil
+    )
     render "department_testers"
   end
 
   # /skincare
   def skincare
     skincare_department=Department.find_by(name: "Skincare")
-    @testers = skincare_department.testers
+    @testers = Tester.where(
+      shop_id: current_employee.shop_id,
+      product_id: Product.where(department_id: skincare_department.id).pluck(:id),
+      trashed_at: nil
+    )
     render "department_testers"
   end
 
   # /hair
   def hair
     hair_department=Department.find_by(name: "Hair")
-    @testers = hair_department.testers
+    @testers = Tester.where(
+      shop_id: current_employee.shop_id,
+      product_id: Product.where(department_id: hair_department.id).pluck(:id),
+      trashed_at: nil
+    )
     render "department_testers"
   end
   
   # /fragrance
   def fragrance
     fragrance_department=Department.find_by(name: "Fragrance")
-    @testers = fragrance_department.testers
+    @testers = Tester.where(
+      shop_id: current_employee.shop_id,
+      product_id: Product.where(department_id: fragrance_department.id).pluck(:id),
+      trashed_at: nil
+    )
     render "department_testers"
   end
 
   # /manage_testers
   def manage
-    @testers = Tester.all
+    @testers = Tester.where(shop_id: current_employee.shop_id)
   end
 
   private

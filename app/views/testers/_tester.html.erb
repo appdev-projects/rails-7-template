@@ -4,6 +4,13 @@
     <%= tester.product.name %>
   </p>
 
+  <%= image_tag tester.product.image, width: "200", height: "200" %>
+
+  <p>
+    <strong>SKU:</strong>
+    <%= tester.product.sku %>
+  </p>
+
   <p>
     <strong>Condition:</strong>
     <%= tester.condition %>
@@ -13,5 +20,8 @@
     <strong>Trashed at:</strong>
     <%= tester.trashed_at %>
   </p>
+
+
+
 
 </div>

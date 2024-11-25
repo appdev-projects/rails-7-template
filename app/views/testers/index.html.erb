@@ -5,9 +5,19 @@
   <h1>What are you looking for?</h1>
 <div>
 
+<%= search_form_for @q, html: { class: "form-inline my-2 my-lg-0" } do |f| %>
 <div>
-   <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+      <%= f.search_field :product_name_or_product_sku_cont, class: "form-control mr-sm-2", placeholder: "Enter name or sku", aria: { label: "Search" } %>
+      <%= f.submit "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+      <%= link_to "Clear", testers_path, class: "btn btn-outline-secondary" %>
 </div>
+<% end %>
+
+
+<% @searchable_testers.each do |tester| %>
+  <p> <%= tester.product.name %></p>
+  <%= image_tag tester.product.image, width: "200", height: "200" %>
+  <p> <%= tester.product.sku %></p>
+  <p> <%= tester.condition %></p>
+  <%= link_to "Create tester", tester_path(tester) %>
+<% end %>

@@ -24,13 +24,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :role_id %><br />
-    <%= f.text_field :role_id %>
+    <%= f.label :role %><br />
+    <%= f.collection_select(:role_id, Role.all, :id, :title, prompt: "Select a Role") %>
   </div>
 
-    <div class="field">
-    <%= f.label :shop_id %><br />
-    <%= f.text_field :shop_id %>
+  <div class="field">
+    <%= f.label :shop %><br />
+    <%= f.collection_select(:shop_id, Shop.all, :id, :shop_number, prompt: "Select a Shop") %>
   </div>
 
   <div class="field">

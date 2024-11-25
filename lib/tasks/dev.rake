@@ -37,7 +37,7 @@ task({ :sample_data => :environment }) do
  
   # Employee sample data
   employees = [
-    { first_name: "Daisy", last_name: "Salgado", employee_number: 000000, email: "daisy@sephora.com", password: "password", role_id: Role.find_by(title: "Operations Associate").id, shop_id: Shop.find_by(shop_number: 336).id },
+    { first_name: "Daisy", last_name: "Salgado", employee_number: 356177, email: "daisy@sephora.com", password: "password", role_id: Role.find_by(title: "Operations Associate").id, shop_id: Shop.find_by(shop_number: 336).id },
     { first_name: "Kevin", last_name: "Brown", employee_number: 111111, email: "kevin@sephora.com", password: "password", role_id: Role.find_by(title: "Lead").id, shop_id: Shop.find_by(shop_number: 200).id },
     { first_name: "Mateo", last_name: "Hernandez", employee_number: 222222, email: "mateo@sephora.com", password: "password", role_id: Role.find_by(title: "Beauty Advisor").id, shop_id: Shop.find_by(shop_number: 173).id },
     { first_name: "Itzel", last_name: "Romero", employee_number: 333333, email: "itzel@sephora.com", password: "password", role_id: Role.find_by(title: "Manager").id, shop_id: Shop.find_by(shop_number: 544).id },
@@ -94,7 +94,7 @@ task({ :sample_data => :environment }) do
     { name: "Hoola Matte Powder Bronzer - Hoola", brand_name: "Benefit Cosmetics", department_name: "Makeup", image: "products/benefit hoola bronzer.webp", sku: "2520427" },
     { name: "Cactus Fruit 3-in-1 Styling Cream 5oz", brand_name: "Dae", department_name: "Hair", image: "products/dae styling cream.webp", sku: "2539542" },
     { name: "Glossier You Doux EDP", brand_name: "Glossier", department_name: "Fragrance", image: "products/glossier doux edp.webp", sku: "2819274" },
-    { name: "Flora Gorgeous Orchid EDP 3.3oz", brand_name: "Gucci", department_name: "Fragrance", image: "products/gucci flora yellow", sku: "2788149" },
+    { name: "Flora Gorgeous Orchid EDP 3.3oz", brand_name: "Gucci", department_name: "Fragrance", image: "products/gucci flora yellow.webp", sku: "2788149" },
     { name: "Gloss Bomb Universal Lip Luminizer - Riri", brand_name: "Fenty Beauty", department_name: "Makeup", image: "products/fenty riri gloss.webp", sku: "2662468" },
     { name: "Superfood Gentle Antioxidant Refillable Cleanser 8oz", brand_name: "Youth To The People", department_name: "Skincare", image: "products/yttp superfood cleanser.webp", sku: "1863588" },
     { name: "Multi-Peptide Serum for Hair Density 2oz", brand_name: "The Ordinary", department_name: "Hair", image: "products/the ordinary hair serum.webp", sku: "2210722" }

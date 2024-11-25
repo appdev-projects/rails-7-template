@@ -94,7 +94,7 @@ task({ :sample_data => :environment }) do
     { name: "Hoola Matte Powder Bronzer - Hoola", brand_name: "Benefit Cosmetics", department_name: "Makeup", image: "products/benefit hoola bronzer.webp", sku: "2520427" },
     { name: "Cactus Fruit 3-in-1 Styling Cream 5oz", brand_name: "Dae", department_name: "Hair", image: "products/dae styling cream.webp", sku: "2539542" },
     { name: "Glossier You Doux EDP", brand_name: "Glossier", department_name: "Fragrance", image: "products/glossier doux edp.webp", sku: "2819274" },
-    { name: "Flora Gorgeous Orchid EDP 3.3oz", brand_name: "Gucci", department_name: "Fragrance", image: "products/gucci flora yellow.webp", sku: "2788149" },
+    { name: "Flora Gorgeous Orchid EDP 3.3oz", brand_name: "Gucci", department_name: "Fragrance", image: "products/gucci_flora_yellow.webp", sku: "2788149" },
     { name: "Gloss Bomb Universal Lip Luminizer - Riri", brand_name: "Fenty Beauty", department_name: "Makeup", image: "products/fenty riri gloss.webp", sku: "2662468" },
     { name: "Superfood Gentle Antioxidant Refillable Cleanser 8oz", brand_name: "Youth To The People", department_name: "Skincare", image: "products/yttp superfood cleanser.webp", sku: "1863588" },
     { name: "Multi-Peptide Serum for Hair Density 2oz", brand_name: "The Ordinary", department_name: "Hair", image: "products/the ordinary hair serum.webp", sku: "2210722" }

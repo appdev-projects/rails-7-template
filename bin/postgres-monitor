@@ -2,14 +2,10 @@
 
 while true; do
   if pg_ctl status | grep -q 'no server running'; then
-    DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-    parentdir="$(dirname "$DIR")"
-    pid="$parentdir/tmp/pids/server.pid"
-    if [ -f $pid ]; then
-      rm $pid
-    fi
+    echo "uhoh"
     fuser -k -n tcp 3000
     pg_start;
   fi
-  sleep 1
+  sleep 10
+  echo "sleep"
 done

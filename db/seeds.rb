@@ -45,10 +45,10 @@ employees = [
 
 employees.each do |employee|
   Employee.find_or_create_by(
-    first_name: employee[:first_name].capitalize,
-    last_name: employee[:last_name].capitalize,
     employee_number: employee[:employee_number]
   ) do |e|
+    e.first_name = employee[:first_name].capitalize,
+    e.last_name = employee[:last_name].capitalize,
     e.email = employee[:email],
     e.password = "password",
     e.role_id = employee[:role_id],

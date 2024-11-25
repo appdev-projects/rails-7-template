@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_19_163055) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_25_030311) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_19_163055) do
     t.bigint "brand_id", null: false
     t.string "image"
     t.bigint "department_id", null: false
-    t.integer "sku"
+    t.string "sku"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
@@ -72,10 +72,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_19_163055) do
   end
 
   create_table "testers", force: :cascade do |t|
-    t.bigint "product_id", null: false
-    t.bigint "shop_id", null: false
     t.string "condition"
     t.datetime "trashed_at"
+    t.bigint "product_id", null: false
+    t.bigint "shop_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_testers_on_product_id"

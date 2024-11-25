@@ -47,14 +47,26 @@ employees.each do |employee|
   Employee.find_or_create_by(
     first_name: employee[:first_name].capitalize,
     last_name: employee[:last_name].capitalize,
-    employee_number: employee[:employee_number],
-    email: employee[:email],
-    role_id: employee[:role_id],
-    shop_id: employee[:shop_id]
+    employee_number: employee[:employee_number]
   ) do |e|
-    e.password= "password"
+    e.email = employee[:email],
+    e.password = "password",
+    e.role_id = employee[:role_id],
+    e.shop_id = employee[:shop_id]
   end
 end
+
+
+Employee.find_or_create_by(
+    first_name: employee[:first_name].capitalize,
+    last_name: employee[:last_name].capitalize,
+    employee_number: employee_number
+  ) do |e|
+    e.email = "#{employee[:first_name].downcase}@sephora.com"
+    e.password = "password"
+    e.role_id = Role.pluck(:id).sample
+    e.shop_id = Shop.pluck(:id).sample
+  end
 
 # Brand sample data
 brands = ["Dior", "Merit", "Phlur", "Pattern", "The Inkey List", "Paco Rabanne", "One/Size", "Laura Mercier", "Ceremonia", "Haus Labs", "Charlotte Tilbury", "Summer Fridays", "Tower 28 Beauty", "Benefit Cosmetics", "Dae", "Glossier", "Gucci", "Fenty Beauty", "Youth To The People", "The Ordinary" ]

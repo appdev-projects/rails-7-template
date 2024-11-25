@@ -49,10 +49,11 @@ employees.each do |employee|
     last_name: employee[:last_name].capitalize,
     employee_number: employee[:employee_number],
     email: employee[:email],
-    password: "password",
     role_id: employee[:role_id],
     shop_id: employee[:shop_id]
-  )
+  ) do |e|
+    e.password= "password"
+  end
 end
 
 # Brand sample data

@@ -15,13 +15,15 @@
 
     </div>
 
-    <div class="d-flex gap-4">
+    <div class="d-flex gap-4 align-items-center">
       <% if user_signed_in? %>
   <%= link_to user_path(current_user), class: "nav-link" do %>
     <i class="fa-solid fa-user"></i>
   <% end %>
   <%= link_to "Edit profile", edit_user_registration_path, class: "nav-link" %>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+  <%= button_to "Do Quiz", "/quiz", method: :get, class: "btn btn-outline-success" %>
+
 <% else %>
   <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
   <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>

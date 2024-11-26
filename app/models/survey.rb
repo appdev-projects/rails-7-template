@@ -4,10 +4,10 @@
 #
 #  id             :bigint           not null, primary key
 #  question       :string
-#  scoring_scheme :integer          default(1)
+#  scoring_scheme :json
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
 class Survey < ApplicationRecord
-  has_many  :user_results, class_name: "SurveyResponse", foreign_key: "survey_id", dependent: :destroy
+  
 end

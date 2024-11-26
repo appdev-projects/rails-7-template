@@ -16,7 +16,7 @@ class SurveyResponsesController < ApplicationController
         "1" => "Disagree",
         "2" => "Neutral",
         "3" => "Agree",
-        "4" => "Strongly Agree"
+        "4" => "Strongly Agree",
       }
 
       # Get the label from the numeric value (response)
@@ -29,16 +29,18 @@ class SurveyResponsesController < ApplicationController
       score = scoring_scheme.fetch(label, 0) # Default to 0 if not found
 
       # Create the survey response record
-      SurveyResponse.create({
-        user_id: user.id,
-        survey_id: survey_id.to_i,
-        score: score
-      })
-
+      # SurveyResponse.create({
+      #   user_id: user.id,
+      #   survey_id: survey_id.to_i,
+      #   score: score
+      # })
       total_score += score
     end
 
+    current_user.update(survey_score: total_score)
+
     @total_score = total_score
+    
     render template: "survey_responses/result"
   end
 end

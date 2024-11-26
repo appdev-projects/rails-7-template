@@ -12,4 +12,6 @@
 class SurveyResponse < ApplicationRecord
   belongs_to :user
   belongs_to :survey
+  
+  scope :for_user, ->(user_id) { where(user_id: user_id) }
 end

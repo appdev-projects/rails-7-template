@@ -45,6 +45,12 @@ gem "bootsnap", require: false
 # Add search functionality
 gem 'ransack'
 
+# Add authorization
+gem 'pundit'
+
+ #AJAX
+gem 'jquery-rails'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

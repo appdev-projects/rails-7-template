@@ -6,18 +6,28 @@ class TestersController < ApplicationController
     @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil)
     @q = @testers.ransack(params[:q])
     @searchable_testers = @q.result.includes(:product)
+
+    respond_to do |format|
+      format.html
+      format.js 
+    end
     
   end
-
   # GET /testers/1 or /testers/1.json
   def show
   end
 
   # GET /testers/new
   def new
-    @tester = Tester.new
-  end
+    @tester = Tester.new()
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct:true)
 
+    respond_to do |format|
+      format.html
+      format.js 
+    end
+  end
   # GET /testers/1/edit
   def edit
   end
@@ -52,20 +62,20 @@ class TestersController < ApplicationController
 
   # DELETE /testers/1 or /testers/1.json
   def destroy
-    @tester.destroy!
+    @tester.update(trashed_at: Time.current)
 
     respond_to do |format|
-      format.html { redirect_to testers_url, notice: "Tester was successfully destroyed." }
+      format.html { redirect_to testers_url, notice: "Tester was successfully trashed." }
       format.json { head :no_content }
     end
   end
 
   # /makeup
   def makeup
-    makeup_department=Department.find_by(name: "Makeup")
+    @department=Department.find_by(name: "Makeup")
     @testers = Tester.where(
       shop_id: current_employee.shop_id,
-      product_id: Product.where(department_id: makeup_department.id).pluck(:id),
+      product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
     )
     render "department_testers"
@@ -73,10 +83,10 @@ class TestersController < ApplicationController
 
   # /skincare
   def skincare
-    skincare_department=Department.find_by(name: "Skincare")
+    @department=Department.find_by(name: "Skincare")
     @testers = Tester.where(
       shop_id: current_employee.shop_id,
-      product_id: Product.where(department_id: skincare_department.id).pluck(:id),
+      product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
     )
     render "department_testers"
@@ -84,10 +94,10 @@ class TestersController < ApplicationController
 
   # /hair
   def hair
-    hair_department=Department.find_by(name: "Hair")
+    @department=Department.find_by(name: "Hair")
     @testers = Tester.where(
       shop_id: current_employee.shop_id,
-      product_id: Product.where(department_id: hair_department.id).pluck(:id),
+      product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
     )
     render "department_testers"
@@ -95,10 +105,10 @@ class TestersController < ApplicationController
   
   # /fragrance
   def fragrance
-    fragrance_department=Department.find_by(name: "Fragrance")
+    @department=Department.find_by(name: "Fragrance")
     @testers = Tester.where(
       shop_id: current_employee.shop_id,
-      product_id: Product.where(department_id: fragrance_department.id).pluck(:id),
+      product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
     )
     render "department_testers"

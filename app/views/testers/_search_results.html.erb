@@ -1,0 +1,23 @@
+<div class="container" style="margin-top: 150px;">
+  <div style="text-align: center;">
+    <h1>Search Results</h1>
+
+    <% if @searchable_testers.any? %>
+      <div class="search-results">
+        <% @searchable_testers.each do |tester| %>
+          <div class="result-item">
+            <p><strong>Product Name:</strong> <%= tester.product.name %></p>
+            <%= image_tag tester.product.image, width: "200", height: "200" %>
+            <p><strong>SKU:</strong> <%= tester.product.sku %></p>
+            <p><strong>Condition:</strong> <%= tester.condition %></p>
+          </div>
+        <% end %>
+      </div>
+
+      <%= link_to "Back to Search", testers_path, class: "btn btn-primary mt-3" %>
+    <% else %>
+      <p style="color: red;">No results found.</p>
+      <%= link_to "Back to Search", testers_path, class: "btn btn-primary mt-3" %>
+    <% end %>
+  </div>
+</div>

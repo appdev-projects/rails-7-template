@@ -1,23 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<div class="container" style="margin-top: 200px;">
-<div style="text-align: center;">
-  <h1>What are you looking for?</h1>
-<div>
+<div class="tester_search">
+  <div class="container" style="margin-top: 150px;">
+    <div style="text-align: center;">
+      <h1>What are you looking for?</h1>
+    </div>
 
-<%= search_form_for @q, html: { class: "form-inline my-2 my-lg-0" } do |f| %>
-<div>
-      <%= f.search_field :product_name_or_product_sku_cont, class: "form-control mr-sm-2", placeholder: "Enter name or sku", aria: { label: "Search" } %>
-      <%= f.submit "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
-      <%= link_to "Clear", testers_path, class: "btn btn-outline-secondary" %>
+    <%= search_form_for @q, remote: true, html: { class: "form-inline my-2 my-lg-0" } do |f| %>
+    <div>
+          <%= f.search_field :product_name_or_product_sku_cont, class: "form-control mr-sm-2", placeholder: "Enter Name or SKU", aria: { label: "Search" } %>
+          <%= f.submit "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+          <%= link_to "Clear", testers_path, class: "btn btn-outline-secondary" %>
+    </div>
+  <% end %>
 </div>
-<% end %>
-
-
-<% @searchable_testers.each do |tester| %>
-  <p> <%= tester.product.name %></p>
-  <%= image_tag tester.product.image, width: "200", height: "200" %>
-  <p> <%= tester.product.sku %></p>
-  <p> <%= tester.condition %></p>
-  <%= link_to "Create tester", tester_path(tester) %>
-<% end %>
+</div>

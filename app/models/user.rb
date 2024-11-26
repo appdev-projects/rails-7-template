@@ -19,6 +19,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  survey_score           :integer
 #  trust_score            :float            default(0.0)
 #  username               :citext
 #  video_url              :string
@@ -40,4 +41,5 @@ class User < ApplicationRecord
   has_many :sent_feedbacks, class_name: "Review", foreign_key: "sender_id", dependent: :destroy
   has_many  :received_feedbacks, class_name: "Review", foreign_key: "recipient_id", dependent: :destroy
   has_many :survey_responses
+  has_one :score
 end

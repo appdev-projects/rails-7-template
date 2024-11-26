@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_26_224518) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_26_235324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_224518) do
     t.string "question"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json "scoring_scheme"
+    t.json "scoring_scheme", default: "{}"
   end
 
   create_table "users", force: :cascade do |t|

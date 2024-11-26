@@ -3,19 +3,22 @@
 {
   "name": "Container",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "firstdraft/project-syncing-test",
+  "image": "firstdraft/appdev-rails-template",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [3000, 4567, 9292],
+  "forwardPorts": [3000, 4567, 5432, 9292],
 
   "portsAttributes": {
     "3000": {
       "onAutoForward": "silent"
     },
     "4567": {
+      "onAutoForward": "silent"
+    },
+    "5432": {
       "onAutoForward": "silent"
     },
     "9292": {

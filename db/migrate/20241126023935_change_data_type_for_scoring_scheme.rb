@@ -1,5 +1,5 @@
 class ChangeDataTypeForScoringScheme < ActiveRecord::Migration[7.1]
   def change
-    change_column_default :surveys, :scoring_scheme, nil
+    change_column :surveys, :scoring_scheme, :text
   end
 end

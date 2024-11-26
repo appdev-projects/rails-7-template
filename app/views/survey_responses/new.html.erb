@@ -3,8 +3,9 @@
 <%= form_with url: survey_responses_path, method: :post do %>
   <% @surveys.each do |survey| %>
     <p><%= survey.question %></p>
-    <% ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"].each_with_index do |option, index| %>
-      <%= radio_button_tag "survey_responses[#{survey.id}]", index + 1 %>
+    <% scoring_scheme = JSON.parse(survey.scoring_scheme) %>
+    <% scoring_scheme.each do |option, score| %>
+      <%= radio_button_tag "survey_responses[#{survey.id}]", option %>
       <%= label_tag "survey_responses[#{survey.id}]", option %>
     <% end %>
   <% end %>

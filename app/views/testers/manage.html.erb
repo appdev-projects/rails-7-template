@@ -1,9 +1,31 @@
-<div id="testers">
-  <% @testers.each do |tester| %>
-    <%= render tester %>
-    <p>
-      <%= link_to "Show this tester", tester %>
-    </p>
-  <% end %>
+<div style="margin: 20px; padding:10px; text-align:center;">
+  <h1>Manage Testers</h1>
 </div>
+
+<div class="container" style="margin-top: 30px; position: relative">
+  <div class="row" data-masonry='{"percentPosition": true }'>
+    <% @testers.each do |tester| %>
+      <div class="col-sm-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <div class="card-header" style="text-align:center;">
+            <strong><%= tester.product.name %></strong>
+          </div>
+
+          <div class="card-body d-flex flex-column align-items-center justify-content-center" >
+            <%= image_tag tester.product.image, width: "200", height: "200", class: "img-fluid" %>
+            <p>
+              <strong>SKU:</strong>
+              <%= tester.product.sku %>
+            </p>
+
+            <p>
+              <strong>Condition:</strong>
+              <%= tester.condition %>
+            </p>
+            <%= link_to "Show this tester", tester_path(tester), class: "btn btn-outline-secondary mt-auto" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

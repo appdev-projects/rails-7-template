@@ -1,0 +1,32 @@
+<div class="product_results">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-4 col-lg-4 mb-4">
+       <% @products.each do |product| %>
+        <div class="product-card">
+          <div class="text-center" >
+            <strong>Name:</strong> 
+            <%= product.name %>
+          </div>
+
+          <div class="card-body d-flex flex-column align-items-center justify-content-center">
+            <%= image_tag product.image, width: "200", height: "200" %>
+            <p>
+              <strong>SKU:</strong> 
+              <%= product.sku %>
+            </p>
+            
+            <%= form_for @tester, url: testers_path, method: :post do |f| %>
+              <%= f.hidden_field :product_id, value: product.id %>
+              <%= f.hidden_field :shop_id, value: current_employee.shop_id %>
+              <%= f.hidden_field :condition, value: "New" %>
+              <%= f.hidden_field :trashed_at, value: nil %>
+              <%= f.submit "Create Tester", class: "btn btn-success" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

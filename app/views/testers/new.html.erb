@@ -1,9 +1,13 @@
-<h1>New tester</h1>
+<div style="margin: 20px; padding:10px; text-align:center;">
+  <h1>New Tester</h1>
+</div>
 
-<%= render "form", tester: @tester %>
-
-<br>
-
-<div>
-  <%= link_to "Back to testers", testers_path %>
+<div class="product_search">
+  <div class="container" style="margin-top: 50px;">
+    <%= search_form_for @q, remote: true, html: { class: "form-inline my-2 my-lg-0" }, url: new_tester_path do |q| %>
+      <%= q.search_field :name_or_sku_cont, class: "form-control mr-sm-2", placeholder: "Search Products by Name or SKU" %>
+      <%= q.submit "Search", class: "btn btn-primary" %>
+      <%= link_to "Clear", testers_path, class: "btn btn-outline-secondary" %>
+    <% end %>
+  </div>
 </div>

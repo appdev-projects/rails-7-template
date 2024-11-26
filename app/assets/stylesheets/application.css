@@ -70,3 +70,34 @@ select:focus,
 .form-control::placeholder {
   color: #a9a9a9;
 }
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: green;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: green;
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: green;
+  cursor: pointer;
+}
+
+/* Optional: Change the color of the track */
+input[type="range"] {
+  accent-color: green; /* For modern browsers */
+}

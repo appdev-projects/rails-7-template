@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "@rails/ujs", to: "@rails--ujs.js" # @7.0.8
 pin "jquery" # @3.7.1
 pin "@hotwired/turbo-rails", to: "turbo.min.js"
+pin "bootstrap", to: "bootstrap.min.js"

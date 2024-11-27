@@ -52,7 +52,7 @@ gem 'pundit'
 gem 'jquery-rails'
 
 # Admin
-gem 'rails_admin'
+gem 'rails_admin', '~> 3.1'
 
 # Use Sass to process CSS
  gem "sassc-rails"

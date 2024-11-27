@@ -8,6 +8,14 @@
 # db/seeds.rb
 require 'date'
 
+Employee.destroy_all
+  Tester.destroy_all
+  Product.destroy_all
+  Brand.destroy_all
+  Department.destroy_all
+  Role.destroy_all
+  Shop.destroy_all
+
 # Role sample data
 roles = ["Beauty Advisor", "Operations Associate", "Lead", "Manager", "Admin"]
 roles.each do |role|

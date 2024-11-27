@@ -1,16 +1,16 @@
 <div class="container text-center my-5" style="max-width: 800px;">
   <div class="card p-4">
-    <p>Your total score is <strong><%= @total_score %></strong> out of 75.</p>
+    <p>Your total score is <strong><%= @total_score %></strong> out of 60.</p>
     <div>
-      <% if @total_score >= 60 %>
+      <% if @total_score >= 48 %>
         <p>
           You consistently act in a reliable, empathetic, and fair manner, making you someone people can count on.
         </p>
-      <% elsif @total_score >= 45 %>
+      <% elsif @total_score >= 36 %>
         <p>
           You’re often dependable and fair, though there’s some room to grow in handling conflicts or challenging situations.
         </p>
-      <% elsif @total_score >= 30 %>
+      <% elsif @total_score >= 24 %>
         <p>
           While you’re dependable at times, you occasionally prioritize personal convenience over responsibility.
         </p>

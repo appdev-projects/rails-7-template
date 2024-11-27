@@ -12,7 +12,7 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules/bootstrap
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-# Rails.application.config.assets.precompile += %w( admin.js admin.css )
+Rails.application.config.assets.precompile += %w( products/gucci flora yellow.jpg )
 Rails.application.config.assets.paths << Rails.root.join("node_modules/@fortawesome/fontawesome-free/webfonts")
 Rails.application.config.assets.paths << Rails.root.join("node_modules/bootstrap/dist/js")
 Rails.application.config.assets.paths << Rails.root.join("node_modules/bootstrap-icons/font")

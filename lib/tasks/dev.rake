@@ -8,7 +8,6 @@ task({ :sample_data => :environment }) do
   Product.delete_all
   Brand.delete_all
   Department.delete_all
-  
   Role.delete_all
   Shop.delete_all
   

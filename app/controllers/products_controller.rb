@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_employee!
   before_action :set_product, only: %i[ show edit update destroy ]
+  before_action {authorize(@product || Product)}
 
   # GET /products or /products.json
   def index

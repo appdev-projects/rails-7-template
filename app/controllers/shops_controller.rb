@@ -1,5 +1,6 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: %i[ show edit update destroy ]
+  before_action {authorize(@shop || Shop)}
 
   # GET /shops or /shops.json
   def index

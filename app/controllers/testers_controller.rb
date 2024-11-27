@@ -1,9 +1,10 @@
 class TestersController < ApplicationController
   before_action :set_tester, only: %i[ show edit update destroy ]
+  before_action {authorize(@tester || Tester)}
 
   # GET /testers or /testers.json
   def index
-    @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil)
+    @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).order(created_at: 'DESC')
     @q = @testers.ransack(params[:q])
     @searchable_testers = @q.result.includes(:product)
 
@@ -78,6 +79,7 @@ class TestersController < ApplicationController
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
     )
+    authorize.order(created_at: 'DESC') @testers
     render "department_testers"
   end
 
@@ -88,7 +90,7 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    )
+    ).order(created_at: 'DESC')
     render "department_testers"
   end
 
@@ -99,7 +101,7 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    )
+    ).order(created_at: 'DESC')
     render "department_testers"
   end
   
@@ -110,13 +112,13 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    )
+    ).order(created_at: 'DESC')
     render "department_testers"
   end
 
   # /manage_testers
   def manage
-    @testers = Tester.where(shop_id: current_employee.shop_id)
+    @testers = Tester.where(shop_id: current_employee.shop_id).order(created_at: 'DESC')
   end
 
   private

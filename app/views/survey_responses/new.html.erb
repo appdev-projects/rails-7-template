@@ -1,57 +1,29 @@
 <div class="container text-center my-5" style="max-width: 800px;">
   <div class="card">
     <%= form_with url: survey_responses_path, method: :post, id: "quiz-form" do %>
-      <% @surveys.each_with_index do |survey, index| %>
-        <div class="question" id="question-<%= index %>" style="<%= index == 0 ? '' : 'display:none;' %>">
-          <div class="p-4">
-            <h2>Question <%= index + 1 %> out of <%= @surveys.size %></h2>
-            <label for="survey-response-<%= survey.id %>" class="form-label mt-8"><%= survey.question %></label>
-            <div class="position-relative mt-3">
-              <input type="range" 
-                     class="form-range" 
-                     style="width: 70%;" 
-                     min="0" 
-                     max="4" 
-                     step="1" 
-                     value="2" 
-                     id="survey-response-<%= survey.id %>" 
-                     name="survey_responses[<%= survey.id %>]" />
-            </div>
-            <div class="d-flex justify-content-between mt-2 position-relative px-5">
-  <span class="text-muted">Strongly Disagree</span>
-  <span class="text-muted position-absolute" style="left: 50%; transform: translateX(-50%);">Neutral</span>
-  <span class="text-muted">Strongly Agree</span>
-</div>
-          </div>
-          <div class="my-3">
-            <%= button_tag "Next Question", type: "button", class: "next-button btn btn-success", data: { index: index, last: (index == @surveys.size - 1) } %>
-          </div>
+      <% @surveys.each do |survey| %>
+        <p><%= survey.question %></p>
+        
+        <div class="mb-3">
+          <label for="range-<%= survey.id %>" class="form-label">
+            <% if survey.scoring_scheme == 1 %>
+              Strongly Agree (5) to Strongly Disagree (1)
+            <% else %>
+              Strongly Disagree (1) to Strongly Agree (5)
+            <% end %>
+          </label>
+          <input type="range" 
+                 class="form-range" 
+                 id="range-<%= survey.id %>" 
+                 name="responses[<%= survey.id %>]" 
+                 min="1" 
+                 max="5" 
+                 step="1" 
+                 value="3">
         </div>
       <% end %>
-      <%= hidden_field_tag :user_id, current_user.id %>
+     
+      <%= submit_tag("Submit") %>
     <% end %>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        const questions = document.querySelectorAll('.question');
-        const nextButtons = document.querySelectorAll('.next-button');
-        const form = document.getElementById('quiz-form');
-
-        // Handle "Next" button functionality
-        nextButtons.forEach(button => {
-          button.addEventListener('click', function() {
-            const index = parseInt(this.dataset.index);
-            const isLast = this.dataset.last === "true";
-
-            if (isLast) {
-              form.submit(); // Submit the form if it's the last question
-            } else {
-              questions[index].style.display = 'none';
-              questions[index + 1].style.display = 'block'; // Show the next question
-            }
-          });
-        });
-      });
-    </script>
   </div>
 </div>

@@ -28,7 +28,7 @@
               <%= link_to "Edit this tester", edit_tester_path(@tester), class: "btn btn-secondary" %>
             </p>       
 
-           <% if current_user.role.title =="Operations Associate" || current_employee.admin? %> 
+           <% if current_employee.role.title =="Operations Associate" || current_employee.admin? %> 
             <p>
               <%= button_to "Trash this tester", @tester, method: :delete, class: "btn btn-outline-secondary" %>
             </p> 

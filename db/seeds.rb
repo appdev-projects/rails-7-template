@@ -53,7 +53,7 @@ employees.each do |employee|
     e.password = "password"
     e.role_id = employee[:role_id]
     e.shop_id = employee[:shop_id]
-    admin: employee[:admin]
+    admin = employee[:admin]
   end
 end
 

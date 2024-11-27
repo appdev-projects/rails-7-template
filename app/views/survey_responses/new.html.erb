@@ -2,43 +2,82 @@
   <div class="card m-4">
     <div class="m-4">
       <%= form_with url: survey_responses_path, method: :post, id: "quiz-form" do %>
+        <div id="quiz-container">
+          <h4 id="question-title" class="my-3">
+            <!-- This is where the current question title will appear -->
+            Question 1 out of <%= @surveys.count %>
+          </h4>
 
-        <% @surveys.each do |survey| %>
-          <p><%= survey.question %></p>
-          <div class="btn-group-toggle" data-toggle="buttons">
-            <% if survey.scoring_scheme == 2 %>
-              <label class="btn btn-outline-secondary">
-                <%= radio_button_tag("responses[#{survey.id}]", 1, false, class: "d-none") %> Strongly Agree
-              </label>
-              <label class="btn btn-outline-secondary">
-                <%= radio_button_tag("responses[#{survey.id}]", 2, false, class: "d-none") %> Agree
-              </label>
-              <label class="btn btn-outline-secondary">
-                <%= radio_button_tag("responses[#{survey.id}]", 3, false, class: "d-none") %> Disagree
-              </label>
-              <label class="btn btn-outline-secondary">
-                <%= radio_button_tag("responses[#{survey.id}]", 4, false, class: "d-none") %> Strongly Disagree
-              </label>
-            <% else %>
-              <label class="btn btn-outline-secondary">
-                <%= radio_button_tag("responses[#{survey.id}]", 4, false, class: "d-none") %> Strongly Agree
-              </label>
-              <label class="btn btn-outline-secondary">
-                <%= radio_button_tag("responses[#{survey.id}]", 3, false, class: "d-none") %> Agree
-              </label>
-              <label class="btn btn-outline-secondary">
-                <%= radio_button_tag("responses[#{survey.id}]", 2, false, class: "d-none") %> Disagree
-              </label>
-              <label class="btn btn-outline-secondary">
-                <%= radio_button_tag("responses[#{survey.id}]", 1, false, class: "d-none") %> Strongly Disagree
-              </label>
-            <% end %>
-          </div>
-        <% end %>
-
-        <%= submit_tag("Submit", class: "btn btn-primary mt-4") %>
-
+          <% @surveys.each_with_index do |survey, index| %>
+            <div class="question" data-index="<%= index %>" style="display: <%= index == 0 ? 'block' : 'none' %>;">
+              <p><%= survey.question %></p>
+              <div class="btn-group-toggle" data-toggle="buttons" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                <% if survey.scoring_scheme == 2 %>
+                  <label class="btn btn-outline-secondary">
+                    <%= radio_button_tag("responses[#{survey.id}]", 1, false, class: "d-none") %> Strongly Agree
+                  </label>
+                  <label class="btn btn-outline-secondary">
+                    <%= radio_button_tag("responses[#{survey.id}]", 3, false, class: "d-none") %> Disagree
+                  </label>
+                  <label class="btn btn-outline-secondary">
+                    <%= radio_button_tag("responses[#{survey.id}]", 2, false, class: "d-none") %> Agree
+                  </label>
+                  <label class="btn btn-outline-secondary">
+                    <%= radio_button_tag("responses[#{survey.id}]", 4, false, class: "d-none") %> Strongly Disagree
+                  </label>
+                <% else %>
+                  <label class="btn btn-outline-secondary">
+                    <%= radio_button_tag("responses[#{survey.id}]", 4, false, class: "d-none") %> Strongly Agree
+                  </label>
+                  <label class="btn btn-outline-secondary">
+                    <%= radio_button_tag("responses[#{survey.id}]", 2, false, class: "d-none") %> Disagree
+                  </label>
+                  <label class="btn btn-outline-secondary">
+                    <%= radio_button_tag("responses[#{survey.id}]", 3, false, class: "d-none") %> Agree
+                  </label>
+                  <label class="btn btn-outline-secondary">
+                    <%= radio_button_tag("responses[#{survey.id}]", 1, false, class: "d-none") %> Strongly Disagree
+                  </label>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const questions = document.querySelectorAll('.question');
+    const form = document.getElementById('quiz-form');
+    const questionTitle = document.getElementById('question-title');
+    let currentQuestionIndex = 0;
+    const totalQuestions = questions.length;
+
+    // Update the question title
+    function updateQuestionTitle() {
+      questionTitle.textContent = `Question ${currentQuestionIndex + 1} out of ${totalQuestions}`;
+    }
+
+    // Handle radio button selection
+    questions.forEach(question => {
+      const radioButtons = question.querySelectorAll('input[type="radio"]');
+      radioButtons.forEach(button => {
+        button.addEventListener('change', function() {
+          // Move to next question if it's not the last one
+          if (currentQuestionIndex < totalQuestions - 1) {
+            questions[currentQuestionIndex].style.display = 'none';
+            currentQuestionIndex++;
+            questions[currentQuestionIndex].style.display = 'block';
+            updateQuestionTitle(); // Update title on question change
+          } else {
+            // Submit the form when the last question is answered
+            form.submit();
+          }
+        });
+      });
+    });
+  });
+</script>

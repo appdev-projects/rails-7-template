@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :employee_not_authorized
 
+  #Ensures that any use of current_user by Devise is replaced by current_employee method
+  def current_user
+    current_employee
+  end
+
   private
 
   def employee_not_authorized

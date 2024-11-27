@@ -3,6 +3,7 @@
 # Table name: employees
 #
 #  id                     :bigint           not null, primary key
+#  admin                  :boolean          default(FALSE), not null
 #  email                  :string           default(""), not null
 #  employee_number        :integer
 #  encrypted_password     :string           default(""), not null
@@ -34,4 +35,8 @@ class Employee < ApplicationRecord
   # ASSOCIATIONS 
   belongs_to :role
   belongs_to :shop
+
+  def admin?
+    admin
+  end
 end

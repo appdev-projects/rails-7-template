@@ -48,11 +48,14 @@ gem 'ransack'
 # Add authorization
 gem 'pundit'
 
- #AJAX
+ # AJAX
 gem 'jquery-rails'
 
+# Admin
+gem 'rails_admin'
+
 # Use Sass to process CSS
-# gem "sassc-rails"
+ gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -119,3 +122,4 @@ group :test do
   gem "rspec-html-matchers"
   gem "webmock"
 end
+gem "cssbundling-rails"

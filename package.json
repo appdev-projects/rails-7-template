@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "build:css": "sass ./app/assets/stylesheets/rails_admin.scss:./app/assets/builds/rails_admin.css --no-source-map --load-path=node_modules"
+  }
+}

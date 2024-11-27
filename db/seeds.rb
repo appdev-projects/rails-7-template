@@ -9,7 +9,7 @@
 require 'date'
 
 # Role sample data
-roles = ["Beauty Advisor", "Operations Associate", "Lead", "Manager"]
+roles = ["Beauty Advisor", "Operations Associate", "Lead", "Manager", "Admin"]
 roles.each do |role|
   Role.find_or_create_by(title: role)
 end
@@ -20,7 +20,8 @@ shops = [
   { shop_number: 200 , address: "9350 Joliet Rd, Hodgkins, IL 60525" , at_kohls: true },
   { shop_number: 173, address: "582 Village Center Dr Suite 220, Burr Ridge, IL 60527" , at_kohls: false },
   { shop_number: 544, address: "3405 N Southport Ave, Chicago, IL 60657" , at_kohls: false },
-  { shop_number: 189, address: "104 Oakbrook Center, Oak Brook, IL 60523" , at_kohls: false}
+  { shop_number: 189, address: "104 Oakbrook Center, Oak Brook, IL 60523" , at_kohls: false},
+  { shop_number: 111, address: "Sephora Headquarters" , at_kohls: false}
 ]
 shops.each do |shop|
   Shop.find_or_create_by(shop_number: shop[:shop_number]) do |s|
@@ -31,17 +32,18 @@ end
 
 # Employee sample data
 employees = [
-  { first_name: "Daisy", last_name: "Salgado", employee_number: 356177, email: "daisy@sephora.com", role_id: Role.find_by(title: "Operations Associate").id, shop_id: Shop.find_by(shop_number: 336).id },
-  { first_name: "Kevin", last_name: "Brown", employee_number: 111111, email: "kevin@sephora.com", role_id: Role.find_by(title: "Lead").id, shop_id: Shop.find_by(shop_number: 200).id },
-  { first_name: "Mateo", last_name: "Hernandez", employee_number: 222222, email: "mateo@sephora.com", role_id: Role.find_by(title: "Beauty Advisor").id, shop_id: Shop.find_by(shop_number: 173).id },
-  { first_name: "Itzel", last_name: "Romero", employee_number: 333333, email: "itzel@sephora.com", role_id: Role.find_by(title: "Manager").id, shop_id: Shop.find_by(shop_number: 544).id },
-  { first_name: "Liam", last_name: "Williams", employee_number: 444444, email: "liam@sephora.com", role_id: Role.find_by(title: "Beauty Advisor").id, shop_id: Shop.find_by(shop_number: 336).id },
-  { first_name: "Emma", last_name: "Johnson", employee_number: 555555, email: "emma@sephora.com", role_id: Role.find_by(title: "Operations Associate").id, shop_id: Shop.find_by(shop_number: 200).id },
-  { first_name: "Ethan", last_name: "Martinez", employee_number: 666666, email: "ethan@sephora.com", role_id: Role.find_by(title: "Manager").id, shop_id: Shop.find_by(shop_number: 173).id },
-  { first_name: "Ava", last_name: "Miller", employee_number: 777777, email: "ava@sephora.com", role_id: Role.find_by(title: "Lead").id, shop_id: Shop.find_by(shop_number: 544).id },
-  { first_name: "Noah", last_name: "Davis", employee_number: 888888, email: "noah@sephora.com", role_id: Role.find_by(title: "Beauty Advisor").id, shop_id: Shop.find_by(shop_number: 189).id },
-  { first_name: "Sophia", last_name: "Garcia", employee_number: 999999, email: "sophia@sephora.com", role_id: Role.find_by(title: "Operations Associate").id, shop_id: Shop.find_by(shop_number: 189).id }
-]
+    { first_name: "Daisy", last_name: "Salgado", employee_number: 356177, email: "daisy@sephora.com", password: "password", role_id: Role.find_by(title: "Operations Associate").id, shop_id: Shop.find_by(shop_number: 336).id, admin: false },
+    { first_name: "Kevin", last_name: "Brown", employee_number: 111111, email: "kevin@sephora.com", password: "password", role_id: Role.find_by(title: "Lead").id, shop_id: Shop.find_by(shop_number: 200).id, admin: false },
+    { first_name: "Mateo", last_name: "Hernandez", employee_number: 222222, email: "mateo@sephora.com", password: "password", role_id: Role.find_by(title: "Beauty Advisor").id, shop_id: Shop.find_by(shop_number: 173).id, admin: false },
+    { first_name: "Itzel", last_name: "Romero", employee_number: 333333, email: "itzel@sephora.com", password: "password", role_id: Role.find_by(title: "Manager").id, shop_id: Shop.find_by(shop_number: 544).id, admin:false },
+    { first_name: "Liam", last_name: "Williams", employee_number: 444444, email: "liam@sephora.com", password: "password", role_id: Role.find_by(title: "Beauty Advisor").id, shop_id: Shop.find_by(shop_number: 336).id, admin: false },
+    { first_name: "Emma", last_name: "Johnson", employee_number: 555555, email: "emma@sephora.com", password: "password", role_id: Role.find_by(title: "Operations Associate").id, shop_id: Shop.find_by(shop_number: 200).id, admin: false },
+    { first_name: "Ethan", last_name: "Martinez", employee_number: 666666, email: "ethan@sephora.com", password: "password", role_id: Role.find_by(title: "Manager").id, shop_id: Shop.find_by(shop_number: 173).id, admin: false },
+    { first_name: "Ava", last_name: "Miller", employee_number: 777777, email: "ava@sephora.com", password: "password", role_id: Role.find_by(title: "Lead").id, shop_id: Shop.find_by(shop_number: 544).id, admin: false },
+    { first_name: "Noah", last_name: "Davis", employee_number: 888888, email: "noah@sephora.com", password: "password", role_id: Role.find_by(title: "Beauty Advisor").id, shop_id: Shop.find_by(shop_number: 189).id, admin: false },
+    { first_name: "Sophia", last_name: "Garcia", employee_number: 999999, email: "sophia@sephora.com", password: "password", role_id: Role.find_by(title: "Operations Associate").id, shop_id: Shop.find_by(shop_number: 189).id, admin: false},
+    { first_name: "Admin", last_name: "Sephora", employee_number: 100000, email: "admin@sephora.com", password: "password", role_id: Role.find_by(title: "Admin").id, shop_id: Shop.find_by(shop_number: 111).id, admin: true}
+  ]
 
 employees.each do |employee|
   Employee.find_or_create_by(employee_number: employee[:employee_number]) do |e|
@@ -51,6 +53,7 @@ employees.each do |employee|
     e.password = "password"
     e.role_id = employee[:role_id]
     e.shop_id = employee[:shop_id]
+    admin: employee[:admin]
   end
 end
 

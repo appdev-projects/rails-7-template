@@ -44,13 +44,16 @@
           <li class="nav-item">
             <%= link_to 'Fragrance', fragrance_path, class:"nav-link sr-only" %>
           </li>
+          <% if current_employee.role.title == "Operations Associate" || current_employee.admin? %>
            <li class="nav-item">
             <%= link_to 'Manage Testers', manage_path, class:"nav-link sr-only" %>
           </li>
+            <%end%>
+          
           <li class="nav-item">
             <%= link_to "New", new_tester_path, class:"nav-link sr-only" %>
           </li>
-
+        
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <%= "Hi, #{current_employee.first_name}!"%>

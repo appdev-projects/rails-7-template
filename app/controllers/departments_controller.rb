@@ -1,5 +1,6 @@
 class DepartmentsController < ApplicationController
   before_action :set_department, only: %i[ show edit update destroy ]
+  before_action {authorize(@department || Department)}
 
   # GET /departments or /departments.json
   def index

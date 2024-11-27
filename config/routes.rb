@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  authenticate :employee, ->(employee) { employee.admin? } do
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  end
   devise_for :employees
   root "testers#index"
   resources :testers

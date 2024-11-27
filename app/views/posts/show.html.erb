@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Post #<%= @the_post.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/posts">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_post/<%= @the_post.id %>">
+          Delete post
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Body
+      </dt>
+      <dd>
+        <%= @the_post.body %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_post.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_post.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit post
+    </h2>
+
+    <form action="/modify_post/<%= @the_post.id %>"  method="post" >
+      <div>
+        <label for="body_box">
+          Body
+        </label>
+
+        <input type="text" id="body_box" name="query_body" value="<%= @the_post.body %>">
+      </div>
+
+      <button>
+        Update post
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all posts
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new post
+    </h2>
+
+    <form action="/insert_post" method="post">
+      <div>
+        <label for="body_box">
+          Body
+        </label>
+
+        <input type="text" id="body_box" name="query_body">
+      </div>
+
+      <button>
+        Create post
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Body
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_posts.each do |a_post| %>
+      <tr>
+        <td>
+          <%= a_post.id %>
+        </td>
+
+        <td>
+          <%= a_post.body %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_post.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_post.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/posts/<%= a_post.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

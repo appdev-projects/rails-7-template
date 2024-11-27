@@ -1,29 +1,68 @@
 <div class="container text-center my-5" style="max-width: 800px;">
   <div class="card">
     <%= form_with url: survey_responses_path, method: :post, id: "quiz-form" do %>
-      <% @surveys.each do |survey| %>
-        <p><%= survey.question %></p>
-        
-        <div class="mb-3">
-          <label for="range-<%= survey.id %>" class="form-label">
-            <% if survey.scoring_scheme == 1 %>
-              Strongly Agree (5) to Strongly Disagree (1)
-            <% else %>
-              Strongly Disagree (1) to Strongly Agree (5)
-            <% end %>
-          </label>
-          <input type="range" 
-                 class="form-range" 
-                 id="range-<%= survey.id %>" 
-                 name="responses[<%= survey.id %>]" 
-                 min="1" 
-                 max="5" 
-                 step="1" 
-                 value="3">
-        </div>
-      <% end %>
-     
-      <%= submit_tag("Submit") %>
+      <div id="question-container">
+        <% @surveys.each_with_index do |survey, index| %>
+          <div class="question" data-question-index="<%= index %>">
+            <h5 id="question-title">Question <%= index + 1 %> of <%= @surveys.length %></h5>
+            <p><%= survey.question %></p>
+
+            <div class="mb-3">
+              <label for="range-<%= survey.id %>" class="form-label">
+                <% if survey.scoring_scheme == 1 %>
+                  Strongly Agree (5) to Strongly Disagree (1)
+                <% else %>
+                  Strongly Disagree (1) to Strongly Agree (5)
+                <% end %>
+              </label>
+              <input type="range" 
+                     class="form-range" 
+                     id="range-<%= survey.id %>" 
+                     name="responses[<%= survey.id %>]" 
+                     min="1" 
+                     max="5" 
+                     step="1" 
+                     value="3">
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <button type="button" id="next-btn" class="btn btn-success px-4">Next Question</button>
     <% end %>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    let currentQuestionIndex = 0;
+    const questions = document.querySelectorAll('.question');
+    const nextButton = document.getElementById('next-btn');
+    const questionTitle = document.getElementById('question-title');
+    const form = document.getElementById('quiz-form');
+
+    function showQuestion(index) {
+      questions.forEach((question, i) => {
+        question.style.display = (i === index) ? 'block' : 'none';
+      });
+      questionTitle.textContent = `Question ${index + 1} of ${questions.length}`;
+    }
+
+    function goToNextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        showQuestion(currentQuestionIndex);
+      } else {
+        // On last question, submit the form
+        form.submit();
+      }
+    }
+
+    // Initially show the first question
+    showQuestion(currentQuestionIndex);
+
+    // Add event listener to "Next Question" button
+    nextButton.addEventListener('click', function() {
+      goToNextQuestion();
+    });
+  });
+</script>

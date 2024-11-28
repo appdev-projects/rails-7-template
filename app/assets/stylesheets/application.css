@@ -101,3 +101,20 @@ input[type="range"]::-ms-thumb {
 input[type="range"] {
   accent-color: green; /* For modern browsers */
 }
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.video-container iframe {
+  width: 100%;  /* Make the iframe stretch to the container width */
+  max-width: 800px; /* Set a maximum width for the video */
+  height: 450px;  /* Set a fixed height, or adjust based on your layout */
+}
+
+.modal-content {
+  background-color: black;
+}

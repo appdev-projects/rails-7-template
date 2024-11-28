@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="col text-center mb-3">
-    <%# TODO: Configure default %>
+      <%# TODO: Configure default %>
       <%= image_tag @user.avatar.present? ? @user.avatar : "default_avatar.png", 
               class: "rounded-circle", 
               width: 250, 
@@ -22,7 +22,7 @@
         <div class="small text-muted"><%= @user.location %></div>
       </div>
       <%= @user.bio %>
-      <%= @user.video_url %>
+
       <div class="d-flex my-4 gap-3 text-green">
         <% if @user.facebook_url.present? %>
           <h5><%= link_to @user.facebook_url, target: "_blank", class: "social-icon" do %><i class="fa-brands fa-facebook-f"></i><% end %></h5>
@@ -32,6 +32,24 @@
           <h5><%= link_to @user.instagram_url, target: "_blank", class: "social-icon" do %><i class="fa-brands fa-instagram"></i><% end %></h5>
         <% end %>
       </div>
+
+      <% if @user.video_url.present? %>
+        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Watch my intro
+        </button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="video-container">
+                  <iframe width="560" height="315" src="<%= @user.video_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
 
     </div>
     <div class="col text-center mb-3">

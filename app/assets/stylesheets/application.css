@@ -118,3 +118,7 @@ input[type="range"] {
 .modal-content {
   background-color: black;
 }
+
+.custom-light-gray {
+  background-color: #f1f1f1; /* Light gray */
+}

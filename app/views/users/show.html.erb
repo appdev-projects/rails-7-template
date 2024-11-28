@@ -1,26 +1,38 @@
 <div class="container my-5">
 
   <div class="row">
-    <div class="col text-center mb-3">
-      <%# TODO: Configure default %>
+    <div class="col-12 col-md text-center">
       <%= image_tag @user.avatar.present? ? @user.avatar : "default_avatar.png", 
               class: "rounded-circle", 
               width: 250, 
               alt: "photo of #{@user.first_name}" %>
     </div>
-    <div class="col text-left mb-3">
+    <div class="col-12 col-md text-start mb-3">
       <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-      <div class="d-flex my-4 gap-2">
-        <div class="small text-muted"><%= @user.age %></div>
-        <span>&middot;</span>
-        <div class="small text-muted"><%= @user.gender %></div>
-        <span>&middot;</span>
-        <div class="small text-muted"><%= @user.occupation %></div>
-        <span>&middot;</span>
-        <div class="small text-muted">$<%= @user.budget %></div>
-        <span>&middot;</span>
-        <div class="small text-muted"><%= @user.location %></div>
+
+      <div class="my-4 small text-muted">
+        <div class="row">
+          <div class="col-3 text-end px-2">Age</div>
+          <div class="col-9 text-start px-2"><%= @user.age %></div>
+        </div>
+        <div class="row custom-light-gray">
+          <div class="col-3 text-end px-2">Gender</div>
+          <div class="col-9 text-start px-2"><%= @user.gender %></div>
+        </div>
+        <div class="row">
+          <div class="col-3 text-end px-2">Job</div>
+          <div class="col-9 text-start px-2"><%= @user.occupation %></div>
+        </div>
+        <div class="row custom-light-gray">
+          <div class="col-3 text-end px-2">Budget</div>
+          <div class="col-9 text-start px-2">$<%= @user.budget %> per month</div>
+        </div>
+        <div class="row">
+          <div class="col-3 text-end px-2">Location</div>
+          <div class="col-9 text-start px-2"><%= @user.location %></div>
+        </div>
       </div>
+
       <%= @user.bio %>
 
       <div class="d-flex my-4 gap-3 text-green">
@@ -52,7 +64,7 @@
       <% end %>
 
     </div>
-    <div class="col text-center mb-3">
+    <div class="col-12 col-md text-center mb-3">
       <%= @user.trust_score %>
       <%= @user.survey_score %>
     </div>

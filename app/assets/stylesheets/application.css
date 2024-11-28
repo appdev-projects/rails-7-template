@@ -13,14 +13,14 @@
  *= require_tree .
  *= require_self
  */
- /* Make sure the green outline is applied to all form fields */
+ 
 input:focus, 
 textarea:focus, 
 select:focus, 
 .form-control:focus {
-  outline-color: #4CAF50 !important;  /* Green outline */
-  border-color: #4CAF50 !important;   /* Green border */
-  box-shadow: 0 0 5px rgba(76, 175, 80, 0.6) !important; /* Green shadow */
+  outline-color: #4CAF50 !important;  
+  border-color: #4CAF50 !important;   
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.6) !important; 
 }
 
 
@@ -36,12 +36,12 @@ select:focus,
 .hover-card {
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s; /* Smooth transition for hover */
+  transition: transform 0.3s; 
 
 }
 
 .hover-card-body {
-  flex-grow: 1; /* Makes the body fill the available space */
+  flex-grow: 1; 
 }
 
 .hover-card:hover {
@@ -97,9 +97,9 @@ input[type="range"]::-ms-thumb {
   cursor: pointer;
 }
 
-/* Optional: Change the color of the track */
+
 input[type="range"] {
-  accent-color: green; /* For modern browsers */
+  accent-color: green;
 }
 
 .video-container {
@@ -121,4 +121,27 @@ input[type="range"] {
 
 .custom-light-gray {
   background-color: #f1f1f1; /* Light gray */
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.alert {
+  animation: slideInFromTop 0.5s ease-out;
+}
+
+.navbar {
+  z-index: 1040 !important;
+}
+
+.alert {
+  z-index: 1051 !important;
 }

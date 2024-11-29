@@ -29,25 +29,9 @@
       <%= yield %>
     </main>
     
-    <footer class="bd-footer py-4 py-md-5 bg-body-tertiary">
-      <div class="container text-muted">
-        <div class="row">
-          <div class="col">
-            <h5><%= link_to root_path, class: "d-inline-flex align-items-center mb-2 text-decoration-none text-muted" do %>Perfect Pals<% end %></h5>
-            <ul class="list-unstyled small">
-              <li class="mb-2 small text-muted">Designed and built with all the love in the world by <%= link_to "Margarita Potylitsyna", "https://github.com/Ritumka", target: "_blank", class: "text-green" %></li>
-              <li class="mb-2 small text-muted">Currently v1.0.0.</li>
-            </ul>
-          </div>
-          <div class="col">
-            <h6>Documents</h6>
-            <ul class="list-unstyled mt-3">
-              <li><%= link_to "Shared Space Guidelines", "https://github.com/Ritumka", target: "_blank", class: "small text-green" %></li>
-              <li><%= link_to "Roommate Agreement Templates", "https://github.com/Ritumka", target: "_blank", class: "small text-green" %></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+    
+    <%= render partial: "shared/footer" %>
+    
+
   </body>
 </html>

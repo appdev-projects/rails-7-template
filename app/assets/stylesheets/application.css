@@ -136,3 +136,25 @@ select:focus,
   background-color: #7b7df4 !important;
   color: white !important;
 }
+
+.btn-yellow {
+  background-color: #f0a955 !important;
+  border-color: #f0a955 !important;
+  color: white !important;
+}
+
+.btn-yellow:hover {
+  background-color: #e6893e !important;
+  border-color: #e6893e !important;
+  color: white !important;
+}
+
+.btn-outline-yellow {
+  border-color: #f0a955 !important;
+  color: #f0a955 !important;
+}
+
+.btn-outline-yellow:hover {
+  background-color: #f0a955 !important;
+  color: white !important;
+}

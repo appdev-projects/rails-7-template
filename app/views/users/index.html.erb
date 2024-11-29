@@ -1,12 +1,13 @@
-<div class="container my-5">
+<div class="flex-grow-1">
+  <div class="container my-5">
 
-  <div id="users">
-    <div class="d-flex flex-wrap gap-1 justify-content-around">
-      <% @users.each do |user| %>
-        <%= render "users/card", user: user %>
-      <% end %>
+    <div id="users">
+      <div class="d-flex flex-wrap gap-1 justify-content-around">
+        <% @users.each do |user| %>
+          <%= render "users/card", user: user %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 
 </div>

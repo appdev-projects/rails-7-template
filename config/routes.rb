@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "users#index"
+  root "users#home"
 
   devise_for :users, controllers: { registrations: 'user/registrations' }
 
@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :surveys
   resources :reviews
 
+  # Route to display the users' page (index)
+  get("/index", { :controller => "users", :action => "index" })
 
   # Route to display the quiz
   get("/quiz", { :controller => "survey_responses", :action => "new" })

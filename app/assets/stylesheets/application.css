@@ -18,9 +18,9 @@ input:focus,
 textarea:focus, 
 select:focus, 
 .form-control:focus {
-  outline-color: #4CAF50 !important;  
-  border-color: #4CAF50 !important;   
-  box-shadow: 0 0 5px rgba(76, 175, 80, 0.6) !important; 
+  outline-color: #f0a955 !important;  
+  border-color: #f0a955 !important;   
+  box-shadow: 0 0 5px #fdeacc !important; 
 }
 
 
@@ -30,7 +30,7 @@ select:focus,
 }
 
 .text-green {
-  color: green;
+  color: #7b7df4;
 }
 
 .hover-card {
@@ -45,7 +45,7 @@ select:focus,
 }
 
 .hover-card:hover {
-  background-color: #e8f5e9;
+  background-color: #fdeacc;
   cursor: pointer;   
   transform: scale(1.01);       
 }
@@ -59,7 +59,7 @@ select:focus,
 }
 
 .social-icon {
-  color: green;
+  color: #5c5ed1;
   transition: opacity 0.3s ease;
 }
 
@@ -69,37 +69,6 @@ select:focus,
 
 .form-control::placeholder {
   color: #a9a9a9;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 17px;
-  height: 17px;
-  border-radius: 50%;
-  background: green;
-  cursor: pointer;
-}
-
-input[type="range"]::-moz-range-thumb {
-  width: 17px;
-  height: 17px;
-  border-radius: 50%;
-  background: green;
-  cursor: pointer;
-}
-
-input[type="range"]::-ms-thumb {
-  width: 17px;
-  height: 17px;
-  border-radius: 50%;
-  background: green;
-  cursor: pointer;
-}
-
-
-input[type="range"] {
-  accent-color: green;
 }
 
 .video-container {
@@ -144,4 +113,26 @@ input[type="range"] {
 
 .alert {
   z-index: 1051 !important;
+}
+
+.btn-success {
+  background-color: #7b7df4 !important;
+  border-color: #7b7df4 !important;
+  color: white !important;
+}
+
+.btn-success:hover {
+  background-color: #5c5ed1 !important;
+  border-color: #5c5ed1 !important;
+  color: white !important;
+}
+
+.btn-outline-success {
+  border-color: #7b7df4 !important;
+  color: #7b7df4 !important;
+}
+
+.btn-outline-success:hover {
+  background-color: #7b7df4 !important;
+  color: white !important;
 }

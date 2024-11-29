@@ -1,0 +1,45 @@
+<div class="bg-dark text-white">
+  <div class="row">
+    <div class="col-12 col-md  px-5 text-end d-flex align-items-center">
+      <div>
+        <h2 class="mt-5">PERFECT PALS:<br>
+          Where trust meets home</h2>
+        <div class="mt-4 ps-4">
+          <p>A roommate-finding app designed to help users connect with reliable and trustworthy roommates. By calculating a trust score, it makes shared living safer and more predictable for individuals in need of affordable housing.</p>
+        </div>
+        <div class="my-4">
+          <%= button_to "How it works", "/index", method: :get, class: "btn btn-outline-success" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md text-start">
+    <div class="d-flex flex-column" style="min-height: 100%;">
+      <%= image_tag "perfect_pals.svg", class: "img-fluid mt-auto", width: 600 %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div id="users">
+    <div class="d-flex flex-wrap gap-1 justify-content-around">
+      <% @users.take(4).each do |user| %>
+        <%= render "users/card", user: user %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="text-center m-4">
+  <%= button_to "Discover more Pals", "/index", method: :get, class: "btn btn-success" %>
+</div>
+
+<div class="d-flex justify-content-center gap-5 mx-5">
+  <div class="">
+    <%= image_tag "pal.svg" %>
+  </div>
+  <div class="d-flex align-items-center w-5">
+    <h3>Build trust with ease through Roomies. Our platform helps you find reliable roommates and ensure peace of mind—without hidden fees or complicated processes.</h3>
+  </div>
+</div>

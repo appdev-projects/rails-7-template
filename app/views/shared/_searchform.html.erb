@@ -1,0 +1,32 @@
+<%= search_form_for @q do |f| %>
+  <p>Narrow results:</p>
+
+  <div>
+    <%= f.label :age_lteq, "Age" %>
+    <%= f.text_field :age_lteq, :placeholder => "Enter age up to..." %>
+  </div>
+
+  <div>
+    <%= f.label :gender_eq, "Gender" %>
+    <%= f.text_field :gender_eq, :placeholder => "Enter gender" %>
+  </div>
+
+  <div>
+    <%= f.label :budget_lteq, "Budget" %>
+    <%= f.text_field :budget_lteq, :placeholder => "Enter a budget up to..." %>
+  </div>
+
+  <div>
+    <%= f.label :occupation_cont, "Occupation" %>
+    <%= f.text_field :occupation_cont, :placeholder => "Enter a few characters" %>
+  </div>
+
+  <div>
+    <%= f.label :location_cont, "Location" %>
+    <%= f.text_field :location_cont, :placeholder => "Enter a few characters" %>
+  </div>
+
+  <%= f.submit :class => "btn btn-primary btn-block" %>
+
+  <%= link_to "Clear filters", users_path %>
+<% end %>

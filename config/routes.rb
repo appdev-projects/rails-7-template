@@ -3,12 +3,13 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'user/registrations' }
 
+  resources :users
   resources :survey_responses
   resources :surveys
   resources :reviews
 
   # Route to display the users' page (index)
-  get("/pals", { :controller => "users", :action => "pals" })
+  # get("/pals", { :controller => "users", :action => "pals" })
 
   # Route to display the quiz
   get("/quiz", { :controller => "survey_responses", :action => "new" })

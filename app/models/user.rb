@@ -43,6 +43,10 @@ class User < ApplicationRecord
   has_many :survey_responses
   has_one :score
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["age", "budget", "gender", "location", "occupation"]
+  end
+
   def pal_name
     "#{first_name} #{last_name}"
   end

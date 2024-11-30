@@ -64,7 +64,7 @@ select:focus,
 }
 
 .social-icon:hover {
-  opacity: 0.7; /* Fades the icon when hovered */
+  opacity: 0.7;
 }
 
 .form-control::placeholder {
@@ -79,9 +79,9 @@ select:focus,
 }
 
 .video-container iframe {
-  width: 100%;  /* Make the iframe stretch to the container width */
-  max-width: 800px; /* Set a maximum width for the video */
-  height: 450px;  /* Set a fixed height, or adjust based on your layout */
+  width: 100%; 
+  max-width: 800px;
+  height: 450px; 
 }
 
 .modal-content {
@@ -89,7 +89,7 @@ select:focus,
 }
 
 .custom-light-gray {
-  background-color: #f1f1f1; /* Light gray */
+  background-color: #f1f1f1;
 }
 
 @keyframes slideInFromTop {
@@ -157,4 +157,30 @@ select:focus,
 .btn-outline-yellow:hover {
   background-color: #f0a955 !important;
   color: white !important;
+}
+
+.pagination .page-item .page-link {
+  color: black;
+  background-color: white;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.pagination .page-item.active .page-link {
+  color: white; 
+  background-color: #7b7df4;
+  border-color: #7b7df4; 
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #6c757d; 
+  background-color: #f8f9fa; 
+  pointer-events: none;
+}
+
+
+.pagination .page-item:not(.disabled) .page-link:hover {
+  color: white; 
+  background-color: #7b7df4;
+  border-color: #7b7df4; 
 }

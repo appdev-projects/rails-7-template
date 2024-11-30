@@ -42,4 +42,8 @@ class User < ApplicationRecord
   has_many  :received_feedbacks, class_name: "Review", foreign_key: "recipient_id", dependent: :destroy
   has_many :survey_responses
   has_one :score
+
+  def pal_name
+    "#{first_name} #{last_name}"
+  end
 end

@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="container my-3">
 
   <div class="row">
     <div class="col-12 col-md text-center">
@@ -35,7 +35,7 @@
 
       <%= @user.bio %>
 
-      <div class="d-flex my-4 gap-3 text-green">
+      <div class="d-flex my-4 gap-3 text-purple">
         <% if @user.facebook_url.present? %>
           <h5><%= link_to @user.facebook_url, target: "_blank", class: "social-icon" do %><i class="fa-brands fa-facebook-f"></i><% end %></h5>
         <% end %>

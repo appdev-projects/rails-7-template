@@ -113,3 +113,6 @@ end
 
 # Pagination
 gem 'kaminari'
+
+# Search/filter form
+gem "ransack"

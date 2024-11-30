@@ -1,0 +1,53 @@
+<div class="d-flex justify-content-end gap-2 mx-1">
+<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="fa-solid fa-magnifying-glass mx-1"></i>Filter by
+</button>
+<%= link_to "Clear Filters", users_path, class: "btn btn-outline-secondary" %>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width: 400px">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Narrow Results</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <%= search_form_for @q, class: "needs-validation" do |f| %>
+       <div class="mb-3">
+            <%= f.label :age_lteq, "Age", class: "form-label" %>
+            <%= f.text_field :age_lteq, placeholder: "Age up to...", class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :gender_eq, "Gender", class: "form-label" %>
+            <%= f.text_field :gender_eq, placeholder: "Male, female, nonbinary", class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :budget_lteq, "Budget", class: "form-label" %>
+            <%= f.text_field :budget_lteq, placeholder: "Budget up to...", class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :occupation_cont, "Occupation", class: "form-label" %>
+            <%= f.text_field :occupation_cont, placeholder: "Enter a few characters", class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :location_cont, "Location", class: "form-label" %>
+            <%= f.text_field :location_cont, placeholder: "Enter a few characters", class: "form-control" %>
+          </div>
+
+          <div class="text-center mb-3">
+            <%= f.submit "Search", class: "btn btn-success" %>
+            <%= link_to "Clear Filters", users_path, class: "btn btn-secondary" %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

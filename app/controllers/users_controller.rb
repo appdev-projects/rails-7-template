@@ -3,11 +3,13 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def pals
-    @users = User.page(params[:page]).per(8)
+  def index
+    @q = User.ransack(params[:q])
+    @users = @q.result.page(params[:page]).per(8)
+
     @breadcrumbs = [
       {content: "Home", href: "/"},
-      {content: "Pals", href: "/pals"},
+      {content: "Pals", href: users_path},
     ]
   end
 
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.find_by!(id: params.fetch(:id))
     @breadcrumbs = [
       {content: "Home", href: "/"},
-      {content: "Pals", href: "/pals"},
+      {content: "Pals", href: users_path},
       {content: @user.pal_name},
     ]
   end

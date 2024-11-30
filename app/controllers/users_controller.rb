@@ -19,4 +19,7 @@ class UsersController < ApplicationController
       {content: @user.pal_name},
     ]
   end
+
+  def underconstruction
+  end
 end

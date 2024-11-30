@@ -1,7 +1,7 @@
 <div class="flex-grow-1 d-flex flex-column justify-content-between">
-<div class="content-top">
+  <div class="content-top">
     <div class="container text-center mt-5" style="max-width: 800px;">
-      <div class="card m-4">
+      <div class="card mt-4">
         <div class="m-4">
           <%= form_with url: survey_responses_path, method: :post, id: "quiz-form" do %>
             <div id="quiz-container">
@@ -84,18 +84,19 @@
       });
     </script>
   </div>
-  <!--<div class="d-flex justify-content-center">
-  <div class="w-50 text-center small text-muted p-2">
-    Take a quiz to evaluate key traits of trustworthy person, such as emotional stability, empathy, conflict management, compassion, honesty, integrity, reliability, accountability, fairness, respect, and non-manipulative behavior.
-  </div>
-  </div>-->
+
   <div class="content-bottom">
-    <div class="d-flex justify-content-center gap-5 mx-2">
-      <div class="d-flex align-items-end">
-        <%= image_tag "girl_2.svg", width: 230 %>
-      </div>
-      <div class="d-flex text-start small text-muted align-items-center" style="max-width: 300px;">
-        Take a quiz to evaluate key traits of trustworthy person, such as emotional stability, empathy, conflict management, compassion, honesty, integrity, reliability, accountability, fairness, respect, and non-manipulative behavior.
+    <div class="d-flex justify-content-center">
+      <div class="row mx-5" style="max-width: 750px;">
+        <div class="col-12 col-md d-flex text-end text-muted align-items-center mt-4">
+        <div class="d-flex justify-content-center">
+          Take a quiz to evaluate key traits of trustworthy person, such as emotional stability, respect, empathy, conflict management, compassion, honesty, integrity, reliability, non-manipulative behavior, and fairness.
+        </div>
+       </div>
+          <div class="col-12 col-md d-flex flex-column align-items-center mt-4">
+            <%= image_tag "girl_2.svg", class: "img-fluid mt-auto", width: 230 %>
+          </div>
+       
       </div>
     </div>
   </div>

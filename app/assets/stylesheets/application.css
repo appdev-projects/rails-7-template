@@ -29,7 +29,7 @@ select:focus,
   font-size: 0.8em;
 }
 
-.text-green {
+.text-purple {
   color: #7b7df4;
 }
 
@@ -183,4 +183,8 @@ select:focus,
   color: white; 
   background-color: #7b7df4;
   border-color: #7b7df4; 
+}
+
+.breadcrumb-item a {
+  color: #7b7df4 !important;
 }

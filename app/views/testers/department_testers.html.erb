@@ -22,7 +22,15 @@
               <strong>Condition:</strong>
               <%= tester.condition %>
             </p>
-            <%= link_to "Show this tester", tester_path(tester), class: "btn btn-outline-secondary mt-auto" %>
+
+            <p>
+              <strong>Time Created:</strong>
+              <%= tester.created_at %>
+            </p>
+
+            <%if current_employee.role.title == "Operations Associate" || current_employee.admin? %>
+            <%= link_to "Trash this tester", trash_path(tester), class: "btn btn-outline-secondary mt-auto" %>
+            <%end%>
           </div>
         </div>
       </div>

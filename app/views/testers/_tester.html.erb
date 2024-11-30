@@ -24,15 +24,16 @@
               <%= time_ago_in_words(tester.created_at) %>
             </p>
 
+            <p>Need to make changes to this newly created tester?</p>
+
             <p>
               <%= link_to "Edit this tester", edit_tester_path(@tester), class: "btn btn-secondary" %>
             </p>       
-
-           <% if current_employee.role.title =="Operations Associate" || current_employee.admin? %> 
+           
             <p>
-              <%= button_to "Trash this tester", @tester, method: :delete, class: "btn btn-outline-secondary" %>
+              <%= button_to "Delete this tester", @tester, method: :delete, class: "btn btn-outline-secondary" %>
             </p> 
-          <%end%>
+
 
           </div>    
         </div>

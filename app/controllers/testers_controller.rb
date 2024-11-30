@@ -1,5 +1,5 @@
 class TestersController < ApplicationController
-  before_action :set_tester, only: %i[ show edit update destroy ]
+  before_action :set_tester, only: %i[ show edit update destroy trash]
   before_action {authorize(@tester || Tester)}
 
   # GET /testers or /testers.json
@@ -63,12 +63,26 @@ class TestersController < ApplicationController
 
   # DELETE /testers/1 or /testers/1.json
   def destroy
+    @tester.destroy
+
+    respond_to do |format|
+      format.html { redirect_to testers_url, notice: "Tester was successfully trashed." }
+      format.json { head :no_content }
+    end
+  end
+
+  def trash
     @tester.update(trashed_at: Time.current)
 
     respond_to do |format|
       format.html { redirect_to testers_url, notice: "Tester was successfully trashed." }
       format.json { head :no_content }
     end
+  end
+
+  def trashed
+    @testers = Tester.where(shop_id: current_employee.shop_id).where.not(trashed_at: nil).order(created_at: 'DESC')
+    render "trashed"
   end
 
   # /makeup
@@ -117,7 +131,7 @@ class TestersController < ApplicationController
 
   # /manage_testers
   def manage
-    @testers = Tester.where(shop_id: current_employee.shop_id).order(created_at: 'DESC')
+    @testers = Tester.where(shop_id: current_employee.shop_id).where(trashed_at: nil).order(created_at: 'DESC')
   end
 
   private

@@ -1,11 +1,11 @@
 <div class="flex-grow-1">
-  <div class="container my-2">
+  <div class="container">
     <div>
       <%= render partial: "shared/searchform" %>
     </div>
 
     <div id="users">
-      <div class="d-flex flex-wrap gap-1 justify-content-around">
+      <div class="d-flex flex-wrap gap-4 mt-2 justify-content-center">
         <% @users.each do |user| %>
           <%= render "users/card", user: user %>
         <% end %>

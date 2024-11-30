@@ -25,7 +25,7 @@
 
     <div class="container mt-4">
       <div id="users">
-        <div class="d-flex flex-wrap gap-1 justify-content-around">
+        <div class="d-flex flex-wrap gap-4 justify-content-center">
           <% @users.take(4).each do |user| %>
             <%= render "users/card", user: user %>
           <% end %>

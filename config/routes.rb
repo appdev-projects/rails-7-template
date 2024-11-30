@@ -18,7 +18,8 @@ Rails.application.routes.draw do
 
   # Route to display the result
   get("/result", { :controller => "survey_responses", :action => "result" })
-
+  
+  get("/underconstruction", { :controller => "users", :action => "underconstruction" })
 
   get "/:id" => "users#show", as: :user
 

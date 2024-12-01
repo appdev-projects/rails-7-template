@@ -1,13 +1,16 @@
 <div id="container" style="width:100%; height:250px;">
 </div>
-      <div class="small text-muted">
-      <p><%= @user.first_name %>'s' trust score is <br> <strong><%= @user.trust_score %></strong> out of 100</p>
-      </div>
+
+<div class="small text-muted">
+  <p><%= @user.first_name %>'s <strong>Trust Score</strong> is <br>
+ <%= @user.trust_score %> out of 100</p>
+</div>
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const surveyScore = <%= @user.survey_score %>;
     const videoScore = <%= @user.video_url.present? ? 20 : 0 %>;
-    const socialScore = 
+    const socialScore =
       (<%= @user.instagram_url.present? ? 10 : 0 %> + <%= @user.facebook_url.present? ? 10 : 0 %>);
     const totalScore = surveyScore + videoScore + socialScore;
     const emptySegment = 100 - totalScore;
@@ -58,9 +61,9 @@
         colorByPoint: true,
         data: [
           { name: 'Survey Score', y: surveyScore, color: '#f0a955' },
-          { name: 'Video Score', y: videoScore, color: '#7b7df4' },
-          { name: 'Social Score', y: socialScore, color: '#473293' },
-          { name: 'Empty', y: emptySegment, color: '#CCCCCC' }
+          { name: '<%= @user.first_name %> uploaded intro', y: videoScore, color: '#7b7df4' },
+          { name: '<%= @user.first_name %> uploaded social media links', y: socialScore, color: '#473293' },
+          { name: 'Area of growth', y: emptySegment, color: '#EBEBEB' }
         ]
       }],
       credits: {

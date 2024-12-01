@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_27_000411) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_01_074307) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_27_000411) do
     t.string "occupation"
     t.string "location"
     t.integer "budget"
-    t.float "trust_score", default: 0.0
+    t.integer "trust_score", default: 0
     t.string "facebook_url"
     t.string "instagram_url"
     t.datetime "created_at", null: false

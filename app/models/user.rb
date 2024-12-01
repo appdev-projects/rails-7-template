@@ -20,7 +20,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  survey_score           :integer
-#  trust_score            :float            default(0.0)
+#  trust_score            :integer          default(0)
 #  username               :citext
 #  video_url              :string
 #  created_at             :datetime         not null

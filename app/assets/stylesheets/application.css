@@ -214,12 +214,12 @@ select:focus,
 }
 
 .trust-score {
-  font-size: 14px;
+  font-size: 17px;
   color: white;
   font-weight: bold;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Center the number */
+  transform: translate(-50%, -40%); /* Center the number */
 
 }

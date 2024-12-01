@@ -20,7 +20,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  survey_score           :integer
-#  trust_score            :float            default(0.0)
+#  trust_score            :integer          default(0)
 #  username               :citext
 #  video_url              :string
 #  created_at             :datetime         not null
@@ -49,5 +49,18 @@ class User < ApplicationRecord
 
   def pal_name
     "#{first_name} #{last_name}"
+  end
+
+  before_save :calculate_trust_score
+
+  def calculate_trust_score
+    survey_score = self.survey_score || 0
+    video_score = self.video_url.present? ? 20 : 0
+    social_score = 0
+    social_score += 10 if self.instagram_url.present?
+    social_score += 10 if self.facebook_url.present?
+
+    total_score = survey_score + video_score + social_score
+    self.trust_score = total_score
   end
 end

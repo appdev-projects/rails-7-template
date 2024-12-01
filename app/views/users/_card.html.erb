@@ -1,6 +1,17 @@
 <div class="card hover-card my-2" style="width: 18rem;">
   <%= link_to user, class: "text-decoration-none text-dark" do %>
-    <%= image_tag user.avatar.present? ? user.avatar : "default_avatar.png", class: "card-img-top" %>
+    <div class="position-relative">
+      <%= image_tag user.avatar.present? ? user.avatar : "default_avatar.png", class: "card-img-top" %>
+      
+      <!-- Star Icon with Trust Score -->
+      <div class="star-container">
+      <%= image_tag 'star.svg', type: 'image/svg', class: "star-icon", width: "55px" %>
+      <!--  <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#f0a955" stroke="#473293" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round" width="75px" height="75px">
+          <path d="M12 2l2.9 5.88 6.48.94-4.69 4.57 1.11 6.46L12 17.27l-5.8 3.05 1.11-6.46-4.69-4.57 6.48-.94L12 2z"/>
+      </svg>-->
+        <span class="trust-score"><%= user.trust_score %></span>
+      </div>
+    </div>
 
     <div class="card-body">
       <h5 class="card-title"><%= user.first_name %> <%= user.last_name %></h5>

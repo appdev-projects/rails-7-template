@@ -1,0 +1,73 @@
+<div id="container" style="width:100%; height:250px;">
+</div>
+
+<div class="small text-muted">
+  <p><%= @user.first_name %>'s <strong>Trust Score</strong> is <br>
+ <%= @user.trust_score %> out of 100</p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const surveyScore = <%= @user.survey_score || 0 %>;
+    const videoScore = <%= @user.video_url.present? ? 20 : 0 %>;
+    const socialScore = 
+      (<%= @user.instagram_url.present? ? 10 : 0 %> + <%= @user.facebook_url.present? ? 10 : 0 %>);
+    const totalScore = surveyScore + videoScore + socialScore;
+    const emptySegment = 100 - totalScore;
+
+    Highcharts.chart('container', {
+      chart: {
+        type: 'pie',
+        height: 250,
+        spacingTop: 0,
+        events: {
+          render: function() {
+            var chart = this;
+            if (chart.customLabel) {
+              chart.customLabel.destroy();
+            }
+            chart.customLabel = chart.renderer.text(
+              totalScore.toString(),
+              chart.plotLeft + chart.plotWidth / 2,
+              chart.plotTop + chart.plotHeight / 2 + 10
+            )
+            .css({
+              fontSize: '34px',
+              color: '#333333',
+              textAlign: 'center'
+            })
+            .attr({
+              align: 'center',
+              zIndex: 5
+            })
+            .add();
+          }
+        }
+      },
+      title: {
+        text: ''
+      },
+      plotOptions: {
+        pie: {
+          innerSize: '80%',
+          dataLabels: {
+            enabled: false
+          }
+        }
+      },
+      series: [{
+        name: '',
+        colorByPoint: true,
+        data: [
+          { name: 'Survey Score', y: surveyScore, color: '#f0a955' },
+          { name: '<%= @user.first_name %> uploaded intro', y: videoScore, color: '#7b7df4' },
+          { name: '<%= @user.first_name %> uploaded social media links', y: socialScore, color: '#473293' },
+          { name: 'Area of growth', y: emptySegment, color: '#EBEBEB' }
+        ]
+      }],
+      credits: {
+        enabled: false
+      }
+    });
+  });
+</script>

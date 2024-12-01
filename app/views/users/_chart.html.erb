@@ -8,9 +8,9 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    const surveyScore = <%= @user.survey_score %>;
+    const surveyScore = <%= @user.survey_score || 0 %>;
     const videoScore = <%= @user.video_url.present? ? 20 : 0 %>;
-    const socialScore =
+    const socialScore = 
       (<%= @user.instagram_url.present? ? 10 : 0 %> + <%= @user.facebook_url.present? ? 10 : 0 %>);
     const totalScore = surveyScore + videoScore + socialScore;
     const emptySegment = 100 - totalScore;
@@ -29,12 +29,11 @@
             chart.customLabel = chart.renderer.text(
               totalScore.toString(),
               chart.plotLeft + chart.plotWidth / 2,
-              chart.plotTop + chart.plotHeight / 2
+              chart.plotTop + chart.plotHeight / 2 + 10
             )
             .css({
-              fontSize: '24px',
+              fontSize: '34px',
               color: '#333333',
-              fontWeight: 'bold',
               textAlign: 'center'
             })
             .attr({

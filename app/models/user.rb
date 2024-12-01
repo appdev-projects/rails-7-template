@@ -38,8 +38,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  before_save :calculate_trust_score
+
   has_many :sent_feedbacks, class_name: "Review", foreign_key: "sender_id", dependent: :destroy
-  has_many  :received_feedbacks, class_name: "Review", foreign_key: "recipient_id", dependent: :destroy
+  has_many :received_feedbacks, class_name: "Review", foreign_key: "recipient_id", dependent: :destroy
   has_many :survey_responses
   has_one :score
 
@@ -50,8 +52,6 @@ class User < ApplicationRecord
   def pal_name
     "#{first_name} #{last_name}"
   end
-
-  before_save :calculate_trust_score
 
   def calculate_trust_score
     survey_score = self.survey_score || 0

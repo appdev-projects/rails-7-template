@@ -188,3 +188,38 @@ select:focus,
 .breadcrumb-item a {
   color: #7b7df4 !important;
 }
+
+.position-relative {
+  position: relative;
+}
+
+.star-container {
+  position: absolute;
+  top: 10px; 
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.star-icon {
+  font-size: 60px;
+  color: #f0a955;
+  position: absolute;
+}
+
+.trust-score {
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the number */
+
+}

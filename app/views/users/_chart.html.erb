@@ -9,9 +9,9 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const surveyScore = <%= @user.survey_score || 0 %>;
-    const videoScore = <%= @user.video_url.present? ? 20 : 0 %>;
+    const videoScore = <%= @user.video_url.present? ? 10 : 0 %>;
     const socialScore = 
-      (<%= @user.instagram_url.present? ? 10 : 0 %> + <%= @user.facebook_url.present? ? 10 : 0 %>);
+      (<%= @user.instagram_url.present? ? 5 : 0 %> + <%= @user.facebook_url.present? ? 5 : 0 %>);
     const totalScore = surveyScore + videoScore + socialScore;
     const emptySegment = 100 - totalScore;
 

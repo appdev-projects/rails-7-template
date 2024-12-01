@@ -21,7 +21,7 @@
             </div>
 
             <% if devise_mapping.rememberable? %>
-              <div class="col-12 form-check">
+              <div class="col-12 form-check mx-2">
                 <%= f.input :remember_me,
                 as: :boolean,
                 input_html: { class: "form-check-input", id: "remember_me" },
@@ -34,8 +34,9 @@
             <%= f.button :submit, "Log In", class: "btn btn-success px-4" %>
           </div>
         <% end %>
-
-        <%= render "devise/shared/links" %>
+        <div class="text-center mt-3">
+          <%= render "devise/shared/links" %>
+        </div>
       </div>
     </div>
   </div>

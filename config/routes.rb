@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users
   resources :survey_responses
   resources :surveys
-  resources :reviews
+  resources :messages
 
   # Route to display the users' page (index)
   # get("/pals", { :controller => "users", :action => "pals" })

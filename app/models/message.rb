@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: reviews
+# Table name: messages
 #
 #  id           :bigint           not null, primary key
 #  body         :text
@@ -10,7 +10,7 @@
 #  recipient_id :integer
 #  sender_id    :integer
 #
-class Review < ApplicationRecord
+class Message < ApplicationRecord
   belongs_to :user, required: true, class_name: "User", foreign_key: "sender_id"
   belongs_to :recipient, required: true, class_name: "User", foreign_key: "recipient_id"
 end

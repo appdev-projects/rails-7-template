@@ -8,7 +8,7 @@ task({ :sample_data => :environment }) do
 
   if Rails.env.development?
     User.destroy_all
-    Review.destroy_all
+    Message.destroy_all
     Survey.destroy_all
     SurveyResponse.destroy_all
   end
@@ -41,22 +41,21 @@ task({ :sample_data => :environment }) do
 
   pp "There are now #{User.count} users."
 
-  ##Generate Reviews
-  pp "Generate Reviews"
+  ##Generate Messages
+  pp "Generate Messages"
 
-  CSV.foreach("lib/sample_data/review.csv", :headers => true) do |row|
-    review = Review.new
-    review.id = row[0]
-    review.created_at = row[1]
-    review.rating = row[2]
-    review.body = row[3]
-    review.sender_id = row[4]
-    review.recipient_id = row[5]
+  CSV.foreach("lib/sample_data/message.csv", :headers => true) do |row|
+    message = Message.new
+    message.id = row[0]
+    message.created_at = row[1]
+    message.body = row[3]
+    message.sender_id = row[4]
+    message.recipient_id = row[5]
 
-    review.save
+    message.save
   end
 
-  pp "There are now #{Review.count} reviews."
+  pp "There are now #{Message.count} messages."
 
   ##Generate Survey
   pp "Generate Surveys"

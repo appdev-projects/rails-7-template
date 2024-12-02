@@ -15,6 +15,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by!(id: params.fetch(:id))
+    @message = Message.new(:sender_id => current_user.id, :recipient_id => @user.id)
+
     @breadcrumbs = [
       {content: "Home", href: "/"},
       {content: "Pals", href: users_path},

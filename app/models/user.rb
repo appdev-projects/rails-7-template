@@ -40,8 +40,8 @@ class User < ApplicationRecord
 
   before_save :calculate_trust_score
 
-  has_many :sent_feedbacks, class_name: "Review", foreign_key: "sender_id", dependent: :destroy
-  has_many :received_feedbacks, class_name: "Review", foreign_key: "recipient_id", dependent: :destroy
+  has_many :sent_messages, class_name: "Message", foreign_key: "sender_id", dependent: :destroy
+  has_many :received_messages, class_name: "Message", foreign_key: "recipient_id", dependent: :destroy
   has_many :survey_responses
   has_one :score
 
@@ -62,5 +62,13 @@ class User < ApplicationRecord
 
     total_score = survey_score + video_score + social_score
     self.trust_score = total_score
+  end
+
+  def sent_messages
+    return Message.where({ :sender_id => self.id })
+  end
+
+  def received_messages
+    return Message.where({ :recipient_id => self.id })
   end
 end

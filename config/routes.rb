@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "users#home"
 
-  devise_for :users, controllers: { registrations: 'user/registrations' }
+  devise_for :users, controllers: { registrations: "user/registrations" }
 
   resources :users
   resources :survey_responses
@@ -19,9 +19,11 @@ Rails.application.routes.draw do
 
   # Route to display the result
   get("/result", { :controller => "survey_responses", :action => "result" })
-  
+
   get("/underconstruction", { :controller => "users", :action => "underconstruction" })
 
-  get "/:id" => "users#show", as: :user
+  # Routes to display the messages
+  get("/messages/conversation/:user_id", { :controller => "messages", :action => "conversation" })
 
+  get "/:id" => "users#show"
 end

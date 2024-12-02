@@ -1,9 +1,10 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: %i[ show edit update destroy ]
+  before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.all
+    current_user_id = current_user.id
+    @received_messages = Message.where({ :recipient_id => current_user_id })
   end
 
   # GET /messages/1 or /messages/1.json
@@ -57,14 +58,30 @@ class MessagesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_message
-      @message = Message.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def message_params
-      params.require(:message).permit(:rating, :body, :sender_id, :recipient_id)
-    end
+  def conversation
+    current_user_id = current_user.id
+    other_user_id = params.fetch("user_id")
+
+    @message = Message.new(sender_id: params[:current_user_id], recipient_id: params[:user_id])
+
+    @messages = Message.where({ :sender_id => current_user_id, :recipient_id => other_user_id })
+                       .or(Message.where({ :sender_id => other_user_id, :recipient_id => current_user_id }))
+    render({ :template => "messages/conversation" })
+
+   
+
+  end
+
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_message
+    @message = Message.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def message_params
+    params.require(:message).permit(:body, :sender_id, :recipient_id)
+  end
 end

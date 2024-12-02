@@ -1,0 +1,30 @@
+<h1>Conversation with User <%= params.fetch("user_id") %></h1>
+<ul>
+  <% @messages.each do |message| %>
+    <li>
+      <% if message.sender_id == params.fetch("current_user_id").to_i %>
+        You: <%= message.body %>
+      <% else %>
+        Them: <%= message.body %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= simple_form_for(@message) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :body %>
+    <%= f.input :sender_id, as: :hidden %>
+    <%= f.input :recipient_id, as: :hidden %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Send Message" %>
+  </div>
+<% end %>
+
+
+<a href="/messages">Back</a>

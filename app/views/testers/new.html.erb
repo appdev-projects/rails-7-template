@@ -5,9 +5,13 @@
 <div class="product_search">
   <div class="container" style="margin-top: 30px; margin-bottom: 20px;">
     <%= search_form_for @q, remote: true, html: { class: "form-inline my-2 my-lg-0" }, url: new_tester_path do |q| %>
+    <div class="input-group">
       <%= q.search_field :name_or_sku_cont, class: "form-control mr-sm-2", placeholder: "Search Products by Name or SKU" %>
-      <%= q.submit "Search", class: "btn btn-primary" %>
-      <%= link_to "Clear", testers_path, class: "btn btn-outline-secondary" %>
+      <div class="input-group-append">
+        <%= q.submit "Search", class: "btn btn-dark search-btn" %>
+        <%= link_to "Clear", testers_path, class: "btn btn-outline-secondary clear-btn" %>
+      </div>
+    </div>
     <% end %>
   </div>
 
@@ -20,7 +24,7 @@
             <div>
               <h5 class="card-title"><%= product.name %></h5>
               <p class="card-text">SKU: <%= product.sku %></p>
-              <a href="<%= new_product_path(product) %>" class="btn btn-outline-primary">Create Tester</a>
+             
             </div>
             <%= image_tag product.image, width: "50", height: "50", class: "ml-3" %>
           </div>

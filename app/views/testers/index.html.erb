@@ -3,15 +3,20 @@
 <div class="tester_search">
   <div class="container" style="margin-top: 150px;">
     <div style="text-align: center;">
-      <h1>What are you looking for?</h1>
+      <h1>What tester are you looking for?</h1>
     </div>
 
-    <%= search_form_for @q, remote: true, html: { class: "form-inline my-2 my-lg-0" } do |f| %>
-    <div>
-          <%= f.search_field :product_name_or_product_sku_cont, class: "form-control mr-sm-2", placeholder: "Enter Name or SKU", aria: { label: "Search" } %>
-          <%= f.submit "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
-          <%= link_to "Clear", testers_path, class: "btn btn-outline-secondary" %>
-    </div>
-  <% end %>
-</div>
+    <%= search_form_for @q, remote: true, html: { class: "search-form" } do |f| %>
+      <div class="input-group">
+        <%= f.search_field :product_name_or_product_sku_cont, 
+              class: "form-control search-bar", 
+              placeholder: "Search Testers by Name or SKU", 
+              aria: { label: "Search" } %>
+        <div class="input-group-append">
+          <%= f.submit "Search", class: "btn btn-dark search-btn" %>
+          <%= link_to "Clear", testers_path, class: "btn btn-outline-secondary clear-btn" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

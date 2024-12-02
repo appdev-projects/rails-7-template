@@ -6,8 +6,8 @@
   <div class="row" data-masonry='{"percentPosition": true }'>
     <% @testers.each do |tester| %>
       <div class="col-sm-6 col-lg-4 mb-4">
-        <div class="card h-100">
-          <div class="card-header" style="text-align:center;">
+        <div class="card h-100 border-secondary mb-3">
+          <div class="card-header border-dark" style="text-align:center; padding: 10px;">
             <strong><%= tester.product.name %></strong>
           </div>
 
@@ -33,7 +33,7 @@
               <%= button_to "Trash this tester", trash_path(tester), method: :patch, class: "btn btn-outline-secondary" %>
             </p> 
           <%end%>
-          
+
           </div>
         </div>
       </div>

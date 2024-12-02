@@ -55,10 +55,10 @@ class User < ApplicationRecord
 
   def calculate_trust_score
     survey_score = self.survey_score || 0
-    video_score = self.video_url.present? ? 20 : 0
+    video_score = self.video_url.present? ? 10 : 0
     social_score = 0
-    social_score += 10 if self.instagram_url.present?
-    social_score += 10 if self.facebook_url.present?
+    social_score += 5 if self.instagram_url.present?
+    social_score += 5 if self.facebook_url.present?
 
     total_score = survey_score + video_score + social_score
     self.trust_score = total_score

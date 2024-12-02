@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_02_003407) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_02_011548) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
 
   create_table "messages", force: :cascade do |t|
-    t.float "rating", default: 0.0
     t.text "body"
     t.integer "sender_id"
     t.integer "recipient_id"

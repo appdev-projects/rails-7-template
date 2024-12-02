@@ -1,3 +1,4 @@
+<div class="flex-grow-1">
 <div class="container my-3">
 
   <div class="row mx-4">
@@ -70,27 +71,31 @@
   </div>
 </div>
 
-<hr style="border: 1px solid black; width: 100%; margin: 30px 0px 0px 0px;" />
-<div class="container text-center mt-4">
-  <h5>Write a message to <%= @user.first_name %></h5>
-</div>
-<div class="container d-flex justify-content-center mb-5" style="max-width: 800px;">
-  <div class="w-50">
-    <%= simple_form_for(@message, html: { class: "form" }) do |f| %>
-      <%= f.error_notification %>
-      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-      <div class="form-inputs">
-        <div class="my-3">
-          <%= f.input :body, input_html: { class: "form-control" }, label_html: { class: "visually-hidden" } %>
-        </div>
-        <%= f.input :sender_id, as: :hidden %>
-        <%= f.input :recipient_id, as: :hidden %>
-      </div>
-
-      <div class="form-actions mt-3 text-center">
-        <%= f.button :submit, "Send Message", class: "btn btn-success" %>
-      </div>
-    <% end %>
+<% if @message.recipient_id != current_user.id %>
+  <hr style="border: 1px solid black; width: 100%; margin: 30px 0px 0px 0px;" />
+  <div class="container text-center mt-4">
+    <h5>Write a message to <%= @user.first_name %></h5>
   </div>
+  <div class="container d-flex justify-content-center mb-5" style="max-width: 800px;">
+    <div class="w-50">
+
+      <%= simple_form_for(@message, html: { class: "form" }) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="form-inputs">
+          <div class="my-3">
+            <%= f.input :body, input_html: { class: "form-control" }, label_html: { class: "visually-hidden" } %>
+          </div>
+          <%= f.input :sender_id, as: :hidden %>
+          <%= f.input :recipient_id, as: :hidden %>
+        </div>
+
+        <div class="form-actions mt-3 text-center">
+          <%= f.button :submit, "Send Message", class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 </div>

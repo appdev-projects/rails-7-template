@@ -1,40 +1,42 @@
 <div class="flex-grow-1">
   <div class="container my-5" style="max-width: 600px;">
-    <h3 class="text-center mb-2"><%= User.find(params.fetch("user_id")).first_name %></h3>
 
-    <div class="custom-border">
-      <ul class="list-group always-scrollable">
-        <% @messages.each do |message| %>
-          <li class="list-group-item">
-            <% if message.sender_id == params.fetch("current_user_id").to_i %>
-              <strong>You:</strong> <%= message.body %>
-            <% else %>
-              <strong><%= User.find(params.fetch("user_id")).first_name %>:</strong> <%= message.body %>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
+    <div class="row px-2 mb-3">
+      <div class="col-1">
+        <%= link_to '<i class="fa-solid fa-arrow-left"></i>'.html_safe, "/messages", class: "btn btn-link d-block text-purple" %>
+      </div>
+      <div class="col-11">
+        <h3><%= User.find(params.fetch("user_id")).first_name %></h3>
+      </div>
     </div>
 
-    <div class="custom-light-gray p-3">
-
-      <%= simple_form_for(@message, html: { class: "form" }) do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-        <div class="form-inputs">
-          <div class="mb-3">
-            <%= f.input :body, input_html: { class: "form-control" }, label_html: { class: "visually-hidden" } %>
-          </div>
-          <%= f.input :sender_id, as: :hidden %>
-          <%= f.input :recipient_id, as: :hidden %>
-        </div>
-        <div class="form-actions text-center">
-          <%= f.button :submit, "Send Message", class: "btn btn-success" %>
-        </div>
+    <ul class="list-group always-scrollable border">
+      <% @messages.each do |message| %>
+        <li class="list-group-item">
+          <% if message.sender_id == params.fetch("current_user_id").to_i %>
+            <strong>You:</strong> <%= message.body %>
+          <% else %>
+            <strong><%= User.find(params.fetch("user_id")).first_name %>:</strong> <%= message.body %>
+          <% end %>
+        </li>
       <% end %>
+    </ul>
 
-      <a href="/messages" class="btn btn-link mt-3 d-block text-purple">Back</a>
-    </div>
+    <%= simple_form_for(@message, html: { class: "form" }) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <div class="form-inputs">
+        <div class="my-3">
+          <%= f.input :body, input_html: { class: "form-control" }, label_html: { class: "visually-hidden" } %>
+        </div>
+        <%= f.input :sender_id, as: :hidden %>
+        <%= f.input :recipient_id, as: :hidden %>
+      </div>
+      <div class="form-actions text-center">
+        <%= f.button :submit, "Send Message", class: "btn btn-success" %>
+      </div>
+    <% end %>
+
   </div>
 </div>

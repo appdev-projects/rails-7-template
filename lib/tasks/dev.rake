@@ -48,7 +48,6 @@ task({ :sample_data => :environment }) do
     message = Message.new
     message.id = row[0]
     message.created_at = row[1]
-    message.rating = row[2]
     message.body = row[3]
     message.sender_id = row[4]
     message.recipient_id = row[5]

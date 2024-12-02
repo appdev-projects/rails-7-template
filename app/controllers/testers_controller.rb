@@ -66,7 +66,7 @@ class TestersController < ApplicationController
     @tester.destroy
 
     respond_to do |format|
-      format.html { redirect_to testers_url, notice: "Tester was successfully trashed." }
+      format.html { redirect_to testers_url, notice: "Tester was successfully deleted." }
       format.json { head :no_content }
     end
   end
@@ -131,7 +131,13 @@ class TestersController < ApplicationController
 
   # /manage_testers
   def manage
-    @testers = Tester.where(shop_id: current_employee.shop_id).where(trashed_at: nil).order(created_at: 'DESC')
+    @onstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Onstage").where(trashed_at: nil).order(created_at: 'DESC')
+    @backstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Backstage").where(trashed_at: nil).order(created_at: 'DESC')
+
+    respond_to do |format|
+      format.html
+      format.js 
+    end
   end
 
   private

@@ -148,6 +148,6 @@ class TestersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tester_params
-      params.require(:tester).permit(:product_id, :shop_id, :condition, :trashed_at)
+      params.require(:tester).permit(:product_id, :shop_id, :condition, :location, :trashed_at)
     end
 end

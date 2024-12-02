@@ -1,7 +1,7 @@
 class TesterPolicy < ApplicationPolicy
 
   def index?
-    employee.admin? == false
+    true
   end
 
   def show?
@@ -25,7 +25,15 @@ class TesterPolicy < ApplicationPolicy
   end
 
   def destroy?
+    employee.admin? == false
+  end
+
+  def trash?
     employee.role.title = "Operations Associate"
+  end
+
+  def trashed?
+    employee.role.title = "Operations Associate" || employee.admin?
   end
 
   def makeup?

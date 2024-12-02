@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   get "/hair" => "testers#hair", as: :hair
   get "/fragrance" => "testers#fragrance", as: :fragrance
   get "/manage_testers" => "testers#manage", as: :manage
+  patch "/trash/:id(.:format)" => "testers#trash", as: :trash
+  get "/trashed_testers" => "testers#trashed", as: :trashed
+
 end

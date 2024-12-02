@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
+
   skip_forgery_protection
 
   before_action :authenticate_employee!
@@ -24,4 +25,5 @@ class ApplicationController < ActionController::Base
     flash[:alert] = "You are not authorized to perform this action."
     redirect_back fallback_location: root_url
   end
+
 end

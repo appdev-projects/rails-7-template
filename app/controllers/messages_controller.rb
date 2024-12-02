@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to message_url(@message), notice: "Message was successfully created." }
+        format.html { redirect_to "/messages/conversation/#{@message.recipient_id}?current_user_id=#{@message.sender_id}", notice: "Message was successfully created." }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -68,9 +68,6 @@ class MessagesController < ApplicationController
     @messages = Message.where({ :sender_id => current_user_id, :recipient_id => other_user_id })
                        .or(Message.where({ :sender_id => other_user_id, :recipient_id => current_user_id }))
     render({ :template => "messages/conversation" })
-
-   
-
   end
 
   private

@@ -24,6 +24,6 @@ Rails.application.routes.draw do
 
   # Routes to display the messages
   get("/messages/conversation/:user_id", { :controller => "messages", :action => "conversation" })
-
+  
   get "/:id" => "users#show"
 end

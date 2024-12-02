@@ -1,22 +1,7 @@
-<div style="margin: 20px; padding:10px; text-align:center;">
-  <h1>Manage Testers</h1>
-</div>
-
-<div class="container">
-  <div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="display: flex;
-    justify-content: center; align-items: center;">
-    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-    <label class="btn btn-outline-dark" for="btnradio1">Backstage Testers</label>
-
-    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-    <label class="btn btn-outline-dark" for="btnradio2">Approve Testers</label>
-  </div> 
-</div>
-
-<div class="backstage_testers">
+<div class="onstage_testers">
   <div class="container" style="margin-top: 30px; position: relative">
     <div class="row" data-masonry='{"percentPosition": true }'>
-      <% @backstage_testers.each do |tester| %>
+      <% @onstage_testers.each do |tester| %>
         <div class="col-sm-6 col-lg-4 mb-4">
           <div class="card h-100 border-secondary mb-3">
             <div class="card-header border-dark" style="text-align:center; padding: 10px;">
@@ -42,7 +27,7 @@
 
               <% if current_employee.role.title == "Operations Associate" %>
               <p>
-                <%= button_to "Trash this tester", trash_path(tester), method: :patch, class: "btn btn-outline-secondary" %>
+                <%= button_to "Approve this tester", tester, method: :delete, class: "btn btn-outline-secondary" %>
               </p> 
             <%end%>
 
@@ -53,15 +38,3 @@
     </div>
   </div>
 </div>
->
-<script>
- $("#btnradio2").click(function() {
-  $(".backstage_testers").html('<%= j render "onstage_testers" %>');
-});
-
- $("#btnradio1").click(function() {
-  $(".backstage_testers").html('<%= j render "backstage_testers" %>');
-});
-
-
-</script>

@@ -4,6 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  condition  :string
+#  location   :string           default("Backstage"), not null
 #  trashed_at :datetime
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

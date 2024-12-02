@@ -2,9 +2,9 @@
 <div class="container my-3">
 
   <div class="row mx-4">
-    <div class="col-12 col-md text-center">
+    <div class="col-12 col-md d-flex justify-content-center">
       <%= image_tag @user.avatar.present? ? @user.avatar : "default_avatar.png", 
-              class: "rounded-circle", 
+              class: "avatar rounded-circle", 
               width: 250, 
               alt: "photo of #{@user.first_name}" %>
     </div>

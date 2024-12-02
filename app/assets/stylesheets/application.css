@@ -248,3 +248,24 @@ select:focus,
   border: 1px solid #ddd;
   border-radius: 0.25rem; 
 }
+
+.avatar {
+  object-fit: cover; /* Ensures the image fills the container while maintaining its aspect ratio */
+  width: 250px; /* Matches the width set in the Rails code */
+  height: 250px; /* Matches the height set in the Rails code */
+  display: block; /* Prevents any inline gaps */
+}
+
+.card-avatar-container {
+  width: 100%; /* Full card width */
+  height: 286px; /* Automatic height based on image ratio */
+  overflow: hidden; /* Crop the image */
+  border-top-left-radius: 5px; /* Rounded corner on top-left */
+  border-top-right-radius: 5px; /* Rounded corner on top-right */
+}
+
+.card-avatar {
+  width: 100%; /* Responsive width */
+  height: 100%; /* Maintain aspect ratio */
+  object-fit: cover; /* Crop and fill the container */
+}

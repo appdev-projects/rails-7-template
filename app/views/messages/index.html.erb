@@ -1,11 +1,17 @@
-<h1>Messages</h1>
+<div class="flex-grow-1">
+  <div class="container my-5" style="max-width: 700px;">
+    <h1 class="text-center my-4">Messages</h1>
 
-<ul>
-  <% @received_messages.each do |message| %>
-    <li>
-      From: <%= message.sender_id %> To: <%= message.recipient_id %> - <%= message.body %>
-      <a href="/messages/conversation/<%= message.sender_id %>?current_user_id=<%= current_user.id %>">View Conversation</a>
-
-    </li>
-  <% end %>
-</ul>
+    <ul class="list-group">
+      <% @received_messages.each do |message| %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <strong><%= User.find(message.sender_id).first_name %> <%= User.find(message.sender_id).last_name %>:</strong>
+            <p><%= message.body %></p>
+          </div>
+          <a href="/messages/conversation/<%= message.sender_id %>?current_user_id=<%= current_user.id %>" class="btn btn-link">View Conversation</a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

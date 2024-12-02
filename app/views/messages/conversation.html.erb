@@ -1,30 +1,36 @@
-<h1>Conversation with User <%= params.fetch("user_id") %></h1>
-<ul>
-  <% @messages.each do |message| %>
-    <li>
-      <% if message.sender_id == params.fetch("current_user_id").to_i %>
-        You: <%= message.body %>
-      <% else %>
-        Them: <%= message.body %>
+<div class="flex-grow-1">
+  <div class="container my-5" style="max-width: 700px;">
+    <h3 class="text-center mb-2"><%= User.find(params.fetch("user_id")).first_name %></h3>
+
+    <ul class="list-group mb-4 always-scrollable">
+      <% @messages.each do |message| %>
+        <li class="list-group-item">
+          <% if message.sender_id == params.fetch("current_user_id").to_i %>
+            <strong>You:</strong> <%= message.body %>
+          <% else %>
+            <strong><%= User.find(params.fetch("user_id")).first_name %>:</strong> <%= message.body %>
+          <% end %>
+        </li>
       <% end %>
-    </li>
-  <% end %>
-</ul>
+    </ul>
 
-<%= simple_form_for(@message) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= simple_form_for(@message, html: { class: "form" }) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :body %>
-    <%= f.input :sender_id, as: :hidden %>
-    <%= f.input :recipient_id, as: :hidden %>
+      <div class="form-inputs">
+        <div class="mb-3">
+          <%= f.input :body, input_html: { class: "form-control" }, label_html: { class: "visually-hidden" } %>
+        </div>
+        <%= f.input :sender_id, as: :hidden %>
+        <%= f.input :recipient_id, as: :hidden %>
+      </div>
+
+      <div class="form-actions text-center">
+        <%= f.button :submit, "Send Message", class: "btn btn-success" %>
+      </div>
+    <% end %>
+
+    <a href="/messages" class="btn btn-link mt-3 d-block text-purple">Back</a>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send Message" %>
-  </div>
-<% end %>
-
-
-<a href="/messages">Back</a>
+</div>

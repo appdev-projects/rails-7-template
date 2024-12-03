@@ -496,6 +496,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
+  kaminari
   pg (~> 1.1)
   pry-rails
   puma

@@ -14,6 +14,10 @@
         <% end %>
       </div>
 
+      <div class="pagination-container" style="text-align: center; margin-top: 20px;">
+        <%= paginate @searchable_testers %>
+      </div>
+
       <%= link_to "Back to Search", testers_path, class: "btn btn-dark mt-3" %>
     <% else %>
       <p style="color: red;">No results found.</p>

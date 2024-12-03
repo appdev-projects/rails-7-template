@@ -6,13 +6,13 @@ class TestersController < ApplicationController
   def index
     @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).order(created_at: 'DESC')
     @q = @testers.ransack(params[:q])
-    @searchable_testers = @q.result.includes(:product)
+    @searchable_testers = @q.result.includes(:product).page(params[:page]).per(6)
 
     respond_to do |format|
       format.html
       format.js 
     end
-    
+
   end
   # GET /testers/1 or /testers/1.json
   def show
@@ -22,15 +22,25 @@ class TestersController < ApplicationController
   def new
     @tester = Tester.new()
     @q = Product.ransack(params[:q])
-    @products = @q.result(distinct:true)
+    @products = @q.result(distinct:true).page(params[:page]).per(6)
 
     respond_to do |format|
       format.html
       format.js 
     end
+
+    @breadcrumbs = [
+      {content: "New Tester", href: new_tester_path}
+    ]
   end
+
   # GET /testers/1/edit
   def edit
+    @breadcrumbs = [
+      {content: "Home", href: root_path},
+      {content: "New Tester", href: new_tester_path},
+      {content: @tester.to_s}
+    ]
   end
 
   # POST /testers or /testers.json
@@ -59,6 +69,11 @@ class TestersController < ApplicationController
         format.json { render json: @tester.errors, status: :unprocessable_entity }
       end
     end
+
+    @breadcrumbs = [
+      {content: "New Tester", href: new_tester_path},
+      {content: "Tester", href: tester_path(@tester)}
+    ]
   end
 
   # DELETE /testers/1 or /testers/1.json
@@ -81,7 +96,8 @@ class TestersController < ApplicationController
   end
 
   def trashed
-    @testers = Tester.where(shop_id: current_employee.shop_id).where.not(trashed_at: nil).order(created_at: 'DESC')
+    @testers = Tester.where(shop_id: current_employee.shop_id).where.not(trashed_at: nil).order(created_at: 'DESC').page(params[:page]).per(6)
+
     render "trashed"
   end
 
@@ -92,7 +108,8 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC')
+    ).order(created_at: 'DESC').page(params[:page]).per(6)
+
     render "department_testers"
   end
 
@@ -103,7 +120,8 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC')
+    ).order(created_at: 'DESC').page(params[:page]).per(6)
+
     render "department_testers"
   end
 
@@ -114,7 +132,8 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC')
+    ).order(created_at: 'DESC').page(params[:page]).per(6)
+
     render "department_testers"
   end
   
@@ -125,14 +144,15 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC')
+    ).order(created_at: 'DESC').page(params[:page]).per(6)
+
     render "department_testers"
   end
 
   # /manage_testers
   def manage
-    @onstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Onstage").where(trashed_at: nil).order(created_at: 'DESC')
-    @backstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Backstage").where(trashed_at: nil).order(created_at: 'DESC')
+    @onstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Onstage").where(trashed_at: nil).order(created_at: 'DESC').page(params[:onstage_page]).per(6)
+    @backstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Backstage").where(trashed_at: nil).order(created_at: 'DESC').page(params[:backstage_page]).per(6)
 
     respond_to do |format|
       format.html

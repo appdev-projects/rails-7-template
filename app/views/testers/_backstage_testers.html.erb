@@ -30,11 +30,13 @@
                 <%= button_to "Trash this tester", trash_path(tester), method: :patch, class: "btn btn-outline-secondary" %>
               </p> 
             <%end%>
-
             </div>
           </div>
         </div>
       <% end %>
+      <div style="text-align: center;">
+        <%= paginate @backstage_testers, param_name: :backstage_page %>
+      </div>
     </div>
   </div>
 </div>

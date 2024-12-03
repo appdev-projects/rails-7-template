@@ -32,4 +32,8 @@ class Tester < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     ["product"]
   end
+
+  def to_s
+    "#{id} #{product.name}"
+  end
 end

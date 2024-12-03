@@ -19,10 +19,10 @@
                 <%= f.hidden_field :shop_id, value: current_employee.shop_id %>
                 
                 <%= f.label :condition, "Condition" %>
-                <%= f.select :condition, ["New", "Good", "Ok"], {}, { class: "form-control" } %>
+                <%= f.select :condition, ["New", "Good", "Ok"], {}, { class: "form-select form-control" } %>
                 
                 <%= f.label :location, "Location" %>
-                <%= f.select :location, ["Onstage", "Backstage"], {}, { class: "form-control" } %>
+                <%= f.select :location, ["Onstage", "Backstage"], {}, { class: "form-select form-control" } %>
 
                 <%= f.hidden_field :trashed_at, value: nil %>
                 <%= f.submit "Create Tester", class: "btn btn-dark mt-3" %>
@@ -33,4 +33,9 @@
       </div>
     </div>
   </div>
+</div>
+
+
+<div style="text-align: center;">
+  <%= paginate @products %>
 </div>

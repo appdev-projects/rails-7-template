@@ -7,11 +7,12 @@ class TestersController < ApplicationController
     @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).order(created_at: 'DESC')
     @q = @testers.ransack(params[:q])
     @searchable_testers = @q.result.includes(:product).page(params[:page]).per(6)
+
     respond_to do |format|
       format.html
       format.js 
     end
-    
+
   end
   # GET /testers/1 or /testers/1.json
   def show
@@ -27,6 +28,10 @@ class TestersController < ApplicationController
       format.html
       format.js 
     end
+
+    @breadcrumbs = [
+      {content: "New Tester", href: new_tester_path}
+    ]
   end
   # GET /testers/1/edit
   def edit

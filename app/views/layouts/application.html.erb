@@ -29,6 +29,8 @@
 
  <body style="font-family: 'Afacad Flux', sans-serif;">
 
+  
+
    <% if current_employee != nil %>
 <div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding:20px;">
@@ -81,7 +83,7 @@
 </div>
 
 <% end %>
-
+<%= render "shared/breadcrumbs" %>
     <%= yield %>
   </body>
 </html>

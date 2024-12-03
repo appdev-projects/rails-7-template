@@ -34,6 +34,6 @@ class Tester < ApplicationRecord
   end
 
   def to_s
-    "#{id} #{product.name}"
+    "#{product.name}".truncate(25)
   end
 end

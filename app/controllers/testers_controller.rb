@@ -33,8 +33,14 @@ class TestersController < ApplicationController
       {content: "New Tester", href: new_tester_path}
     ]
   end
+
   # GET /testers/1/edit
   def edit
+    @breadcrumbs = [
+      {content: "Home", href: root_path},
+      {content: "New Tester", href: new_tester_path},
+      {content: @tester.to_s}
+    ]
   end
 
   # POST /testers or /testers.json
@@ -63,6 +69,11 @@ class TestersController < ApplicationController
         format.json { render json: @tester.errors, status: :unprocessable_entity }
       end
     end
+
+    @breadcrumbs = [
+      {content: "New Tester", href: new_tester_path},
+      {content: "Tester", href: tester_path(@tester)}
+    ]
   end
 
   # DELETE /testers/1 or /testers/1.json

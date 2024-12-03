@@ -8,7 +8,7 @@
 # db/seeds.rb
 require 'date'
 
-Employee.destroy_all
+  Employee.destroy_all
   Tester.destroy_all
   Product.destroy_all
   Brand.destroy_all
@@ -115,39 +115,41 @@ end
 
 # Tester sample data
 testers = [
-  { product_id: Product.find_by(sku: "2467371").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2743896").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2568376").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2494367").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "replace", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2335636").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "replace", trashed_at: nil },
-  { product_id: Product.find_by(sku: "1605906").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2490696").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", trashed_at: nil },
-  { product_id: Product.find_by(sku: "870618").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2605178").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "replace", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2696821").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2802163").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2527844").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2520427").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2819274").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "replace", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2662468").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", trashed_at: nil },
-  { product_id: Product.find_by(sku: "1863588").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "replace", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
-  { product_id: Product.find_by(sku: "2520427").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
-  { product_id: Product.find_by(sku: "2662468").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
-  { product_id: Product.find_by(sku: "2605178").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "replace", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
-  { product_id: Product.find_by(sku: "2335636").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "replace", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime }
+  { product_id: Product.find_by(sku: "2467371").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Onstage",trashed_at: nil },
+  { product_id: Product.find_by(sku: "2743896").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
+  { product_id: Product.find_by(sku: "2568376").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
+  { product_id: Product.find_by(sku: "2494367").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
+  { product_id: Product.find_by(sku: "2335636").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Backstage", trashed_at: nil },
+  { product_id: Product.find_by(sku: "1605906").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
+  { product_id: Product.find_by(sku: "2490696").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
+  { product_id: Product.find_by(sku: "870618").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
+  { product_id: Product.find_by(sku: "2605178").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
+  { product_id: Product.find_by(sku: "2696821").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Onstage", trashed_at: nil },
+  { product_id: Product.find_by(sku: "2802163").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Onstage", trashed_at: nil },
+  { product_id: Product.find_by(sku: "2527844").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
+  { product_id: Product.find_by(sku: "2520427").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
+  { product_id: Product.find_by(sku: "2819274").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
+  { product_id: Product.find_by(sku: "2662468").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
+  { product_id: Product.find_by(sku: "1863588").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
+  { product_id: Product.find_by(sku: "2520427").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
+  { product_id: Product.find_by(sku: "2662468").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
+  { product_id: Product.find_by(sku: "2605178").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
+  { product_id: Product.find_by(sku: "2335636").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime }
 ]
-Product.all.sample(15).each do |product|
-  testers << {
-    product_id: product.id,
-    shop_id: Shop.pluck(:id).sample,
-    condition: ["new", "good", "ok", "replace"].sample.capitalize,
-    trashed_at: [nil, Faker::Time.backward(days: 365, period: :all).to_datetime].sample()
-  }
-end
+  Product.all.sample(15).each do |product|
+    testers << {
+      product_id: product.id,
+      shop_id: Shop.pluck(:id).sample,
+      condition: ["new", "good", "ok"].sample.capitalize,
+      location: ["onstage", "backstage"].sample.capitalize,
+      trashed_at: [nil, Faker::Time.backward(days: 365, period: :all).to_datetime].sample()
+    }
+  end
 
 testers.each do |tester|
   Tester.find_or_create_by(product_id: tester[:product_id], shop_id: tester[:shop_id]) do |t|
     t.condition = tester[:condition].capitalize
+    t.location = tester[:location].capitalize
     t.trashed_at = tester[:trashed_at]
   end
 end

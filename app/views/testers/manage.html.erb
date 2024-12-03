@@ -50,10 +50,17 @@
           </div>
         </div>
       <% end %>
+      <div style="text-align: center;">
+        <%= paginate @backstage_testers, param_name: :backstage_page %>
+      </div>
     </div>
   </div>
 </div>
->
+
+
+
+
+<!--Testers button functionality-->
 <script>
  $("#btnradio2").click(function() {
   $(".backstage_testers").html('<%= j render "onstage_testers" %>');

@@ -11,8 +11,6 @@ task({ :sample_data => :environment }) do
   Role.delete_all
   Shop.delete_all
   
-  
-
    # Role sample data
    roles = ["Beauty Advisor", "Operations Associate", "Lead", "Manager", "Admin"]
    roles.each do |role|
@@ -146,7 +144,7 @@ task({ :sample_data => :environment }) do
     testers << {
       product_id: product.id,
       shop_id: Shop.pluck(:id).sample,
-      condition: ["new", "good", "ok", "replace"].sample.capitalize,
+      condition: ["new", "good", "ok"].sample.capitalize,
       location: ["onstage", "backstage"].sample.capitalize,
       trashed_at: [nil, Faker::Time.backward(days: 365, period: :all).to_datetime].sample()
     }

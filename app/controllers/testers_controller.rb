@@ -6,8 +6,7 @@ class TestersController < ApplicationController
   def index
     @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).order(created_at: 'DESC')
     @q = @testers.ransack(params[:q])
-    @searchable_testers = @q.result.includes(:product)
-
+    @searchable_testers = @q.result.includes(:product).page(params[:page]).per(6)
     respond_to do |format|
       format.html
       format.js 
@@ -22,7 +21,7 @@ class TestersController < ApplicationController
   def new
     @tester = Tester.new()
     @q = Product.ransack(params[:q])
-    @products = @q.result(distinct:true)
+    @products = @q.result(distinct:true).page(params[:page]).per(6)
 
     respond_to do |format|
       format.html
@@ -81,7 +80,8 @@ class TestersController < ApplicationController
   end
 
   def trashed
-    @testers = Tester.where(shop_id: current_employee.shop_id).where.not(trashed_at: nil).order(created_at: 'DESC')
+    @testers = Tester.where(shop_id: current_employee.shop_id).where.not(trashed_at: nil).order(created_at: 'DESC').page(params[:page]).per(6)
+
     render "trashed"
   end
 
@@ -92,7 +92,8 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC')
+    ).order(created_at: 'DESC').page(params[:page]).per(6)
+
     render "department_testers"
   end
 
@@ -103,7 +104,8 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC')
+    ).order(created_at: 'DESC').page(params[:page]).per(6)
+
     render "department_testers"
   end
 
@@ -114,7 +116,8 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC')
+    ).order(created_at: 'DESC').page(params[:page]).per(6)
+
     render "department_testers"
   end
   
@@ -125,14 +128,15 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC')
+    ).order(created_at: 'DESC').page(params[:page]).per(6)
+
     render "department_testers"
   end
 
   # /manage_testers
   def manage
-    @onstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Onstage").where(trashed_at: nil).order(created_at: 'DESC')
-    @backstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Backstage").where(trashed_at: nil).order(created_at: 'DESC')
+    @onstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Onstage").where(trashed_at: nil).order(created_at: 'DESC').page(params[:onstage_page]).per(6)
+    @backstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Backstage").where(trashed_at: nil).order(created_at: 'DESC').page(params[:backstage_page]).per(6)
 
     respond_to do |format|
       format.html

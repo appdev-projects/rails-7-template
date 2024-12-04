@@ -14,7 +14,7 @@
                 <div class="question" data-index="<%= index %>" style="display: <%= index == 0 ? 'block' : 'none' %>;">
                   <p><%= survey.question %></p>
                   <div class="btn-group-toggle mt-4" data-toggle="buttons" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
-                    <% if survey.scoring_scheme == 2 %>
+                    <% if survey.scoring_scheme == 1 %>
                       <label class="btn btn-outline-secondary">
                         <%= radio_button_tag("responses[#{survey.id}]", 1, false, class: "d-none") %> Strongly Agree
                       </label>

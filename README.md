@@ -10,6 +10,7 @@ Tester Tracker is an inventory management tool that allows Sephora team members 
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Entity Relationship Diagram](#entity-relationship-diagram)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
 - [Contact](#contact)
@@ -55,8 +56,8 @@ Tester Tracker is an inventory management tool that allows Sephora team members 
 
 - `username: 356177, password: password` : Operations interface
 - `username: 100000, password: password` : Admin interface
-- `username: 111111, password: password` : Beauty Advisor interface
-- `username: 222222, password: password` : Lead interface
+- `username: 111111, password: password` : Lead interface
+- `username: 222222, password: password` : Beauty Advisor interface
 - `username: 333333, password: password` : Manager interface
 
 4. The search functionality assumes user has knowledge of Sephora's products(e.g. product names or SKUs). Refer to the `Makeup`, `Skincare`, `Hair`, `Fragrance` views to find examples of product names or SKUs available at user's store location. 
@@ -66,9 +67,6 @@ Tester Tracker is an inventory management tool that allows Sephora team members 
 Example of the `New` view for creating testers:
 ![alt text](tester-tracker-new-view-1.png)
 
-Entity Relationship Diagram for this app: 
-![alt text](erd-model.png)
-
 6. `Manage Testers` and `Trash Tester` views are available only for Sephora's Operations Associates and Admin. If you'd like to access these views, sign up as an Operations Associate or Admin. 
 
 7. As an Operations Associate, you can trash testers that have been placed onstage or aren't in condition to be an onstage tester.
@@ -76,6 +74,12 @@ Entity Relationship Diagram for this app:
 8. An Operations Associate can remove newly created testers that have been placed onstage from inventory by approving them.
 
 9. Admin and Operations teammembers can keep track of tester usage by visiting the `Trashed Testers` view.
+
+## Entity Relationship Diagram 
+
+Visual representation of Tester Tracker's database
+
+![alt text](erd-model.png)
 
 ## Troubleshooting
 

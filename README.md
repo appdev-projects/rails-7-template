@@ -1,10 +1,18 @@
 # Tester Tracker
 
 ## Description
-Tester Tracker is an inventory management tool that allows Sephora team members to manage their store’s backstage product testers. It streamlines the process of managing backstage product testers, ensuring efficient tracking and organization.
+Tester Tracker is an inventory management tool that allows Sephora team members to manage their store’s backstage product testers.
 
 ### Disclaimer
 **This application is not affiliated with, endorsed by, or officially connected to Sephora in any way.** It is solely a personal project developed as a playground environment for educational and experimental purposes. The app does not represent real employees, processes, or operations at Sephora. Any references to Sephora, its roles, or its products are purely fictional and for illustrative purposes only. **If you have any concerns regarding the use of brand names or references, feel free to reach out via the contact information below.** 
+
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [Contact](#contact)
 
 ## Features
 - Role-specific views for Operations Associates, Admins, Beauty Advisors, Leads, and Managers, each with access to relevant features for their responsibilities.
@@ -12,13 +20,12 @@ Tester Tracker is an inventory management tool that allows Sephora team members 
 - Create and manage tester inventory.
 - Trash and approve testers.
 
-## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Contact](#contact)
-
 ## Installation
+
+### Prerequisites
+- Ruby 3.x
+- Rails 7.x
+- PostgreSQL
 
 1. Clone the repository:
 `git clone https://github.com/dgarcia13-99/tester-tracker-sephora`
@@ -59,6 +66,9 @@ Tester Tracker is an inventory management tool that allows Sephora team members 
 Example of the `New` view for creating testers:
 ![alt text](tester-tracker-new-view-1.png)
 
+Entity Relationship Diagram for this app: 
+![alt text](erd-model.png)
+
 6. `Manage Testers` and `Trash Tester` views are available only for Sephora's Operations Associates and Admin. If you'd like to access these views, sign up as an Operations Associate or Admin. 
 
 7. As an Operations Associate, you can trash testers that have been placed onstage or aren't in condition to be an onstage tester.
@@ -66,6 +76,30 @@ Example of the `New` view for creating testers:
 8. An Operations Associate can remove newly created testers that have been placed onstage from inventory by approving them.
 
 9. Admin and Operations teammembers can keep track of tester usage by visiting the `Trashed Testers` view.
+
+## Troubleshooting
+
+### Server not starting
+
+1. Ensure all required gems are installed: Run `bundle install` in terminal.
+
+2. Verify Ruby version (e.g. Ruby 3.x): Run `ruby -v` in terminal. Install correct version if needed.
+
+3. Restart the server `bin/server`.
+
+### Images or Assets not Loading
+
+1. Visit `app/assets/images` and verify that images are correctly saved in `images` or folder under `images`.
+
+2. In production.rb, ensure `config.assets.compile = true` is present.
+
+3. Restart the server `bin/server`.
+
+### Unable to log-in
+
+1. Run `rake sample_data` to populate database with seed data.
+
+2. Run `rails console` and query data (e.g. `Employee.all` or `Employee.count`) to ensure it was seeded correctly.
 
 ## Contributing
 

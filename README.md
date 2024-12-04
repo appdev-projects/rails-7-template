@@ -4,9 +4,7 @@
 Tester Tracker is an inventory management tool that allows Sephora team members to manage their store’s backstage product testers. It streamlines the process of managing backstage product testers, ensuring efficient tracking and organization.
 
 ### Disclaimer
-**This application is not affiliated with, endorsed by, or officially connected to Sephora in any way.** It is solely a personal project developed as a playground environment for educational and experimental purposes. The app does not represent real employees, processes, or operations at Sephora. Any references to Sephora, its roles, or its products are purely fictional and for illustrative purposes only. 
-
-    If you have any concerns regarding the use of brand names or references, feel free to reach out via the contact information below. 
+**This application is not affiliated with, endorsed by, or officially connected to Sephora in any way.** It is solely a personal project developed as a playground environment for educational and experimental purposes. The app does not represent real employees, processes, or operations at Sephora. Any references to Sephora, its roles, or its products are purely fictional and for illustrative purposes only. **If you have any concerns regarding the use of brand names or references, feel free to reach out via the contact information below.** 
 
 ## Features
 - Role-specific views for Operations Associates, Admins, Beauty Advisors, Leads, and Managers, each with access to relevant features for their responsibilities.
@@ -48,11 +46,11 @@ Tester Tracker is an inventory management tool that allows Sephora team members 
 
   NOTE: The credentials provided are for testing purposes only and do not correspond to any real Sephora accounts or information.
 
-`username: 356177, password: password` : Operations interface
-`username: 100000, password: password` : Admin interface
-`username: 111111, password: password` : Beauty Advisor interface
-`username: 222222, password: password` : Lead interface
-`username: 333333, password: password` : Manager interface
+- `username: 356177, password: password` : Operations interface
+- `username: 100000, password: password` : Admin interface
+- `username: 111111, password: password` : Beauty Advisor interface
+- `username: 222222, password: password` : Lead interface
+- `username: 333333, password: password` : Manager interface
 
 4. The search functionality assumes user has knowledge of Sephora's products(e.g. product names or SKUs). Refer to the `Makeup`, `Skincare`, `Hair`, `Fragrance` views to find examples of product names or SKUs available at user's store location. 
 
@@ -81,5 +79,5 @@ Contributions are welcome! Please follow these guidelines:
 
 ## Contact
 
-Daniela Garcia - [your email](mailto:danielagarcia13.99@gmail.com)
+Daniela Garcia - [danielagarcia13.99@gmail.com](mailto:danielagarcia13.99@gmail.com)
 Project Link: [https://github.com/dgarcia13-99/tester-tracker-sephora](https://github.com/dgarcia13-99/tester-tracker-sephora)

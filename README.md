@@ -31,17 +31,20 @@ Tester Tracker is an inventory management tool that allows Sephora team members 
 1. Clone the repository:
 `git clone https://github.com/dgarcia13-99/tester-tracker-sephora`
 
-2. Navigate to the project directory:
-`cd tester-tracker-sephora`
-
-3. Install the required gems:
+2. Install the required gems:
 `bundle install`
 
-4. Set up the database:
+3. Set up the database:
 `rake sample_data`
 
-5. Start the Rails server:
+4. Start the Rails server:
 `bin/dev`
+
+## Configuration
+
+Currently, there aren’t any specific configurations needed for this project.
+
+If you’re looking to add things like API keys, environment settings, or other sensitive info, a good way to handle that is by using Rails credentials. It’s a secure way to keep sensitive information out of version control while still making it easy to use in your app.
 
 ## Usage
 
@@ -110,10 +113,30 @@ Visual representation of Tester Tracker's database
 Contributions are welcome! Please follow these guidelines:
 
 1. Fork the repository
-2. Create a new branch (`git checkout -b feature-branch`)
+2. Create a new branch (`git checkout -b branch_name`)
+
+  **Branch Naming Conventions:**
+  Name your branch using your initials, contribution (feature or bugfix), and brief description.
+  - `git checkout -b initials-feature_or_bugfix-description` (e.g. `dg-feature-add_user_authentication`)
+
 3. Commit your changes (`git commit -m 'Add some feature'`)
+
+  **Coding Conventions:**
+  - Ensure you are not making commits directly on the main branch.
+  - Make commit messages concise and descriptive. Include variables, methods, and file names that were updated.
+  - When making changes, add a short one-line comment on what was changed and how it works.
+  - Use snake case for your descriptive variables.
+  - Use camel case for classes and modules.
+  - Adhere to Ruby's coding conventions to maintain clean, readable, and consistent code. Refer to Ruby's style guide for more information.
+
 4. Push to the branch (`git push origin feature-branch`)
 5. Open a pull request
+
+  **Pull Request Process**
+  - After committing all changes to your branch, create a pull request to the main branch.
+  - In your repository settings, visit the 'Collaborators' tab and add 'dgarcia13-99' as a collaborator.
+  - Visit your pull request, and add 'dgarcia13-99' a reviewer. 
+  - Leave any concerns or questions in the comments section of your pull request.
 
 ## Contact
 

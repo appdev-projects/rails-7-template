@@ -21,7 +21,7 @@
     <%= f.select :condition, ["New", "Good", "Ok"],{}, { class: "form-select form-control" } %>
 
     <%= f.label :location, "Location" %>
-    <%= f.select :location, ["Onstage", "Backstage"], {}, { class: "form-select form-control" } %>
+    <%= f.select :location, ["Onstage", "Makeup Bin 1", "Makeup Bin 2", "Skincare Bin 1", "Skincare Bin 2", "Hair Bin 1", "Hair Bin 2", "Fragrance Bin 1", "Fragrance Bin 2" ], {}, { class: "form-select form-control" } %>
 
     <%= f.hidden_field :trashed_at, value: nil %>
   </div>
@@ -30,7 +30,7 @@
     <%= f.submit class: "btn btn-outline-dark"%>
   </div>
 
-  <p class="text-center"> <%= @tester.trashed_at %></p>
+  <p class="text-center"> <%= @tester.trashed_at.strftime("%B %d, %Y %H:%M:%S") %></p>
 
 <% end %>
 </div>

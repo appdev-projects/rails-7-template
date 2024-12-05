@@ -19,9 +19,14 @@
               <%= tester.condition %>
             </p>
 
+             <p>
+              <strong>Location:</strong>
+              <%= tester.location %>
+            </p>
+
             <p>
               <strong>Time created:</strong>
-              <%= time_ago_in_words(tester.created_at) %>
+              <%= tester.created_at.strftime("%B %d, %Y %H:%M:%S") %>
             </p>
 
             <p style="text-align: center;">Need to make changes to this newly created tester?</p>

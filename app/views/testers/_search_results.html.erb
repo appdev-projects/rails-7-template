@@ -10,6 +10,8 @@
             <%= image_tag tester.product.image, width: "200", height: "200" %>
             <p><strong>SKU:</strong> <%= tester.product.sku %></p>
             <p><strong>Condition:</strong> <%= tester.condition %></p>
+            <p><strong>Location:</strong> <%= tester.location %></p>
+            <p><strong>Time Created:</strong> <%= tester.created_at.strftime("%B %d, %Y %H:%M:%S") %></p>
           </div>
         <% end %>
       </div>

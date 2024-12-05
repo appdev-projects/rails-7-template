@@ -153,7 +153,7 @@ class TestersController < ApplicationController
   # /manage_testers
   def manage
     @onstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Onstage").where(trashed_at: nil).order(created_at: 'DESC').page(params[:onstage_page]).per(6)
-    @backstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Backstage").where(trashed_at: nil).order(created_at: 'DESC').page(params[:backstage_page]).per(6)
+    @backstage_testers = Tester.where(shop_id: current_employee.shop_id).where.not(location: "Onstage").where(trashed_at: nil).order(created_at: 'DESC').page(params[:backstage_page]).per(6)
 
     respond_to do |format|
       format.html

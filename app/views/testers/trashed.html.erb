@@ -22,10 +22,15 @@
               <strong>Condition:</strong>
               <%= tester.condition %>
             </p>
+
+            <p>
+              <strong>Location:</strong>
+              <%= tester.location %>
+            </p>
             
             <p>
               <strong>Time trashed:</strong>
-              <%= tester.updated_at %>
+              <%= tester.updated_at.strftime("%B %d, %Y %H:%M:%S") %>
             </p>
             
           </div>

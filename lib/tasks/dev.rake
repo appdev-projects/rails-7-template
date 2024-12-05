@@ -119,34 +119,46 @@ task({ :sample_data => :environment }) do
 
   # Tester sample data
   testers = [
-  { product_id: Product.find_by(sku: "2467371").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Onstage",trashed_at: nil },
-  { product_id: Product.find_by(sku: "2743896").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2568376").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2494367").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2335636").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "1605906").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2490696").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "870618").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2605178").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2696821").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Onstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2802163").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Onstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2527844").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2520427").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2819274").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2662468").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "1863588").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
-  { product_id: Product.find_by(sku: "2520427").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
-  { product_id: Product.find_by(sku: "2662468").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
-  { product_id: Product.find_by(sku: "2605178").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
-  { product_id: Product.find_by(sku: "2335636").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime }
+  { product_id: Product.find_by(sku: "2467371").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Onstage", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "2743896").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Makeup Bin 2", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "2568376").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Fragrance Bin 1", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "2494367").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Hair Bin 2", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "2335636").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Skincare Bin 1", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "1605906").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Fragrance Bin 1", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "2490696").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Makeup Bin 2", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "870618").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Makeup Bin 2", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "2605178").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Hair Bin 1", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "2696821").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Makeup Bin 1", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "2802163").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Onstage", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "2527844").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Skincare Bin 1", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "2520427").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Makeup Bin 1", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "2819274").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Fragrance Bin 2", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "2662468").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Makeup Bin 1", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: nil },
+  { product_id: Product.find_by(sku: "1863588").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Skincare Bin 2", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S") },
+  { product_id: Product.find_by(sku: "2520427").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Makeup Bin 2", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S") },
+  { product_id: Product.find_by(sku: "2662468").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Makeup Bin 1", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S") },
+  { product_id: Product.find_by(sku: "2605178").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Hair Bin 2", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S") },
+  { product_id: Product.find_by(sku: "2335636").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Skincare Bin 1", created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"), trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S") }
 ]
+
   Product.all.sample(15).each do |product|
+    if product.department.name == "Makeup"
+      tester_location= ["Onstage", "Makeup Bin 1", "Makeup Bin 2"].sample
+    elsif product.department.name == "Skincare"
+     tester_location= ["Onstage", "Skincare Bin 1", "Skincare Bin 2"].sample
+    elsif product.department.name == "Hair"
+     tester_location= ["Onstage", "Hair Bin 1",  "Hair Bin 2"].sample
+    elsif product.department.name == "Fragrance"
+     tester_location= ["Onstage", "Fragrance Bin 1",  "Fragrance Bin 2"].sample
+    end
+
     testers << {
       product_id: product.id,
       shop_id: Shop.pluck(:id).sample,
-      condition: ["new", "good", "ok"].sample.capitalize,
-      location: ["onstage", "backstage"].sample.capitalize,
-      trashed_at: [nil, Faker::Time.backward(days: 365, period: :all).to_datetime].sample()
+      condition: ["new", "good", "ok"].sample.capitalize, 
+      location: tester_location,
+      created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"),
+      trashed_at: [nil, Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S")].sample
     }
   end
 
@@ -156,6 +168,7 @@ task({ :sample_data => :environment }) do
       shop_id: tester[:shop_id],
       condition: tester[:condition].capitalize,
       location: tester[:location].capitalize,
+      created_at: tester[:created_at],
       trashed_at: tester[:trashed_at]
     )
   end

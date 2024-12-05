@@ -109,7 +109,7 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC').page(params[:page]).per(6)
+    ).where.not(location: "Onstage").order(created_at: 'DESC').page(params[:page]).per(6)
 
     render "department_testers"
   end
@@ -121,7 +121,7 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC').page(params[:page]).per(6)
+    ).where.not(location: "Onstage").order(created_at: 'DESC').page(params[:page]).per(6)
 
     render "department_testers"
   end
@@ -133,7 +133,7 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC').page(params[:page]).per(6)
+    ).where.not(location: "Onstage").order(created_at: 'DESC').page(params[:page]).per(6)
 
     render "department_testers"
   end
@@ -145,7 +145,7 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC').page(params[:page]).per(6)
+    ).where.not(location: "Onstage").order(created_at: 'DESC').page(params[:page]).per(6)
 
     render "department_testers"
   end

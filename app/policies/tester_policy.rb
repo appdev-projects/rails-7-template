@@ -29,7 +29,7 @@ class TesterPolicy < ApplicationPolicy
   end
 
   def trash?
-    employee.role.title = "Operations Associate"
+    employee.role.title = "Operations Associate" 
   end
 
   def trashed?
@@ -37,22 +37,22 @@ class TesterPolicy < ApplicationPolicy
   end
 
   def makeup?
-    employee.admin? == false
+    true
   end
 
   def skincare?
-    employee.admin? == false
+    true
   end
 
   def hair?
-    employee.admin? == false
+    true
   end
 
   def fragrance?
-    employee.admin? == false
+    true
   end
 
   def manage?
-    employee.role.title == "Operations Associate"
+    employee.role.title == "Operations Associate" || employee.admin?
   end
 end

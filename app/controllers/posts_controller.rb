@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   def create
     the_post = Post.new
-    the_post.content = params.fetch("query_body")
+    the_post.content = params.fetch("query_content")
 
     if the_post.valid?
       the_post.save
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
     the_id = params.fetch("path_id")
     the_post = Post.where({ :id => the_id }).at(0)
 
-    the_post.content = params.fetch("query_body")
+    the_post.content = params.fetch("query_content")
 
     if the_post.valid?
       the_post.save

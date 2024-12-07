@@ -119,3 +119,4 @@ gem "ransack"
 
 gem "rails_admin"
 gem "sassc-rails"
+gem "blazer"

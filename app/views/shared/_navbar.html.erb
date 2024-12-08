@@ -6,11 +6,26 @@
       Perfect Pals
     <% end %>
 
+    <div>
+      <% if user_signed_in? && current_user.admin? %>
+        <li class="nav-item dropdown">
+          <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Admin
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><%= link_to "Admin", rails_admin_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Blazer", blazer_path, class: "dropdown-item", target: :_blank %></li>
+          </ul>
+        </li>
+      <% end %>
+    </div>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarContent">
+
       <ul class="navbar-nav ms-auto d-flex align-items-center gap-2">
         <% if user_signed_in? %>
           <li class="nav-item">

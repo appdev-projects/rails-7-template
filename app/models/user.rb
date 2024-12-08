@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  admin                  :boolean          default(FALSE), not null
 #  age                    :integer
 #  avatar                 :string
 #  bio                    :text
@@ -43,7 +44,6 @@ class User < ApplicationRecord
   has_many :sent_messages, class_name: "Message", foreign_key: "sender_id", dependent: :destroy
   has_many :received_messages, class_name: "Message", foreign_key: "recipient_id", dependent: :destroy
   has_many :survey_responses
-  has_one :score
 
   def self.ransackable_attributes(auth_object = nil)
     ["age", "budget", "gender", "location", "occupation"]

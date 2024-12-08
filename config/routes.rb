@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  draw(:admin)
+
   root "users#home"
 
   devise_for :users, controllers: { registrations: "user/registrations" }
@@ -24,6 +26,6 @@ Rails.application.routes.draw do
 
   # Routes to display the messages
   get("/messages/conversation/:user_id", { :controller => "messages", :action => "conversation" })
-  
+
   get "/:id" => "users#show"
 end

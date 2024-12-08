@@ -116,3 +116,7 @@ gem 'kaminari'
 
 # Search/filter form
 gem "ransack"
+
+gem "rails_admin"
+gem "sassc-rails"
+gem "blazer"

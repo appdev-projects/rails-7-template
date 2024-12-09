@@ -9,18 +9,18 @@ module User::MetaTaggable
     tags = {
       site: "Perfect Pals",
       title: user_name,
-      description: bio.truncate_words(20),
+      description: bio.present? ? bio.truncate_words(20) : "Default description", # Add nil check
       og: {
         title: user_name,
-        description: bio.truncate_words(20),
+        description: bio.present? ? bio.truncate_words(20) : "Default description", # Add nil check
         site_name: "Perfect Pals",
-      }
+      },
     }
 
-     if avatar.present?
-        tags[:image] = avatar
-        tags[:og][:image] = avatar
-     end
+    if avatar.present?
+      tags[:image] = avatar
+      tags[:og][:image] = avatar
+    end
 
     tags
   end

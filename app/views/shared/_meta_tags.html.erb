@@ -1,23 +1,19 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta charset="utf-8">
+
+<%=
+  display_meta_tags({
+    site: "Perfect Pals",
+    image: asset_url('perfect_pals.png'),
+    description: "Find reliable roommates with our app, featuring a Trust Score based on a trust assessment, video interview, and social media profile sharing to gauge characteristics related to trustworthiness, such as emotional stability, empathy, honesty, and fairness.",
+    og: {
+      title: "Perfect Pals",
+      image: asset_url('perfect_pals.png'),
+      description: "Find reliable roommates with our app, featuring a Trust Score based on a trust assessment, video interview, and social media profile sharing to gauge characteristics related to trustworthiness, such as emotional stability, empathy, honesty, and fairness.",
+      site_name: "Perfect Pals"
+    },
+  })
+%>
+
 <%= csrf_meta_tags %>
 <%= csp_meta_tag %>
-
-<!-- Primary Meta Tags -->
-<title>Perfect Pals</title>
-<meta name="title" content="Perfect Pals" />
-<meta name="description" content="Find reliable roommates with our app, featuring a Trust Score based on a trust assessment, video interview, and social media profile sharing to gauge characteristics related to trustworthiness, such as emotional stability, empathy, honesty, and fairness." />
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://perfect-pals.onrender.com/" />
-<meta property="og:title" content="Perfect Pals" />
-<meta property="og:description" content="Find reliable roommates with our app, featuring a Trust Score based on a trust assessment, video interview, and social media profile sharing to gauge characteristics related to trustworthiness, such as emotional stability, empathy, honesty, and fairness." />
-<meta property="og:image" content="<%= asset_path('perfect_pals.png') %>" />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content="https://perfect-pals.onrender.com/" />
-<meta property="twitter:title" content="Perfect Pals" />
-<meta property="twitter:description" content="Find reliable roommates with our app, featuring a Trust Score based on a trust assessment, video interview, and social media profile sharing to gauge characteristics related to trustworthiness, such as emotional stability, empathy, honesty, and fairness." />
-<meta property="twitter:image" content="<%= asset_path('perfect_pals.png') %>" />

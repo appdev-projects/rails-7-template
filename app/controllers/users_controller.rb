@@ -21,6 +21,8 @@ class UsersController < ApplicationController
       @message = nil
     end
 
+    set_meta_tags @user.to_meta_tags
+    
     @breadcrumbs = [
       { content: "Home", href: "/" },
       { content: "Pals", href: users_path },

@@ -116,7 +116,6 @@ task({ :sample_data => :environment }) do
       )
   end
 
-
   # Tester sample data
   Shop.all.each do |shop|
     testers = [
@@ -139,17 +138,16 @@ task({ :sample_data => :environment }) do
   
     # Add additional random testers
     Product.all.sample(15).each do |product|
-      tester_location = case product.department.name
-        when "Makeup"
-          ["Onstage", "Makeup Bin 1", "Makeup Bin 2"].sample
-        when "Skincare"
-          ["Onstage", "Skincare Bin 1", "Skincare Bin 2"].sample
-        when "Hair"
-          ["Onstage", "Hair Bin 1", "Hair Bin 2"].sample
-        when "Fragrance"
-          ["Onstage", "Fragrance Bin 1", "Fragrance Bin 2"].sample
-        else
-          "Onstage"
+      if product.department.name == "Makeup"
+        tester_location = ["Onstage", "Makeup Bin 1", "Makeup Bin 2"].sample
+      elsif product.department.name == "Skincare"
+        tester_location = ["Onstage", "Skincare Bin 1", "Skincare Bin 2"].sample
+      elsif product.department.name == "Hair"
+        tester_location = ["Onstage", "Hair Bin 1", "Hair Bin 2"].sample
+      elsif product.department.name == "Fragrance"
+        tester_location = ["Onstage", "Fragrance Bin 1", "Fragrance Bin 2"].sample
+      else
+        tester_location = "Onstage"
       end
   
       testers << {

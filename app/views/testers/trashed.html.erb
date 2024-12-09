@@ -11,7 +11,7 @@
             <strong><%= tester.product.name %></strong>
           </div>
 
-          <div class="card-body d-flex flex-column align-items-center justify-content-center" >
+          <div class="card-body d-flex flex-column align-items-center justify-content-center" style="text-align: center;" >
             <%= image_tag tester.product.image, width: "200", height: "200", class: "img-fluid" %>
             <p>
               <strong>SKU:</strong>
@@ -22,10 +22,15 @@
               <strong>Condition:</strong>
               <%= tester.condition %>
             </p>
+
+            <p>
+              <strong>Location:</strong>
+              <%= tester.location %>
+            </p>
             
             <p>
               <strong>Time trashed:</strong>
-              <%= tester.updated_at %>
+              <%= tester.updated_at.strftime("%B %d, %Y %H:%M:%S") %>
             </p>
             
           </div>

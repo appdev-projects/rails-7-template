@@ -116,48 +116,59 @@ task({ :sample_data => :environment }) do
       )
   end
 
-
   # Tester sample data
-  testers = [
-  { product_id: Product.find_by(sku: "2467371").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Onstage",trashed_at: nil },
-  { product_id: Product.find_by(sku: "2743896").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2568376").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2494367").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2335636").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "1605906").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2490696").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "870618").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2605178").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2696821").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Onstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2802163").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "new", location: "Onstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2527844").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2520427").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2819274").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "2662468").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: nil },
-  { product_id: Product.find_by(sku: "1863588").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
-  { product_id: Product.find_by(sku: "2520427").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
-  { product_id: Product.find_by(sku: "2662468").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
-  { product_id: Product.find_by(sku: "2605178").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "ok", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime },
-  { product_id: Product.find_by(sku: "2335636").id, shop_id: Shop.find_by(shop_number: 336).id, condition: "good", location: "Backstage", trashed_at: Faker::Time.backward(days: 365, period: :all).to_datetime }
-]
-  Product.all.sample(15).each do |product|
-    testers << {
-      product_id: product.id,
-      shop_id: Shop.pluck(:id).sample,
-      condition: ["new", "good", "ok"].sample.capitalize,
-      location: ["onstage", "backstage"].sample.capitalize,
-      trashed_at: [nil, Faker::Time.backward(days: 365, period: :all).to_datetime].sample()
-    }
-  end
-
-  testers.each do |tester|
-    Tester.create(
-      product_id: tester[:product_id],
-      shop_id: tester[:shop_id],
-      condition: tester[:condition].capitalize,
-      location: tester[:location].capitalize,
-      trashed_at: tester[:trashed_at]
-    )
+  Shop.all.each do |shop|
+    testers = [
+      { product_id: Product.find_by(sku: "2467371").id, condition: "New", location: "Onstage", trashed_at: nil },
+      { product_id: Product.find_by(sku: "2743896").id, condition: "Ok", location: "Makeup Bin 2", trashed_at: nil },
+      { product_id: Product.find_by(sku: "2568376").id, condition: "Good", location: "Fragrance Bin 1", trashed_at: nil },
+      { product_id: Product.find_by(sku: "2494367").id, condition: "Ok", location: "Hair Bin 2", trashed_at: nil },
+      { product_id: Product.find_by(sku: "2335636").id, condition: "New", location: "Skincare Bin 1", trashed_at: nil },
+      { product_id: Product.find_by(sku: "1605906").id, condition: "Good", location: "Fragrance Bin 1", trashed_at: nil },
+      { product_id: Product.find_by(sku: "2490696").id, condition: "Good", location: "Makeup Bin 2", trashed_at: nil },
+      { product_id: Product.find_by(sku: "870618").id, condition: "Ok", location: "Makeup Bin 2", trashed_at: nil },
+      { product_id: Product.find_by(sku: "2605178").id, condition: "Ok", location: "Hair Bin 1", trashed_at: nil },
+      { product_id: Product.find_by(sku: "2696821").id, condition: "New", location: "Makeup Bin 1", trashed_at: nil },
+      { product_id: Product.find_by(sku: "2802163").id, condition: "New", location: "Onstage", trashed_at: nil },
+      { product_id: Product.find_by(sku: "2527844").id, condition: "Ok", location: "Skincare Bin 1", trashed_at: nil },
+      { product_id: Product.find_by(sku: "2520427").id, condition: "Good", location: "Makeup Bin 1", trashed_at: nil },
+      { product_id: Product.find_by(sku: "2819274").id, condition: "Good", location: "Fragrance Bin 2", trashed_at: nil },
+      { product_id: Product.find_by(sku: "2662468").id, condition: "Good", location: "Makeup Bin 1", trashed_at: nil }
+    ]
+  
+    # Add additional random testers
+    Product.all.sample(15).each do |product|
+      if product.department.name == "Makeup"
+        tester_location = ["Onstage", "Makeup Bin 1", "Makeup Bin 2"].sample
+      elsif product.department.name == "Skincare"
+        tester_location = ["Onstage", "Skincare Bin 1", "Skincare Bin 2"].sample
+      elsif product.department.name == "Hair"
+        tester_location = ["Onstage", "Hair Bin 1", "Hair Bin 2"].sample
+      elsif product.department.name == "Fragrance"
+        tester_location = ["Onstage", "Fragrance Bin 1", "Fragrance Bin 2"].sample
+      else
+        tester_location = "Onstage"
+      end
+  
+      testers << {
+        product_id: product.id,
+        condition: ["New", "Good", "Ok"].sample, 
+        location: tester_location,
+        trashed_at: [nil, Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S")].sample
+      }
+    end
+  
+    # Create testers for this specific shop
+    testers.each do |tester|
+      Tester.create(
+        product_id: tester[:product_id],
+        shop_id: shop.id,
+        condition: tester[:condition],
+        location: tester[:location],
+        created_at: Faker::Time.backward(days: 365, period: :all).to_datetime.strftime("%B %d, %Y %H:%M:%S"),
+        trashed_at: tester[:trashed_at]
+      )
+    end
   end
 
   # Print information on sample data created

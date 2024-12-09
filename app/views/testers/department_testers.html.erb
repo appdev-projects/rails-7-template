@@ -24,12 +24,17 @@
             </p>
 
             <p>
+              <strong>Location:</strong>
+              <%= tester.location %>
+            </p>
+
+            <p>
               <strong>Time Created:</strong>
-              <%= tester.created_at %>
+              <%= tester.created_at.strftime("%B %d, %Y %H:%M:%S") %>
             </p>
 
             <%if current_employee.role.title == "Operations Associate" || current_employee.admin? %>
-            <%= link_to "Trash this tester", trash_path(tester), class: "btn btn-outline-danger mt-auto" %>
+            <%= link_to "Trash this tester", trash_path(tester), method: :patch, class: "btn btn-outline-danger mt-auto" %>
             <%end%>
           </div>
         </div>

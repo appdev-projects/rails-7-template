@@ -4,7 +4,7 @@ class TestersController < ApplicationController
 
   # GET /testers or /testers.json
   def index
-    @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).order(created_at: 'DESC')
+    @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).where.not(location: "Onstage").order(created_at: 'DESC')
     @q = @testers.ransack(params[:q])
     @searchable_testers = @q.result.includes(:product).page(params[:page]).per(6)
 
@@ -109,7 +109,7 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC').page(params[:page]).per(6)
+    ).where.not(location: "Onstage").order(created_at: 'DESC').page(params[:page]).per(6)
 
     render "department_testers"
   end
@@ -121,7 +121,7 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC').page(params[:page]).per(6)
+    ).where.not(location: "Onstage").order(created_at: 'DESC').page(params[:page]).per(6)
 
     render "department_testers"
   end
@@ -133,7 +133,7 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC').page(params[:page]).per(6)
+    ).where.not(location: "Onstage").order(created_at: 'DESC').page(params[:page]).per(6)
 
     render "department_testers"
   end
@@ -145,7 +145,7 @@ class TestersController < ApplicationController
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
       trashed_at: nil
-    ).order(created_at: 'DESC').page(params[:page]).per(6)
+    ).where.not(location: "Onstage").order(created_at: 'DESC').page(params[:page]).per(6)
 
     render "department_testers"
   end
@@ -153,7 +153,7 @@ class TestersController < ApplicationController
   # /manage_testers
   def manage
     @onstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Onstage").where(trashed_at: nil).order(created_at: 'DESC').page(params[:onstage_page]).per(6)
-    @backstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Backstage").where(trashed_at: nil).order(created_at: 'DESC').page(params[:backstage_page]).per(6)
+    @backstage_testers = Tester.where(shop_id: current_employee.shop_id).where.not(location: "Onstage").where(trashed_at: nil).order(created_at: 'DESC').page(params[:backstage_page]).per(6)
 
     respond_to do |format|
       format.html

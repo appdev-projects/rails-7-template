@@ -4,6 +4,21 @@ ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "capybara/rails"
 require "capybara/rspec"
+
+
+options = Selenium::WebDriver::Chrome::Options.new
+options.add_argument('--headless')
+options.add_argument('--disable-gpu')
+options.add_argument('--no-sandbox')
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
+
+Capybara.javascript_driver = :selenium
+
+
+
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"

@@ -105,6 +105,7 @@ end
 
 group :development, :test do
   gem "rspec-rails", "~> 6.0.0"
+  gem "rails-controller-testing"
 end
 
 group :test do
@@ -112,6 +113,8 @@ group :test do
   gem "shoulda-matchers", "~> 4.0"
   gem "rspec-html-matchers"
   gem "webmock"
+  gem "capybara"
+  gem "selenium-webdriver"
 end
 
 # Pagination

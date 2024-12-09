@@ -22,7 +22,6 @@
 #  reset_password_token   :string
 #  survey_score           :integer
 #  trust_score            :integer          default(0)
-#  username               :citext
 #  video_url              :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
@@ -31,7 +30,6 @@
 #
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
-#  index_users_on_username              (username) UNIQUE
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
@@ -43,7 +41,6 @@ class User < ApplicationRecord
 
   has_many :sent_messages, class_name: "Message", foreign_key: "sender_id", dependent: :destroy
   has_many :received_messages, class_name: "Message", foreign_key: "recipient_id", dependent: :destroy
-  has_many :survey_responses
 
   def self.ransackable_attributes(auth_object = nil)
     ["age", "budget", "gender", "location", "occupation"]

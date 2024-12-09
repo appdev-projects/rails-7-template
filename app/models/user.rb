@@ -37,7 +37,7 @@ class User < ApplicationRecord
   include User::MetaTaggable
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
+         :recoverable, :rememberable, :validatable
 
   before_save :calculate_trust_score
 

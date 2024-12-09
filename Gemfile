@@ -113,8 +113,6 @@ group :test do
   gem "shoulda-matchers", "~> 4.0"
   gem "rspec-html-matchers"
   gem "webmock"
-  gem "capybara"
-  gem "selenium-webdriver"
 end
 
 # Pagination
@@ -126,3 +124,4 @@ gem "ransack"
 gem "rails_admin"
 gem "sassc-rails"
 gem "blazer"
+gem "meta-tags"

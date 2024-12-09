@@ -18,11 +18,4 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: "small text-purple" %><br />
 <% end %>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: "btn btn-secondary my-3" do %>
-      <i class="fa-brands fa-github pe-1"></i> Sign in with GitHub
-    <% end %>
 
-  <% end %>
-<% end %>

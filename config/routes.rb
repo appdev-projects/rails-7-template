@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   end
   devise_for :employees, sign_out_via: :delete
-  root "testers#index"
+  root "testers#welcome"
   resources :testers
   resources :products
   resources :brands
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :roles
   resources :shops
 
+  get "/welcome" => "testers#welcome", as: :welcome
   get "/makeup" => "testers#makeup", as: :makeup
   get "/skincare" => "testers#skincare", as: :skincare
   get "/hair" => "testers#hair", as: :hair

@@ -1,8 +1,13 @@
 class TestersController < ApplicationController
+  skip_before_action :authenticate_employee!, only: [:welcome]
   before_action :set_tester, only: %i[ show edit update destroy trash]
-  before_action {authorize(@tester || Tester)}
+  before_action(except: [:welcome]) { authorize(@tester || Tester) }
 
   # GET /testers or /testers.json
+
+  def welcome
+  end
+  
   def index
     @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).where.not(location: "Onstage").order(created_at: 'DESC')
     @q = @testers.ransack(params[:q])

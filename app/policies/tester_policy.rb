@@ -1,5 +1,9 @@
 class TesterPolicy < ApplicationPolicy
 
+  def welcome?
+    true
+  end
+
   def index?
     true
   end

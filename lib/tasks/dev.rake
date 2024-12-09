@@ -10,7 +10,6 @@ task({ :sample_data => :environment }) do
     User.destroy_all
     Message.destroy_all
     Survey.destroy_all
-    SurveyResponse.destroy_all
   end
 
   # Generate Users
@@ -21,7 +20,6 @@ task({ :sample_data => :environment }) do
     user.id = row[0]
     user.email = row[1]
     user.password = row[2]
-    user.username = row[3]
     user.first_name = row[4]
     user.last_name = row[5]
     user.avatar = row[6]
@@ -70,19 +68,4 @@ task({ :sample_data => :environment }) do
   end
 
   pp "There are now #{Survey.count} surveys."
-
-  ##Generate Survey Responses
-  pp "Generate Survey Responses"
-
-  CSV.foreach("lib/sample_data/survey_response.csv", :headers => true) do |row|
-    survey_response = SurveyResponse.new
-    survey_response.id = row[0]
-    survey_response.user_id = row[1]
-    survey_response.survey_id = row[2]
-    survey_response.score = row[3]
-
-    survey_response.save
-  end
-
-  pp "There are now #{SurveyResponse.count} survey responses."
 end

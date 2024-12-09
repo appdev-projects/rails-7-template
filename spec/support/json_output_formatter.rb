@@ -8,7 +8,7 @@ class JsonOutputFormatter < RSpec::Core::Formatters::JsonFormatter
       examples.
       map { |example| example.metadata[:points].to_i }.
       sum
-      
+
     earned_points = summary.
       examples.
       select { |example| example.execution_result.status == :passed }.
@@ -17,7 +17,7 @@ class JsonOutputFormatter < RSpec::Core::Formatters::JsonFormatter
 
     score = (earned_points.to_f / total_points).round(4)
     score = 0 if score.nan?
-    
+
     @output_hash[:summary] = {
       duration: summary.duration,
       example_count: summary.example_count,
@@ -29,26 +29,26 @@ class JsonOutputFormatter < RSpec::Core::Formatters::JsonFormatter
       score: score
     }
     result = (@output_hash[:summary][:score] * 100).round(2)
-    
+
     if summary.errors_outside_of_examples_count.positive?
       result = "An error occurred while running tests"
     else
       result = result.to_s + "%"
     end
-    
-    
+
+
     @output_hash[:summary_line] = [
       "#{summary.example_count} #{summary.example_count == 1 ? "test" : "tests"}",
       "#{summary.failure_count} failures",
       "#{earned_points}/#{total_points} points",
-      result,
+      result
     ].join(", ")
   end
 
   def close(_notification)
-    output.write  Oj.dump @output_hash
+    output.write Oj.dump @output_hash
   end
-  
+
   private
 
   def format_example(example)
@@ -60,8 +60,7 @@ class JsonOutputFormatter < RSpec::Core::Formatters::JsonFormatter
       points: example.metadata[:points],
       file_path: example.metadata[:file_path],
       line_number:  example.metadata[:line_number],
-      run_time: example.execution_result.run_time,
+      run_time: example.execution_result.run_time
     }
   end
-
 end

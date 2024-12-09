@@ -43,7 +43,7 @@ class User < ApplicationRecord
   has_many :received_messages, class_name: "Message", foreign_key: "recipient_id", dependent: :destroy
 
   def self.ransackable_attributes(auth_object = nil)
-    ["age", "budget", "gender", "location", "occupation"]
+    [ "age", "budget", "gender", "location", "occupation" ]
   end
 
   def pal_name
@@ -62,10 +62,10 @@ class User < ApplicationRecord
   end
 
   def sent_messages
-    return Message.where({ :sender_id => self.id })
+    Message.where({ sender_id: self.id })
   end
 
   def received_messages
-    return Message.where({ :recipient_id => self.id })
+    Message.where({ recipient_id: self.id })
   end
 end

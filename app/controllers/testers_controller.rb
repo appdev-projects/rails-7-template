@@ -4,7 +4,7 @@ class TestersController < ApplicationController
 
   # GET /testers or /testers.json
   def index
-    @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).order(created_at: 'DESC')
+    @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).where.not(location: "Onstage").order(created_at: 'DESC')
     @q = @testers.ransack(params[:q])
     @searchable_testers = @q.result.includes(:product).page(params[:page]).per(6)
 

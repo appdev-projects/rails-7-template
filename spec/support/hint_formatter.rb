@@ -7,5 +7,4 @@ class HintFormatter < RSpec::Core::Formatters::DocumentationFormatter
     super
     @output.puts "\n\nHint:  #{failure.example.metadata[:hint][0]}" if failure.example.metadata[:hint].present?
   end
-
 end

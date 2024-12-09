@@ -9,22 +9,22 @@ class UsersController < ApplicationController
 
     @breadcrumbs = [
       { content: "Home", href: "/" },
-      { content: "Pals", href: users_path },
+      { content: "Pals", href: users_path }
     ]
   end
 
   def show
     @user = User.find_by!(id: params.fetch(:id))
     if current_user
-      @message = Message.new(:sender_id => current_user.id, :recipient_id => @user.id)
+      @message = Message.new(sender_id: current_user.id, recipient_id: @user.id)
     else
-      @message = nil 
+      @message = nil
     end
 
     @breadcrumbs = [
       { content: "Home", href: "/" },
       { content: "Pals", href: users_path },
-      { content: @user.pal_name },
+      { content: @user.pal_name }
     ]
   end
 

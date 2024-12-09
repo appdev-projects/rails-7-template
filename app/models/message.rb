@@ -14,12 +14,12 @@ class Message < ApplicationRecord
   belongs_to :recipient, required: true, class_name: "User", foreign_key: "recipient_id"
 
   def sender
-    matching_users = User.where({ :id => self.sender_id })
-    return matching_users.at(0)
+    matching_users = User.where({ id: self.sender_id })
+    matching_users.at(0)
   end
 
   def recipient
-    matching_users = User.where({ :id => self.recipient_id })
-    return matching_users.at(0)
+    matching_users = User.where({ id: self.recipient_id })
+    matching_users.at(0)
   end
 end

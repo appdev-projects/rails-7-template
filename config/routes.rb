@@ -9,13 +9,13 @@ Rails.application.routes.draw do
   resources :surveys
   resources :messages
 
-  get("/quiz", { :controller => "surveys", :action => "new" })
-  post("/survey", { :controller => "surveys", :action => "create" })
-  get("/result", { :controller => "surveys", :action => "result" })
+  get("/quiz", { controller: "surveys", action: "new" })
+  post("/survey", { controller: "surveys", action: "create" })
+  get("/result", { controller: "surveys", action: "result" })
 
-  get("/underconstruction", { :controller => "users", :action => "underconstruction" })
+  get("/underconstruction", { controller: "users", action: "underconstruction" })
 
-  get("/messages/conversation/:user_id", { :controller => "messages", :action => "conversation" })
+  get("/messages/conversation/:user_id", { controller: "messages", action: "conversation" })
 
   get "/:id" => "users#show"
 end

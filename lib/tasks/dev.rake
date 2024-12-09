@@ -1,8 +1,7 @@
 require "faker"
 
 desc "Fill the database tables with some sample data"
-task({ :sample_data => :environment }) do
-
+task({ sample_data: :environment }) do
   # Destroying Previous Data
   pp "Destroying Previous Data"
 
@@ -15,7 +14,7 @@ task({ :sample_data => :environment }) do
   # Generate Users
   pp "Generating Users"
 
-  CSV.foreach("lib/sample_data/user.csv", :headers => true) do |row|
+  CSV.foreach("lib/sample_data/user.csv", headers: true) do |row|
     user = User.new
     user.id = row[0]
     user.email = row[1]
@@ -39,10 +38,10 @@ task({ :sample_data => :environment }) do
 
   pp "There are now #{User.count} users."
 
-  ##Generate Messages
+  # #Generate Messages
   pp "Generate Messages"
 
-  CSV.foreach("lib/sample_data/message.csv", :headers => true) do |row|
+  CSV.foreach("lib/sample_data/message.csv", headers: true) do |row|
     message = Message.new
     message.id = row[0]
     message.created_at = row[1]
@@ -55,10 +54,10 @@ task({ :sample_data => :environment }) do
 
   pp "There are now #{Message.count} messages."
 
-  ##Generate Survey
+  # #Generate Survey
   pp "Generate Surveys"
 
-  CSV.foreach("lib/sample_data/survey.csv", :headers => true) do |row|
+  CSV.foreach("lib/sample_data/survey.csv", headers: true) do |row|
     survey = Survey.new
     survey.id = row[0]
     survey.question = row[1]

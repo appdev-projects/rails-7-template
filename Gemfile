@@ -57,6 +57,9 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
+  # Set the require option to false, as it is a standalone tool
+  gem "rubocop-rails-omakase", require: false
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -112,7 +115,7 @@ group :test do
 end
 
 # Pagination
-gem 'kaminari'
+gem "kaminari"
 
 # Search/filter form
 gem "ransack"

@@ -1,19 +1,17 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_message, only: [ :show, :edit, :update, :destroy ]
 
   # GET /messages or /messages.json
   def index
     current_user_id = current_user.id
-       
-    received_messages = Message.where({ :recipient_id => current_user_id })
-    sent_messages = Message.where({ :sender_id => current_user_id })
-       
+
+    received_messages = Message.where({ recipient_id: current_user_id })
+    sent_messages = Message.where({ sender_id: current_user_id })
+
     all_messages = received_messages.or(sent_messages)
-  
-    @latest_messages = all_messages.group_by { |message| [message.sender_id, message.recipient_id].sort }
+
+    @latest_messages = all_messages.group_by { |message| [ message.sender_id, message.recipient_id ].sort }
                                    .map { |_, messages| messages.max_by { |message| message.created_at } }
-       
-    
   end
 
   # GET /messages/1 or /messages/1.json
@@ -73,9 +71,9 @@ class MessagesController < ApplicationController
 
     @message = Message.new(sender_id: params[:current_user_id], recipient_id: params[:user_id])
 
-    @messages = Message.where({ :sender_id => current_user_id, :recipient_id => other_user_id })
-                       .or(Message.where({ :sender_id => other_user_id, :recipient_id => current_user_id }))
-    render({ :template => "messages/conversation" })
+    @messages = Message.where({ sender_id: current_user_id, recipient_id: other_user_id })
+                       .or(Message.where({ sender_id: other_user_id, recipient_id: current_user_id }))
+    render({ template: "messages/conversation" })
   end
 
   private

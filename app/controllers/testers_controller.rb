@@ -39,7 +39,7 @@ class TestersController < ApplicationController
   def edit
     @breadcrumbs = [
       {content: "Home", href: root_path},
-      {content: "New Tester", href: new_tester_path},
+      {content: "Edit Tester", href: edit_tester_path},
       {content: @tester.to_s}
     ]
   end

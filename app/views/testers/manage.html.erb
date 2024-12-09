@@ -45,11 +45,19 @@
                 <%= tester.created_at.strftime("%B %d, %Y %H:%M:%S") %>
               </p>
 
+            <div class="d-flex justify-content-center">
+              <% if current_employee.admin? == false %>
+                <p>
+                  <%= link_to "Edit this tester", edit_tester_path(tester), class: "btn btn-outline-secondary", style: "margin-right:10px;" %>
+                </p>
+              <%end%>
+
               <% if current_employee.role.title == "Operations Associate" %>
-              <p>
-                <%= button_to "Trash this tester", trash_path(tester), method: :patch, class: "btn btn-outline-secondary" %>
-              </p> 
-            <%end%>
+                <p>
+                  <%= button_to "Trash this tester", trash_path(tester), method: :patch, class: "btn btn-outline-danger" %>
+                </p> 
+              <%end%>
+            </div>
 
             </div>
           </div>

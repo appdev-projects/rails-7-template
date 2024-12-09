@@ -6,6 +6,11 @@ class TestersController < ApplicationController
   # GET /testers or /testers.json
 
   def welcome
+    if current_employee == nil
+      render "welcome"
+    else 
+      redirect_to testers_path
+    end
   end
   
   def index

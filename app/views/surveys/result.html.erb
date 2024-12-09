@@ -1,0 +1,38 @@
+<div class="flex-grow-1 d-flex flex-column justify-content-between">
+  <div class="content-top">
+    <div class="container text-center my-5" style="max-width: 800px;">
+      <div class="card p-4">
+        <p>Your total score is <strong><%= @total_score %></strong> out of 60.</p>
+        <div>
+          <% if @total_score >= 48 %>
+            <p>
+              You consistently act in a reliable, empathetic, and fair manner, making you someone people can count on.
+            </p>
+          <% elsif @total_score >= 36 %>
+            <p>
+              You’re often dependable and fair, though there’s some room to grow in handling conflicts or challenging situations.
+            </p>
+          <% elsif @total_score >= 24 %>
+            <p>
+              While you’re dependable at times, you occasionally prioritize personal convenience over responsibility.
+            </p>
+          <% else %>
+            <p>
+              You may often avoid accountability or struggle to approach conflicts with empathy and fairness.
+            </p>
+          <% end %>
+        </div>
+        <%= button_to "Go Back", user_path(current_user), method: :get, class: "btn btn-outline-success" %>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-bottom">
+    <div class="d-flex justify-content-center">
+      <div>
+        <%= image_tag "girl.svg", width: 300 %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,13 +14,13 @@ Rails.application.routes.draw do
   # get("/pals", { :controller => "users", :action => "pals" })
 
   # Route to display the quiz
-  get("/quiz", { :controller => "survey_responses", :action => "new" })
+  get("/quiz", { :controller => "surveys", :action => "new" })
 
   # Route to handle the form submission
-  post("/survey_responses", { :controller => "survey_responses", :action => "create" })
+  post("/survey", { :controller => "surveys", :action => "create" })
 
   # Route to display the result
-  get("/result", { :controller => "survey_responses", :action => "result" })
+  get("/result", { :controller => "surveys", :action => "result" })
 
   get("/underconstruction", { :controller => "users", :action => "underconstruction" })
 

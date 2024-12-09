@@ -1,0 +1,19 @@
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+
+<%=
+  display_meta_tags({
+    site: "Perfect Pals",
+    image: asset_url('perfect_pals.png'),
+    description: "Find reliable roommates with our app, featuring a Trust Score based on a trust assessment, video interview, and social media profile sharing to gauge characteristics related to trustworthiness, such as emotional stability, empathy, honesty, and fairness.",
+    og: {
+      title: "Perfect Pals",
+      image: asset_url('perfect_pals.png'),
+      description: "Find reliable roommates with our app, featuring a Trust Score based on a trust assessment, video interview, and social media profile sharing to gauge characteristics related to trustworthiness, such as emotional stability, empathy, honesty, and fairness.",
+      site_name: "Perfect Pals"
+    },
+  })
+%>
+
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>

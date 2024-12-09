@@ -34,6 +34,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  include User::MetaTaggable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -42,6 +44,7 @@ class User < ApplicationRecord
   has_many :sent_messages, class_name: "Message", foreign_key: "sender_id", dependent: :destroy
   has_many :received_messages, class_name: "Message", foreign_key: "recipient_id", dependent: :destroy
 
+
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :instagram_url, format: { with: /\Ahttps:\/\/www\.instagram\.com\// }, allow_blank: true
   validates :facebook_url, format: { with: /\Ahttps:\/\/www\.facebook\.com\// }, allow_blank: true
@@ -49,10 +52,6 @@ class User < ApplicationRecord
 
   def self.ransackable_attributes(auth_object = nil)
     [ "age", "budget", "gender", "location", "occupation" ]
-  end
-
-  def pal_name
-    "#{first_name} #{last_name}"
   end
 
   def calculate_trust_score
@@ -72,5 +71,9 @@ class User < ApplicationRecord
 
   def received_messages
     Message.where({ recipient_id: self.id })
+  end
+
+  def pal_name
+    "#{first_name} #{last_name}"
   end
 end

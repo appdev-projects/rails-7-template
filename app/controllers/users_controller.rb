@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if current_user
       @message = Message.new(:sender_id => current_user.id, :recipient_id => @user.id)
     else
-      @message = nil # Ensure no message is initialized if the user is not signed in
+      @message = nil 
     end
 
     @breadcrumbs = [

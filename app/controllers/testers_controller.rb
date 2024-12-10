@@ -14,7 +14,7 @@ class TestersController < ApplicationController
   end
 
   def index
-    @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).where.not(location: "Onstage").order(created_at: "DESC")
+    @testers = Tester.current_shop(current_employee).not_trashed.not_onstage.order(created_at: "DESC")
     @q = @testers.ransack(params[:q])
     @searchable_testers = @q.result.includes(:product).page(params[:page]).per(6)
 
@@ -107,19 +107,15 @@ class TestersController < ApplicationController
   end
 
   def trashed
-    @testers = Tester.where(shop_id: current_employee.shop_id).where.not(trashed_at: nil).order(created_at: "DESC").page(params[:page]).per(6)
-
-    render "trashed"
+    @testers = Tester.current_shop(current_employee).trashed.order(created_at: "DESC").page(params[:page]).per(6)
   end
 
   # /makeup
   def makeup
     @department = Department.find_by(name: "Makeup")
-    @testers = Tester.where(
-      shop_id: current_employee.shop_id,
-      product_id: Product.where(department_id: @department.id).pluck(:id),
-      trashed_at: nil,
-    ).where.not(location: "Onstage").order(created_at: "DESC").page(params[:page]).per(6)
+    @testers = Tester.current_shop(current_employee).not_trashed.not_onstage.where(
+      product_id: Product.where(department_id: @department.id).pluck(:id)
+    ).order(created_at: "DESC").page(params[:page]).per(6)
 
     render "department_testers"
   end
@@ -127,11 +123,9 @@ class TestersController < ApplicationController
   # /skincare
   def skincare
     @department = Department.find_by(name: "Skincare")
-    @testers = Tester.where(
-      shop_id: current_employee.shop_id,
-      product_id: Product.where(department_id: @department.id).pluck(:id),
-      trashed_at: nil,
-    ).where.not(location: "Onstage").order(created_at: "DESC").page(params[:page]).per(6)
+    @testers = Tester.current_shop(current_employee).not_trashed.not_onstage.where(
+      product_id: Product.where(department_id: @department.id).pluck(:id)
+    ).order(created_at: "DESC").page(params[:page]).per(6)
 
     render "department_testers"
   end
@@ -139,11 +133,9 @@ class TestersController < ApplicationController
   # /hair
   def hair
     @department = Department.find_by(name: "Hair")
-    @testers = Tester.where(
-      shop_id: current_employee.shop_id,
-      product_id: Product.where(department_id: @department.id).pluck(:id),
-      trashed_at: nil,
-    ).where.not(location: "Onstage").order(created_at: "DESC").page(params[:page]).per(6)
+    @testers = Tester.current_shop(current_employee).not_trashed.not_onstage.where(
+      product_id: Product.where(department_id: @department.id).pluck(:id)
+    ).order(created_at: "DESC").page(params[:page]).per(6)
 
     render "department_testers"
   end
@@ -151,19 +143,18 @@ class TestersController < ApplicationController
   # /fragrance
   def fragrance
     @department = Department.find_by(name: "Fragrance")
-    @testers = Tester.where(
-      shop_id: current_employee.shop_id,
-      product_id: Product.where(department_id: @department.id).pluck(:id),
-      trashed_at: nil,
-    ).where.not(location: "Onstage").order(created_at: "DESC").page(params[:page]).per(6)
+    @testers = Tester.current_shop(current_employee).not_trashed.not_onstage.where(
+      product_id: Product.where(department_id: @department.id).pluck(:id)
+    ).order(created_at: "DESC").page(params[:page]).per(6)
 
     render "department_testers"
   end
 
   # /manage_testers
   def manage
-    @onstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Onstage", trashed_at: nil).order(created_at: "DESC").page(params[:onstage_page]).per(6)
-    @backstage_testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).where.not(location: "Onstage").order(created_at: "DESC").page(params[:backstage_page]).per(6)
+    @onstage_testers = Tester.current_shop(current_employee).onstage.not_trashed.order(created_at: "DESC").page(params[:onstage_page]).per(6)
+
+    @backstage_testers = Tester.current_shop(current_employee).not_onstage.not_trashed.order(created_at: "DESC").page(params[:backstage_page]).per(6)
 
     respond_to do |format|
       format.html

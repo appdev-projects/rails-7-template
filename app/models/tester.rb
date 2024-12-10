@@ -25,6 +25,15 @@ class Tester < ApplicationRecord
   belongs_to :product
   belongs_to :shop
 
+  scope :not_trashed, -> { where(trashed_at: nil) }
+  scope :trashed, -> { where.not(trashed_at: nil) }
+  scope :not_onstage, -> { where.not(location: "Onstage") }
+  scope :onstage, -> { where(location: "Onstage") }
+  
+  def self.current_shop(employee)
+    where(shop_id: employee.shop_id)
+  end
+
   def self.ransackable_attributes(auth_object = nil)
     ["product_id"]
   end

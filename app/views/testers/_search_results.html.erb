@@ -7,7 +7,7 @@
         <% @searchable_testers.each do |tester| %>
           <div class="result-item">
             <p><strong>Product Name:</strong> <%= tester.product.name %></p>
-            <%= image_tag tester.product.image, width: "200", height: "200" %>
+            <%= image_tag tester.product.image, width: "200", height: "200", alt: "Image of #{tester.product.name}" %>
             <p><strong>SKU:</strong> <%= tester.product.sku %></p>
             <p><strong>Condition:</strong> <%= tester.condition %></p>
             <p><strong>Location:</strong> <%= tester.location %></p>

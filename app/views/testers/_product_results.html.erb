@@ -9,7 +9,7 @@
               <%= product.name %>
             </div>
             <div class="card-body d-flex flex-column align-items-center justify-content-center">
-              <%= image_tag product.image, width: "200", height: "200" %>
+              <%= image_tag product.image, width: "200", height: "200", alt: "Image of #{product.name}"%>
               <p style= "margin-top: 10px;">
                 <strong>SKU:</strong>
                 <%= product.sku %>

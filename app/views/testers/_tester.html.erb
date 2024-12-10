@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-4 col-lg-4 mb-4">
-      <div class="card">
+      <div class="card" role="group">
         <div id="<%= dom_id tester %>">
           <div class="card-header text-center">
             <strong><%= tester.product.name %></strong>
@@ -17,17 +17,17 @@
 
             <div class="d-flex justify-content-center">
               <p>
-                <%= link_to "Edit this tester", edit_tester_path(@tester), class: "btn btn-outline-secondary", style: "margin-right:10px;" %>
+                <%= link_to "Edit this tester", edit_tester_path(@tester), class: "btn btn-outline-secondary", style: "margin-right:10px;", aria: { label: "Edit details for #{tester.product.name} tester" } %>
               </p>
 
               <p>
-                <%= button_to "Delete this tester", @tester, method: :delete, class: "btn btn-outline-danger" %>
+                <%= button_to "Delete this tester", @tester, method: :delete, class: "btn btn-outline-danger", aria: { label: "Delete #{tester.product.name} tester" } %>
               </p>
 
             </div>
 
             <p>
-              <%= link_to "Back to Home Page", testers_path, class: "btn btn-dark"%>
+              <%= link_to "Back to Home Page", testers_path, class: "btn btn-dark", aria: { label: "Go back to the home page" }%>
             </p>
 
           </div>

@@ -8,7 +8,7 @@
   <div class="row" data-masonry='{"percentPosition": true }'>
     <% @testers.each do |tester| %>
       <div class="col-sm-6 col-lg-4 mb-4">
-        <div class="card h-100 border-secondary mb-3">
+        <div class="card h-100 border-secondary mb-3" role="group">
           <div class="card-header border-dark" style="text-align:center; padding: 10px;">
             <strong><%= tester.product.name %></strong>
           </div>
@@ -43,5 +43,5 @@
 </div>
 
 <div style="text-align: center;">
-  <%= paginate @testers %>
+  <%= paginate @testers, aria_label: "Pagination for trashed testers" %>
 </div>

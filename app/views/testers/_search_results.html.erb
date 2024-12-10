@@ -3,15 +3,21 @@
     <h1>Search Results</h1>
 
     <% if @searchable_testers.any? %>
-      <div class="search-results">
+      <div class="row d-flex justify-content-center">
         <% @searchable_testers.each do |tester| %>
-          <div class="result-item" role="group">
-            <p><strong>Product Name:</strong> <%= tester.product.name %></p>
-            <%= image_tag tester.product.image, width: "200", height: "200", alt: "Image of #{tester.product.name}" %>
-            <p><strong>SKU:</strong> <%= tester.product.sku %></p>
-            <p><strong>Condition:</strong> <%= tester.condition %></p>
-            <p><strong>Location:</strong> <%= tester.location %></p>
-            <p><strong>Time Created:</strong> <%= tester.created_at.strftime("%B %d, %Y %H:%M:%S") %></p>
+          <div class="col-md-4">
+            <div class="card mb-4" style="width: 25rem;">
+              <img class="card-img-top mx-auto" src="<%= image_path(tester.product.image) %>" alt="Image of <%= tester.product.name %>" style="width: 200px; height: 200px; margin-top:20px;">
+              <div class="card-body">
+                <h5 class="card-title"><%= tester.product.name %></h5>
+                <p class="card-text">
+                  <strong>SKU:</strong> <%= tester.product.sku %><br>
+                  <strong>Condition:</strong> <%= tester.condition %><br>
+                  <strong>Location:</strong> <%= tester.location %><br>
+                  <strong>Time Created:</strong> <%= tester.created_at.strftime("%B %d, %Y %H:%M:%S") %>
+                </p>
+              </div>
+            </div>
           </div>
         <% end %>
       </div>

@@ -113,9 +113,7 @@ class TestersController < ApplicationController
   # /makeup
   def makeup
     @department = Department.find_by(name: "Makeup")
-    @testers = Tester.current_shop(current_employee).not_trashed.not_onstage.where(
-      product_id: Product.where(department_id: @department.id).pluck(:id)
-    ).order(created_at: "DESC").page(params[:page]).per(6)
+    @testers = Tester.by_department(current_employee, "Makeup").page(params[:page]).per(6)
 
     render "department_testers"
   end
@@ -123,9 +121,7 @@ class TestersController < ApplicationController
   # /skincare
   def skincare
     @department = Department.find_by(name: "Skincare")
-    @testers = Tester.current_shop(current_employee).not_trashed.not_onstage.where(
-      product_id: Product.where(department_id: @department.id).pluck(:id)
-    ).order(created_at: "DESC").page(params[:page]).per(6)
+    @testers = Tester.by_department(current_employee, "Skincare").page(params[:page]).per(6)
 
     render "department_testers"
   end
@@ -133,9 +129,7 @@ class TestersController < ApplicationController
   # /hair
   def hair
     @department = Department.find_by(name: "Hair")
-    @testers = Tester.current_shop(current_employee).not_trashed.not_onstage.where(
-      product_id: Product.where(department_id: @department.id).pluck(:id)
-    ).order(created_at: "DESC").page(params[:page]).per(6)
+    @testers = Tester.by_department(current_employee, "Hair").page(params[:page]).per(6)
 
     render "department_testers"
   end
@@ -143,9 +137,7 @@ class TestersController < ApplicationController
   # /fragrance
   def fragrance
     @department = Department.find_by(name: "Fragrance")
-    @testers = Tester.current_shop(current_employee).not_trashed.not_onstage.where(
-      product_id: Product.where(department_id: @department.id).pluck(:id)
-    ).order(created_at: "DESC").page(params[:page]).per(6)
+    @testers = Tester.by_department(current_employee, "Fragrance").page(params[:page]).per(6)
 
     render "department_testers"
   end

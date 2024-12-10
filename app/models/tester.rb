@@ -22,25 +22,10 @@
 #  fk_rails_...  (shop_id => shops.id)
 #
 class Tester < ApplicationRecord
+  include TesterQueries
+  
   belongs_to :product
   belongs_to :shop
-
-  scope :not_trashed, -> { where(trashed_at: nil) }
-  scope :trashed, -> { where.not(trashed_at: nil) }
-  scope :not_onstage, -> { where.not(location: "Onstage") }
-  scope :onstage, -> { where(location: "Onstage") }
-  
-  def self.current_shop(employee)
-    where(shop_id: employee.shop_id)
-  end
-
-  def self.by_department(employee, department_name)
-    department = Department.find_by(name: department_name)
-    
-    current_shop(employee).not_trashed.not_onstage.where(
-      product_id: Product.where(department_id: department.id).pluck(:id)
-    ).order(created_at: "DESC")
-  end
 
   def self.ransackable_attributes(auth_object = nil)
     ["product_id"]

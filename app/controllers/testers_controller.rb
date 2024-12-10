@@ -92,7 +92,7 @@ class TestersController < ApplicationController
     @tester.destroy
 
     respond_to do |format|
-      format.html { redirect_to testers_url, notice: "Tester was successfully deleted." }
+      format.html { redirect_to testers_url, notice: "Tester was successfully removed from inventory." }
       format.json { head :no_content }
     end
   end
@@ -101,7 +101,7 @@ class TestersController < ApplicationController
     @tester.update(trashed_at: Time.current)
 
     respond_to do |format|
-      format.html { redirect_to testers_url, notice: "Tester was successfully trashed." }
+      format.html { redirect_to trashed_path, notice: "Tester was successfully trashed." }
       format.json { head :no_content }
     end
   end
@@ -162,8 +162,8 @@ class TestersController < ApplicationController
 
   # /manage_testers
   def manage
-    @onstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Onstage").where(trashed_at: nil).order(created_at: 'DESC').page(params[:onstage_page]).per(6)
-    @backstage_testers = Tester.where(shop_id: current_employee.shop_id).where.not(location: "Onstage").where(trashed_at: nil).order(created_at: 'DESC').page(params[:backstage_page]).per(6)
+    @onstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Onstage", trashed_at: nil).order(created_at: 'DESC').page(params[:onstage_page]).per(6)
+    @backstage_testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).where.not(location: "Onstage").order(created_at: 'DESC').page(params[:backstage_page]).per(6)
 
     respond_to do |format|
       format.html

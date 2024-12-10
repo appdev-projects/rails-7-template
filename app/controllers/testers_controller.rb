@@ -1,6 +1,6 @@
 class TestersController < ApplicationController
   skip_before_action :authenticate_employee!, only: [:welcome]
-  before_action :set_tester, only: %i[ show edit update destroy trash]
+  before_action :set_tester, only: %i[ show edit update destroy trash ]
   before_action(except: [:welcome]) { authorize(@tester || Tester) }
 
   # GET /testers or /testers.json
@@ -8,22 +8,22 @@ class TestersController < ApplicationController
   def welcome
     if current_employee == nil
       render "welcome"
-    else 
+    else
       redirect_to testers_path
     end
   end
-  
+
   def index
-    @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).where.not(location: "Onstage").order(created_at: 'DESC')
+    @testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).where.not(location: "Onstage").order(created_at: "DESC")
     @q = @testers.ransack(params[:q])
     @searchable_testers = @q.result.includes(:product).page(params[:page]).per(6)
 
     respond_to do |format|
       format.html
-      format.js 
+      format.js
     end
-
   end
+
   # GET /testers/1 or /testers/1.json
   def show
   end
@@ -32,25 +32,25 @@ class TestersController < ApplicationController
   def new
     @tester = Tester.new()
     @q = Product.ransack(params[:q])
-    @products = @q.result(distinct:true).page(params[:page]).per(6)
+    @products = @q.result(distinct: true).page(params[:page]).per(6)
 
     respond_to do |format|
       format.html
-      format.js 
+      format.js
     end
 
     @breadcrumbs = [
-      {content: "Home", href: root_path},
-      {content: "New Tester", href: new_tester_path}
+      { content: "Home", href: root_path },
+      { content: "New Tester", href: new_tester_path },
     ]
   end
 
   # GET /testers/1/edit
   def edit
     @breadcrumbs = [
-      {content: "Home", href: root_path},
-      {content: "Edit Tester", href: edit_tester_path},
-      {content: @tester.to_s}
+      { content: "Home", href: root_path },
+      { content: "Edit Tester", href: edit_tester_path },
+      { content: @tester.to_s },
     ]
   end
 
@@ -82,8 +82,8 @@ class TestersController < ApplicationController
     end
 
     @breadcrumbs = [
-      {content: "New Tester", href: new_tester_path},
-      {content: "Tester", href: tester_path(@tester)}
+      { content: "New Tester", href: new_tester_path },
+      { content: "Tester", href: tester_path(@tester) },
     ]
   end
 
@@ -107,78 +107,79 @@ class TestersController < ApplicationController
   end
 
   def trashed
-    @testers = Tester.where(shop_id: current_employee.shop_id).where.not(trashed_at: nil).order(created_at: 'DESC').page(params[:page]).per(6)
+    @testers = Tester.where(shop_id: current_employee.shop_id).where.not(trashed_at: nil).order(created_at: "DESC").page(params[:page]).per(6)
 
     render "trashed"
   end
 
   # /makeup
   def makeup
-    @department=Department.find_by(name: "Makeup")
+    @department = Department.find_by(name: "Makeup")
     @testers = Tester.where(
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
-      trashed_at: nil
-    ).where.not(location: "Onstage").order(created_at: 'DESC').page(params[:page]).per(6)
+      trashed_at: nil,
+    ).where.not(location: "Onstage").order(created_at: "DESC").page(params[:page]).per(6)
 
     render "department_testers"
   end
 
   # /skincare
   def skincare
-    @department=Department.find_by(name: "Skincare")
+    @department = Department.find_by(name: "Skincare")
     @testers = Tester.where(
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
-      trashed_at: nil
-    ).where.not(location: "Onstage").order(created_at: 'DESC').page(params[:page]).per(6)
+      trashed_at: nil,
+    ).where.not(location: "Onstage").order(created_at: "DESC").page(params[:page]).per(6)
 
     render "department_testers"
   end
 
   # /hair
   def hair
-    @department=Department.find_by(name: "Hair")
+    @department = Department.find_by(name: "Hair")
     @testers = Tester.where(
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
-      trashed_at: nil
-    ).where.not(location: "Onstage").order(created_at: 'DESC').page(params[:page]).per(6)
+      trashed_at: nil,
+    ).where.not(location: "Onstage").order(created_at: "DESC").page(params[:page]).per(6)
 
     render "department_testers"
   end
-  
+
   # /fragrance
   def fragrance
-    @department=Department.find_by(name: "Fragrance")
+    @department = Department.find_by(name: "Fragrance")
     @testers = Tester.where(
       shop_id: current_employee.shop_id,
       product_id: Product.where(department_id: @department.id).pluck(:id),
-      trashed_at: nil
-    ).where.not(location: "Onstage").order(created_at: 'DESC').page(params[:page]).per(6)
+      trashed_at: nil,
+    ).where.not(location: "Onstage").order(created_at: "DESC").page(params[:page]).per(6)
 
     render "department_testers"
   end
 
   # /manage_testers
   def manage
-    @onstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Onstage", trashed_at: nil).order(created_at: 'DESC').page(params[:onstage_page]).per(6)
-    @backstage_testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).where.not(location: "Onstage").order(created_at: 'DESC').page(params[:backstage_page]).per(6)
+    @onstage_testers = Tester.where(shop_id: current_employee.shop_id, location: "Onstage", trashed_at: nil).order(created_at: "DESC").page(params[:onstage_page]).per(6)
+    @backstage_testers = Tester.where(shop_id: current_employee.shop_id, trashed_at: nil).where.not(location: "Onstage").order(created_at: "DESC").page(params[:backstage_page]).per(6)
 
     respond_to do |format|
       format.html
-      format.js 
+      format.js
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tester
-      @tester = Tester.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def tester_params
-      params.require(:tester).permit(:product_id, :shop_id, :condition, :location, :trashed_at)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tester
+    @tester = Tester.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def tester_params
+    params.require(:tester).permit(:product_id, :shop_id, :condition, :location, :trashed_at)
+  end
 end

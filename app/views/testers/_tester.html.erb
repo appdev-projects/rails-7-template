@@ -8,29 +8,29 @@
           </div>
 
           <div class="card-body d-flex flex-column align-items-center justify-content-center">
-          
+
             <%= render "testers/tester_card", tester: tester %>
 
             <p style="text-align: center;">
               Need to make changes to this tester?
             </p>
 
-          <div class="d-flex justify-content-center">
-            <p>
-              <%= link_to "Edit this tester", edit_tester_path(@tester), class: "btn btn-outline-secondary", style: "margin-right:10px;" %>
-            </p>       
-           
-            <p>
-              <%= button_to "Delete this tester", @tester, method: :delete, class: "btn btn-outline-danger" %>
-            </p> 
+            <div class="d-flex justify-content-center">
+              <p>
+                <%= link_to "Edit this tester", edit_tester_path(@tester), class: "btn btn-outline-secondary", style: "margin-right:10px;" %>
+              </p>
 
-          </div>
+              <p>
+                <%= button_to "Delete this tester", @tester, method: :delete, class: "btn btn-outline-danger" %>
+              </p>
 
-             <p>
+            </div>
+
+            <p>
               <%= link_to "Back to Home Page", testers_path, class: "btn btn-dark"%>
             </p>
 
-          </div>    
+          </div>
         </div>
       </div>
     </div>

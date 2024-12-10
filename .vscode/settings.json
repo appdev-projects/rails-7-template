@@ -44,7 +44,7 @@
     "erb": "html"
   },
   "[ruby]": {
-    "editor.defaultFormatter": "mbessey.vscode-rufo",
+    "editor.defaultFormatter": "jnbt.vscode-rufo",
     "editor.formatOnSave": false
   },
   "[erb]": {

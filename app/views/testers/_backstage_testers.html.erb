@@ -20,10 +20,10 @@
                 <%end%>
 
                 <% if current_employee.role.title == "Operations Associate" %>
-                <p>
-                  <%= button_to "Trash this tester", trash_path(tester), method: :patch, class: "btn btn-outline-danger" %>
-                </p> 
-                
+                  <p>
+                    <%= button_to "Trash this tester", trash_path(tester), method: :patch, class: "btn btn-outline-danger" %>
+                  </p>
+
                 <%end%>
               </div>
 

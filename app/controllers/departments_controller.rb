@@ -1,6 +1,6 @@
 class DepartmentsController < ApplicationController
   before_action :set_department, only: %i[ show edit update destroy ]
-  before_action {authorize(@department || Department)}
+  before_action { authorize(@department || Department) }
 
   # GET /departments or /departments.json
   def index
@@ -59,13 +59,14 @@ class DepartmentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_department
-      @department = Department.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def department_params
-      params.require(:department).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_department
+    @department = Department.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def department_params
+    params.require(:department).permit(:name)
+  end
 end

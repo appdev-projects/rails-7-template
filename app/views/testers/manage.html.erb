@@ -12,19 +12,18 @@
 
     <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
     <label class="btn btn-outline-dark" for="btnradio2">Approve Testers</label>
-  </div> 
+  </div>
 </div>
 
 <%= render "testers/backstage_testers" %>
 
-
 <!--Backstage and Onstage button functionality in 'Manage Testers' view-->
 <script>
- $("#btnradio2").click(function() {
-  $(".backstage_testers").html('<%= j render "onstage_testers" %>');
-});
+  $("#btnradio2").click(function() {
+   $(".backstage_testers").html('<%= j render "onstage_testers" %>');
+  });
 
- $("#btnradio1").click(function() {
-  $(".backstage_testers").html('<%= j render "backstage_testers" %>');
-});
+  $("#btnradio1").click(function() {
+   $(".backstage_testers").html('<%= j render "backstage_testers" %>');
+  });
 </script>

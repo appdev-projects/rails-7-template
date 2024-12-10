@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: %i[ show edit update destroy ]
-  before_action {authorize(@shop || Shop)}
+  before_action { authorize(@shop || Shop) }
 
   # GET /shops or /shops.json
   def index
@@ -59,13 +59,14 @@ class ShopsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_shop
-      @shop = Shop.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def shop_params
-      params.require(:shop).permit(:shop_number, :address, :at_kohls)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_shop
+    @shop = Shop.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def shop_params
+    params.require(:shop).permit(:shop_number, :address, :at_kohls)
+  end
 end

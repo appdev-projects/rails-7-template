@@ -6,7 +6,7 @@
   <div class="row" data-masonry='{"percentPosition": true }'>
     <% @testers.each do |tester| %>
       <div class="col-sm-6 col-lg-4 mb-4">
-        <div class="card h-100 border-secondary mb-3">
+        <div class="card h-100 border-secondary mb-3" role="group">
           <div class="card-header border-dark" style="text-align:center; background-color: #cccccc; padding: 10px;">
             <strong><%= tester.product.name %></strong>
           </div>
@@ -18,13 +18,13 @@
             <div class="d-flex justify-content-center">
               <% if current_employee.admin? == false %>
                 <p>
-                  <%= link_to "Edit this tester", edit_tester_path(tester), class: "btn btn-outline-secondary", style: "margin-right:10px;" %>
+                  <%= link_to "Edit this tester", edit_tester_path(tester), class: "btn btn-outline-secondary", style: "margin-right:10px;", aria: { label: "Edit details for #{tester.product.name} tester" } %>
                 </p>
               <% end %>
 
               <% if current_employee.role.title == "Operations Associate" %>
                 <p>
-                  <%= link_to "Trash this tester", trash_path(tester), method: :patch, class: "btn btn-outline-danger" %>
+                  <%= link_to "Trash this tester", trash_path(tester), method: :patch, class: "btn btn-outline-danger", aria: { label: "Trash #{tester.product.name} tester" } %>
                 </p>
               <% end %>
             </div>
@@ -36,5 +36,5 @@
 </div>
 
 <div class="pagination-container" style="text-align: center;">
-  <%= paginate @testers %>
+  <%= paginate @testers, aria_label: "Pagination for testers" %>
 </div>

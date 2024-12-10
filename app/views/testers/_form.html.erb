@@ -2,7 +2,7 @@
 
   <%= form_for(@tester) do |f| %>
     <% if @tester.errors.any? %>
-      <div class="error-messages">
+      <div class="error-messages" role="alert">
         <ul>
           <% @tester.errors.full_messages.each do |message| %>
             <li><%= message %></li>

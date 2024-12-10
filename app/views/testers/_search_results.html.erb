@@ -5,9 +5,9 @@
     <% if @searchable_testers.any? %>
       <div class="search-results">
         <% @searchable_testers.each do |tester| %>
-          <div class="result-item">
+          <div class="result-item" role="group">
             <p><strong>Product Name:</strong> <%= tester.product.name %></p>
-            <%= image_tag tester.product.image, width: "200", height: "200" %>
+            <%= image_tag tester.product.image, width: "200", height: "200", alt: "Image of #{tester.product.name}" %>
             <p><strong>SKU:</strong> <%= tester.product.sku %></p>
             <p><strong>Condition:</strong> <%= tester.condition %></p>
             <p><strong>Location:</strong> <%= tester.location %></p>
@@ -17,13 +17,13 @@
       </div>
 
       <div class="pagination-container" style="text-align: center; margin-top: 20px;">
-        <%= paginate @searchable_testers %>
+        <%= paginate @searchable_testers, aria_label: "Pagination for available testers" %>
       </div>
 
-      <%= link_to "Back to Search", testers_path, class: "btn btn-dark mt-3" %>
+      <%= link_to "Back to Search", testers_path, class: "btn btn-dark mt-3", aria: { label: "Go back to the tester search page" }  %>
     <% else %>
       <p style="color: red;">No results found.</p>
-      <%= link_to "Back to Search", testers_path, class: "btn btn-dark mt-3" %>
+      <%= link_to "Back to Search", testers_path, class: "btn btn-dark mt-3", aria: { label: "Go back to the tester search page" } %>
     <% end %>
   </div>
 </div>

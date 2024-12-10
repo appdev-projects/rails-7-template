@@ -1,15 +1,15 @@
-<div class="product_results">
+<div class="product_results" role="region">
   <div class="container">
     <div class="row justify-content-center ">
       <div class="col-sm-4 col-lg-4 mb-4 d-flex flex-column align-items-center justify-content-center">
         <% @products.each do |product| %>
-          <div class="product-card">
+          <div class="product-card" role="group">
             <div class="text-center" style="padding: 10px;">
               <strong>Name:</strong>
               <%= product.name %>
             </div>
             <div class="card-body d-flex flex-column align-items-center justify-content-center">
-              <%= image_tag product.image, width: "200", height: "200" %>
+              <%= image_tag product.image, width: "200", height: "200", alt: "Image of #{product.name}"%>
               <p style= "margin-top: 10px;">
                 <strong>SKU:</strong>
                 <%= product.sku %>
@@ -38,5 +38,5 @@
 </div>
 
 <div style="text-align: center;">
-  <%= paginate @products %>
+  <%= paginate @products, aria_label: "Pagination for products" %>
 </div>

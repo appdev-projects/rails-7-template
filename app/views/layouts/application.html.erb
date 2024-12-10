@@ -2,79 +2,17 @@
 <html>
   <head>
     <title>Tester Tracker</title>
-    <link rel="icon" type="image/png" href="<%= asset_path('sephora_logo.png') %>">
     <%= render "shared/application_links"%>
   </head>
 
   <body style="font-family: 'Afacad Flux', sans-serif;">
 
-    <% if current_employee != nil %>
-    <div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding:20px;">
-        <%= link_to 'Tester Tracker', testers_path, class: "navbar-brand" %>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <%= link_to 'Home', testers_path, class: "nav-link" %>
-            </li>
-
-            <li class="nav-item">
-              <%= link_to 'Makeup', makeup_path, class: "nav-link" %>
-            </li>
-
-            <li class="nav-item">
-              <%= link_to 'Skincare', skincare_path, class: "nav-link" %>
-            </li>
-
-            <li class="nav-item">
-              <%= link_to 'Hair', hair_path, class: "nav-link" %>
-            </li>
-
-            <li class="nav-item">
-              <%= link_to 'Fragrance', fragrance_path, class: "nav-link" %>
-            </li>
-
-            <% if current_employee.role.title == "Operations Associate" || current_employee.admin? %>
-              <li class="nav-item">
-                <%= link_to 'Manage Testers', manage_path, class: "nav-link" %>
-              </li>
-
-              <li class="nav-item">
-                <%= link_to 'Trashed Testers', trashed_path, class: "nav-link" %>
-              </li>
-            <% end %>
-
-            <li class="nav-item">
-              <%= link_to "New", new_tester_path, class: "nav-link" %>
-            </li>
-          </ul>
-
-          <ul class="navbar-nav ms-auto"> <!-- This moves the dropdown to the right -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <%= "Hi, #{current_employee.first_name}!" %>
-              </a>
-
-              <div class="dropdown-menu">
-                <%= link_to "Edit profile", edit_employee_registration_path, class: "dropdown-item" %>
-                <%= link_to "Sign out", destroy_employee_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
-              </div>
-            </li>
-          </ul>
-
-        </div>
-      </nav>
-    </div>
-
-    <% end %>
+    <%= render "shared/navbar" %>
 
     <%= render "shared/breadcrumbs" %>
+
     <%= yield %>
+
   </body>
   
 </html>

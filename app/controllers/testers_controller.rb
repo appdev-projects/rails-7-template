@@ -92,7 +92,7 @@ class TestersController < ApplicationController
     @tester.destroy
 
     respond_to do |format|
-      format.html { redirect_to testers_url, notice: "Tester was successfully removed from inventory." }
+      format.html { redirect_to manage_path, notice: "Tester was successfully removed from inventory." }
       format.json { head :no_content }
     end
   end

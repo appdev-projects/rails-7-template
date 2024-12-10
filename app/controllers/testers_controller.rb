@@ -112,7 +112,7 @@ class TestersController < ApplicationController
 
   # /makeup
   def makeup
-    @department = Department.find_by(name: "Makeup")
+    @department = "Makeup"
     @testers = Tester.by_department(current_employee, "Makeup").page(params[:page]).per(6)
 
     render "department_testers"
@@ -120,7 +120,7 @@ class TestersController < ApplicationController
 
   # /skincare
   def skincare
-    @department = Department.find_by(name: "Skincare")
+    @department = "Skincare"
     @testers = Tester.by_department(current_employee, "Skincare").page(params[:page]).per(6)
 
     render "department_testers"
@@ -128,7 +128,7 @@ class TestersController < ApplicationController
 
   # /hair
   def hair
-    @department = Department.find_by(name: "Hair")
+    @department = "Hair"
     @testers = Tester.by_department(current_employee, "Hair").page(params[:page]).per(6)
 
     render "department_testers"
@@ -136,7 +136,7 @@ class TestersController < ApplicationController
 
   # /fragrance
   def fragrance
-    @department = Department.find_by(name: "Fragrance")
+    @department = "Fragrance"
     @testers = Tester.by_department(current_employee, "Fragrance").page(params[:page]).per(6)
 
     render "department_testers"

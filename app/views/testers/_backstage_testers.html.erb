@@ -8,27 +8,9 @@
               <strong><%= tester.product.name %></strong>
             </div>
 
-            <div class="card-body d-flex flex-column align-items-center justify-content-center" >
-              <%= image_tag tester.product.image, width: "200", height: "200", class: "img-fluid" %>
-              <p>
-                <strong>SKU:</strong>
-                <%= tester.product.sku %>
-              </p>
+            <div class="card-body d-flex flex-column align-items-center justify-content-center" style="text-align:center;" >
 
-              <p>
-                <strong>Condition:</strong>
-                <%= tester.condition %>
-              </p>
-
-              <p>
-                <strong>Location:</strong>
-                <%= tester.location %>
-              </p>
-
-              <p>
-                <strong>Time created:</strong>
-                <%= tester.created_at.strftime("%B %d, %Y %H:%M:%S") %>
-              </p>
+              <%= render "testers/tester_card", tester: tester %>
 
               <div class="d-flex justify-content-center">
                 <% if current_employee.admin? == false %>
@@ -41,8 +23,9 @@
                 <p>
                   <%= button_to "Trash this tester", trash_path(tester), method: :patch, class: "btn btn-outline-danger" %>
                 </p> 
-              <%end%>
-            </div>
+                
+                <%end%>
+              </div>
 
             </div>
           </div>

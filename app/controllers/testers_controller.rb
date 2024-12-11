@@ -107,6 +107,7 @@ class TestersController < ApplicationController
   end
 
   def trashed
+    # Can this query be done in the model?
     @testers = Tester.current_shop(current_employee).trashed.order(created_at: "DESC").page(params[:page]).per(6)
   end
 

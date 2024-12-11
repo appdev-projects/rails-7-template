@@ -4,7 +4,7 @@ task({ :sample_data => :environment }) do
   starting = Time.now
 
   Employee.delete_all
-  Tester.delete_all
+  # Tester.delete_all
   Product.delete_all
   Brand.delete_all
   Department.delete_all
@@ -18,6 +18,8 @@ task({ :sample_data => :environment }) do
       title: role
     )
   end
+
+  #seperate this static data to a csv
  
    # Shop sample data
   shops = [

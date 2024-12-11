@@ -27,20 +27,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_160011) do
   end
 
   create_table "employees", force: :cascade do |t|
-    t.string "email", default: "", null: false
+    t.integer "employee_number", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "first_name"
     t.string "last_name"
-    t.integer "employee_number"
+    t.string "email", default: "", null: false
     t.bigint "role_id"
     t.bigint "shop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
-    t.index ["email"], name: "index_employees_on_email", unique: true
+    t.index ["employee_number"], name: "index_employees_on_employee_number", unique: true
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_employees_on_role_id"
     t.index ["shop_id"], name: "index_employees_on_shop_id"

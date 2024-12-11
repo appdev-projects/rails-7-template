@@ -5,7 +5,7 @@
 #  id                     :bigint           not null, primary key
 #  admin                  :boolean          default(FALSE), not null
 #  email                  :string           default(""), not null
-#  employee_number        :integer
+#  employee_number        :integer          not null
 #  encrypted_password     :string           default(""), not null
 #  first_name             :string
 #  last_name              :string
@@ -19,7 +19,7 @@
 #
 # Indexes
 #
-#  index_employees_on_email                 (email) UNIQUE
+#  index_employees_on_employee_number       (employee_number) UNIQUE
 #  index_employees_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_employees_on_role_id               (role_id)
 #  index_employees_on_shop_id               (shop_id)

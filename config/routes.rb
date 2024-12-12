@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   draw(:admin)
+  draw(:pwa)
   devise_for :users, controllers: {
     registrations: "user/registrations"
   }

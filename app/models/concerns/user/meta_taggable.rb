@@ -13,8 +13,8 @@ module User::MetaTaggable
       og: {
         title: user_name,
         description: bio.present? ? bio.truncate_words(20) : "Default description", # Add nil check
-        site_name: "Perfect Pals",
-      },
+        site_name: "Perfect Pals"
+      }
     }
 
     if avatar.present?

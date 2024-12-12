@@ -125,4 +125,3 @@ gem "rails_admin"
 gem "sassc-rails"
 gem "blazer"
 gem "meta-tags"
-

@@ -10,7 +10,7 @@ RSpec.describe UsersController, type: :controller do
     it 'assigns @users' do
       user = User.create(email: 'john@example.com', password: 'password')
       get :index
-      expect(assigns(:users)).to eq([user])
+      expect(assigns(:users)).to eq([ user ])
     end
   end
 end

@@ -1,4 +1,4 @@
-image: firstdraft/appdev-rails-template
+gimage: firstdraft/appdev-rails-template
 
 tasks:
   - before: |

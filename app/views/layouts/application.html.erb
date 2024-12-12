@@ -4,6 +4,8 @@
     <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <link rel="manifest" href="/manifest.json" />
 
     <%= render partial: "shared/meta_tags" %>
 
@@ -29,10 +31,8 @@
 
       <%= yield %>
     </main>
-    
-    
+
     <%= render partial: "shared/footer" %>
-    
 
   </body>
 </html>

@@ -17,8 +17,9 @@ task({ sample_data: :environment }) do
   CSV.foreach("lib/sample_data/user.csv", headers: true) do |row|
     user = User.new
     user.id = row[0]
-    user.email = row[1]
-    user.password = row[2]
+    user.admin = row[1]
+    user.email = row[2]
+    user.password = row[3]
     user.first_name = row[4]
     user.last_name = row[5]
     user.avatar = row[6]

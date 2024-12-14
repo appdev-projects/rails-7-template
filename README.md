@@ -47,6 +47,8 @@ cd perfect-pals
 ```bash
 bundle install
 ```
+-Add extra step that points to configutaion
+```bash
 4. Since this application uses PostgreSQL, ensure you have PostgreSQL installed and running on your machine. Then create and migrate the database:
 ```bash
 rails db:create db:migrate
@@ -68,7 +70,9 @@ Follow the on-screen instructions to use the application.
 ## Configuration
 
 No further configuration needed.
+- Say something like EMAIL margo to get the MY_GITHUB_ID and MY_GITHUB_SECRET and store them in a .env file in the root directory of the application.
 
+```bash
 
 ## Contributing
 
@@ -160,7 +164,7 @@ Here are some visual aids to help you quickly understand the structure and flow 
 
 These visuals should help you get started with the project and understand how everything fits together.
 
-## Contact
+## Contact   
 
 Margarita Potylitsyna - [margotugarina@gmail.com](mailto:margotugarina@gmail.com)
 Project Link: [https://github.com/Ritumka/perfect-pals](https://github.com/Ritumka/perfect-pals)

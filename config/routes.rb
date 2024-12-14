@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   draw(:admin)
   draw(:pwa)
+
   devise_for :users, controllers: {
-    registrations: "user/registrations"
-  }
+            registrations: "user/registrations",
+            omniauth_callbacks: "omniauth_callbacks",
+          }
 
   root "users#home"
 

@@ -127,3 +127,7 @@ gem "rails_admin"
 gem "sassc-rails"
 gem "blazer"
 gem "meta-tags"
+
+# Authorization with OmniAuth
+gem "omniauth-github"
+gem "omniauth-rails_csrf_protection"

@@ -10,17 +10,13 @@
       </div>
     </div>
 
-    <ul class="list-group always-scrollable border">
-      <% @messages.each do |message| %>
-        <li class="list-group-item">
-          <% if message.sender_id == params.fetch("current_user_id").to_i %>
-            <strong>You:</strong> <%= message.body %>
-          <% else %>
-            <strong><%= User.find(params.fetch("user_id")).first_name %>:</strong> <%= message.body %>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
+    <turbo-frame id="message_list">
+      <ul class="list-group always-scrollable border">
+        <% @messages.each do |message| %>
+          <%= render :partial => "messages/message", :locals => { :message => message } %>
+        <% end %>
+      </ul>
+    </turbo-frame>
 
     <%= render "form" %>
 

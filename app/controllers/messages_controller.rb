@@ -56,12 +56,16 @@ class MessagesController < ApplicationController
 
   def destroy
     @message.destroy!
-
+  
     respond_to do |format|
-      format.html { redirect_to "/messages/conversation/#{@message.recipient_id}?current_user_id=#{@message.sender_id}", notice: "Message was successfully deleted." }
+      format.html do
+        redirect_to "/messages/conversation/#{session[:recipient_id]}?current_user_id=#{session[:sender_id]}",
+                    notice: "Message was successfully deleted."
+      end
       format.json { head :no_content }
     end
   end
+  
 
   private
 

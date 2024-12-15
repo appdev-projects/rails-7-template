@@ -62,7 +62,7 @@ class User < ApplicationRecord
   validates :video_url, format: { with: /\Ahttps:\/\/www\.youtube\.com\// }, allow_blank: true
 
   def self.ransackable_attributes(auth_object = nil)
-    ["age", "budget", "gender", "location", "occupation"]
+    [ "age", "budget", "gender", "location", "occupation" ]
   end
 
   def calculate_trust_score
@@ -84,7 +84,7 @@ class User < ApplicationRecord
     Message.where({ recipient_id: self.id })
   end
 
-  def pal_name
+  def full_name
     "#{first_name} #{last_name}"
   end
 end

@@ -19,13 +19,7 @@
     <main class="flex-grow-1 d-flex flex-column justify-content-between">
       <%= render partial: "shared/navbar" %>
 
-      <% if notice.present? %>
-        <%= render partial: "shared/flash", locals: { message: notice, css_class: "success" } %>
-      <% end %>
-
-      <% if alert.present? %>
-        <%= render partial: "shared/flash", locals: { message: alert, css_class: "danger" } %>
-      <% end %>
+      <%= render partial: "shared/flash" %>
 
       <%= render "shared/breadcrumbs" %>
 

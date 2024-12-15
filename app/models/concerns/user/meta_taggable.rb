@@ -8,10 +8,10 @@ module User::MetaTaggable
   def to_meta_tags
     tags = {
       site: "Perfect Pals",
-      title: user_name,
+      title: full_name,
       description: bio.present? ? bio.truncate_words(20) : "Default description", # Add nil check
       og: {
-        title: user_name,
+        title: full_name,
         description: bio.present? ? bio.truncate_words(20) : "Default description", # Add nil check
         site_name: "Perfect Pals"
       }
@@ -23,9 +23,5 @@ module User::MetaTaggable
     end
 
     tags
-  end
-
-  def user_name
-    "#{first_name} #{last_name}"
   end
 end

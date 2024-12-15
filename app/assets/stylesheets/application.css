@@ -270,3 +270,10 @@ select:focus,
   object-fit: cover;
 }
 
+.light-grey-link {
+  color: lightgrey;
+}
+
+.light-grey-link:hover {
+  color: darkgrey; 
+}

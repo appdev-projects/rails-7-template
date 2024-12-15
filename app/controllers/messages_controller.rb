@@ -1,7 +1,6 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_message, only: [:show, :destroy]
 
-  # GET /messages or /messages.json
   def index
     current_user_id = current_user.id
 
@@ -13,54 +12,31 @@ class MessagesController < ApplicationController
     @latest_messages = Message.latest_messages_for_user(current_user.id)
   end
 
-  # GET /messages/1 or /messages/1.json
-  def show
-  end
-
-  # GET /messages/new
   def new
-    @message = Message.new
+    @message = Message.new(sender_id: current_user.id, recipient_id: params[:user_id])
   end
 
-  # GET /messages/1/edit
-  def edit
-  end
-
-  # POST /messages or /messages.json
   def create
     @message = Message.new(message_params)
+    @message.sender_id = session.fetch("sender_id")
+    @message.recipient_id = session.fetch("recipient_id")
 
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to "/messages/conversation/#{@message.recipient_id}?current_user_id=#{@message.sender_id}", notice: "Message was successfully created." }
-        format.json { render :show, status: :created, location: @message }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
+    if @message.save
+      respond_to do |format|
+        format.html do
+          if request.headers["Turbo-Frame"]
+            render({ :partial => "messages/message", :locals => { :message => @message } })
+          else
+            redirect_to "/messages/conversation/#{@message.recipient_id}?current_user_id=#{@message.sender_id}", :notice => "Message was successfully created."
+          end
+        end
+        format.json { render :show, :status => :created, :location => @message }
       end
-    end
-  end
-
-  # PATCH/PUT /messages/1 or /messages/1.json
-  def update
-    respond_to do |format|
-      if @message.update(message_params)
-        format.html { redirect_to message_url(@message), notice: "Message was successfully updated." }
-        format.json { render :show, status: :ok, location: @message }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
+    else
+      respond_to do |format|
+        format.html { render :new, :status => :unprocessable_entity }
+        format.json { render :json => @message.errors, :status => :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /messages/1 or /messages/1.json
-  def destroy
-    @message.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to messages_url, notice: "Message was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
@@ -68,21 +44,31 @@ class MessagesController < ApplicationController
     current_user_id = current_user.id
     other_user_id = params.fetch("user_id")
 
-    @message = Message.new(sender_id: params[:current_user_id], recipient_id: params[:user_id])
+    session.store("sender_id", current_user_id)
+    session.store("recipient_id", other_user_id)
+
+    @message = Message.new
 
     @messages = Message.where({ sender_id: current_user_id, recipient_id: other_user_id })
                        .or(Message.where({ sender_id: other_user_id, recipient_id: current_user_id }))
     render({ template: "messages/conversation" })
   end
 
+  def destroy
+    @message.destroy!
+
+    respond_to do |format|
+      format.html { redirect_to "/messages/conversation/#{@message.recipient_id}?current_user_id=#{@message.sender_id}", notice: "Message was successfully deleted." }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_message
     @message = Message.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def message_params
     params.require(:message).permit(:body, :sender_id, :recipient_id)
   end

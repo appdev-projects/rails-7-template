@@ -1,18 +1,18 @@
-<div id="<%= dom_id message %>">
+<li class="list-group-item">
+  <div class="row">
+    <div class="col-11">
+      <% if message.sender_id == params.fetch("current_user_id").to_i %>
+        <strong>You:</strong> <%= message.body %>
+      <% else %>
+        <strong><%= User.find(params.fetch("user_id")).first_name %>:</strong> <%= message.body %>
+      <% end %>
+    </div>
 
-  <p>
-    <strong>Body:</strong>
-    <%= message.body %>
-  </p>
+    <div class="col-1 small text-muted text-end">
+      <%= link_to message, method: :delete, class: "delete-message-link light-grey-link" do %>
+        <i class="fa-solid fa-xmark"></i>
+      <% end %>
+    </div>
 
-  <p>
-    <strong>Sender:</strong>
-    <%= message.sender_id %>
-  </p>
-
-  <p>
-    <strong>Recipient:</strong>
-    <%= message.recipient_id %>
-  </p>
-
-</div>
+  </div>
+</li>

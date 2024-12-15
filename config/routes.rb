@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
             registrations: "user/registrations",
-            omniauth_callbacks: "omniauth_callbacks",
+            omniauth_callbacks: "omniauth_callbacks"
           }
 
   root "users#home"

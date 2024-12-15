@@ -10,8 +10,7 @@ class MessagesController < ApplicationController
 
     all_messages = received_messages.or(sent_messages)
 
-    @latest_messages = all_messages.group_by { |message| [ message.sender_id, message.recipient_id ].sort }
-                                   .map { |_, messages| messages.max_by { |message| message.created_at } }
+    @latest_messages = Message.latest_messages_for_user(current_user.id)
   end
 
   # GET /messages/1 or /messages/1.json

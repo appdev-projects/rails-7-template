@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @breadcrumbs = [
       { content: "Home", href: "/" },
       { content: "Pals", href: users_path },
-      { content: @user.pal_name }
+      { content: @user.full_name }
     ]
   end
 

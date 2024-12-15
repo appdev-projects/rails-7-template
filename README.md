@@ -47,13 +47,13 @@ cd perfect-pals
 ```bash
 bundle install
 ```
--Add extra step that points to configutaion
-```bash
-4. Since this application uses PostgreSQL, ensure you have PostgreSQL installed and running on your machine. Then create and migrate the database:
+4. Configure ENV. See details in [Configuration](#configuration).
+
+5. Since this application uses PostgreSQL, ensure you have PostgreSQL installed and running on your machine. Then create and migrate the database:
 ```bash
 rails db:create db:migrate
 ```
-5. To populate the database with initial data, run the sample data task (Weight Class 155 has the most users. Use this to test any features):
+6. To populate the database with initial data, run the sample data task (Weight Class 155 has the most users. Use this to test any features):
 ```bash
 rake sample_data
 ```
@@ -69,10 +69,7 @@ Follow the on-screen instructions to use the application.
 
 ## Configuration
 
-No further configuration needed.
-- Say something like EMAIL margo to get the MY_GITHUB_ID and MY_GITHUB_SECRET and store them in a .env file in the root directory of the application.
-
-```bash
+Email [Margarita Potylitsyna](mailto:margotugarina@gmail.com) to get the MY_GITHUB_ID and MY_GITHUB_SECRET. Store them in a `.env` file in the root directory of the application.
 
 ## Contributing
 
@@ -167,6 +164,7 @@ These visuals should help you get started with the project and understand how ev
 ## Contact   
 
 Margarita Potylitsyna - [margotugarina@gmail.com](mailto:margotugarina@gmail.com)
+
 Project Link: [https://github.com/Ritumka/perfect-pals](https://github.com/Ritumka/perfect-pals)
 
 ## License

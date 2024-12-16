@@ -5,7 +5,6 @@
 #  id                     :bigint           not null, primary key
 #  admin                  :boolean          default(FALSE), not null
 #  age                    :integer
-#  avatar                 :string
 #  bio                    :text
 #  budget                 :integer
 #  email                  :citext           default(""), not null

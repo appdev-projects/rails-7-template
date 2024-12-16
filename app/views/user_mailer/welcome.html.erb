@@ -1,0 +1,22 @@
+<div class="container text-center m-5">
+<h2>Welcome to Perfect Pals!👋</h2>
+
+<p> Hi <strong><%= @user.first_name %> <%= @user.last_name %>!</strong></p>
+<p>Thank you for signing up. We are so happy to have you!</br>
+  If you have any questions, comments or concerns, please reply to this email.</p>
+<p>For now I encourage you to check out some of our Perfect Pals:</p>
+
+    <div class="container m-4">
+      <div id="users">
+        <div class="d-flex flex-wrap gap-4 justify-content-center">
+          <% User.take(4).each do |user| %>
+            <%= render "users/mcard", user: user %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+<p>Happy searching for trustworthy connections!🧑‍🦰👨‍🦰👩‍🦰</p>
+
+Margo
+</div>

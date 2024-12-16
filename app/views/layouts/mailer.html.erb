@@ -2,8 +2,39 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%= render partial: "shared/cdn_assets" %>
     <style>
-      /* Email styles need to be inline */
+      .hover-card {
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s;
+      }
+
+      .hover-card-body {
+        flex-grow: 1;
+      }
+
+      .hover-card:hover {
+        background-color: #fdeacc;
+        cursor: pointer;
+        transform: scale(1.01);
+      }
+
+      .card-img-top {
+        transition: opacity 0.3s ease;
+      }
+
+      .card-img-top:hover {
+        opacity: 0.7;
+      }
+
+      .position-relative {
+        position: relative;
+      }
+
+      .card {
+        position: relative;
+      }
     </style>
   </head>
 

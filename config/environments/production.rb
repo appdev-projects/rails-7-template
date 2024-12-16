@@ -1,5 +1,5 @@
 require "active_support/core_ext/integer/time"
-Rails.application.routes.default_url_options[:host] = "www.perfect-pals.onrender.com/"
+Rails.application.routes.default_url_options[:host] = "www.perfect-pals.onrender.com"
 
 
 Rails.application.configure do

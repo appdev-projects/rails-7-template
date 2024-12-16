@@ -64,7 +64,7 @@ class User < ApplicationRecord
   after_create_commit :send_welcome_email
 
   def send_welcome_email
-    UserMailer.with(user: self).welcome.deliver_now
+    UserMailer.with(user: self).welcome.deliver_later
   end
 
   def self.ransackable_attributes(auth_object = nil)

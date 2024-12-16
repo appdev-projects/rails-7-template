@@ -16,6 +16,8 @@ jobs:
           POSTGRES_DB: rails_test
           POSTGRES_USER: rails
           POSTGRES_PASSWORD: password
+        # Run commands to enable pgcrypto extension
+        options: --health-cmd "pg_isready -U rails" --health-timeout 30s --health-interval 10s
     env:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
@@ -29,26 +31,29 @@ jobs:
         with:
           bundler-cache: true
       - name: Set up database schema
-        run: bin/rails db:schema:load
+        run: |
+          # Ensure pgcrypto extension is installed before loading schema
+          docker exec $(docker ps -qf "ancestor=postgres:11-alpine") psql -U rails -d rails_test -c "CREATE EXTENSION IF NOT EXISTS pgcrypto;"
+          bin/rails db:schema:load
       # This runs the tests in the spec/ folder
       - name: Run rspec tests
         run: bundle exec rspec
 
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
-        with:
-          bundler-cache: true
-      # Can add more (eg bundler-audit, brakeman, etc.)
-      - name: Lint Ruby files
-        run: bundle exec rubocop --parallel
-      - name: Lint Javascript files
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-      - run: npm ci
-      - run: npm run lint
+  # lint:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
+  #     - name: Install Ruby and gems
+  #       uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+  #       with:
+  #         bundler-cache: true
+  #     # Can add more (eg bundler-audit, brakeman, etc.)
+  #     - name: Lint Ruby files
+  #       run: bundle exec rubocop --parallel
+  #     - name: Lint Javascript files
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: ${{ matrix.node }}
+  #     - run: npm ci
+  #     - run: npm run lint

@@ -158,6 +158,9 @@ GEM
     diff-lcs (1.5.1)
     domain_name (0.6.20240107)
     dotenv (3.1.2)
+    dotenv-rails (3.1.2)
+      dotenv (= 3.1.2)
+      railties (>= 6.1)
     draft_generators (0.0.4)
       devise
       indefinite_article
@@ -568,6 +571,7 @@ DEPENDENCIES
   dev_toolbar
   devise
   dotenv
+  dotenv-rails
   draft_generators
   draft_matchers
   faker

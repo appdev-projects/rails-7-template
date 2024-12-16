@@ -6,15 +6,25 @@
   If you have any questions, comments or concerns, please reply to this email.</p>
 <p>For now I encourage you to check out some of our Perfect Pals:</p>
 
-<div class="container m-4">
-  <div id="users">
-    <div class="user-cards">
+<div style="margin: 16px;">
+  <table style="width: 100%; border-spacing: 16px; border-collapse: separate;">
+    <tr>
       <% User.take(4).each do |user| %>
-        <%= render "users/mcard", user: user %>
+        <td style="width: 25%; border: 1px solid #ddd; border-radius: 8px; padding: 16px; background-color: #fff; text-align: center; vertical-align: top;">
+          <div style="margin-bottom: 16px;">
+            <img src="<%= user.avatar.present? ? user.avatar : 'default_avatar.png' %>" alt="User Avatar"
+                 style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+          </div>
+          <h2 style="font-size: 18px; color: #333; margin: 0;"><%= user.first_name %> <%= user.last_name %></h2>
+          <p style="font-size: 14px; color: #555; margin: 8px 0;"><%= user.location %></p>
+          <p style="font-size: 14px; color: #777; margin: 8px 0;"><%= user.bio&.truncate_words(15) %></p>
+          <a href="<%= user_url(user) %>" style="color: #1a73e8; text-decoration: none;">View Profile</a>
+        </td>
       <% end %>
-    </div>
-  </div>
+    </tr>
+  </table>
 </div>
+
 
 <p>Happy searching for trustworthy connections!🧑‍🦰👨‍🦰👩‍🦰</p>
 

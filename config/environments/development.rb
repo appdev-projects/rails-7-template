@@ -1,6 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  routes.default_url_options[:host] = "localhost:3000"
+
   config.after_initialize do
     Bullet.enable        = true
     Bullet.alert         = true
@@ -9,6 +11,8 @@ Rails.application.configure do
     Bullet.rails_logger  = true
     Bullet.add_footer    = true
   end
+
+
 
   # Allow server to be hosted on any URL
   config.hosts.clear

@@ -17,9 +17,9 @@ module User::MetaTaggable
       }
     }
 
-    if avatar.present?
-      tags[:image] = avatar
-      tags[:og][:image] = avatar
+    if photo.attached?
+      tags[:image] =  rails_blob_url(photo)
+      tags[:og][:image] = rails_blob_url(photo)
     end
 
     tags

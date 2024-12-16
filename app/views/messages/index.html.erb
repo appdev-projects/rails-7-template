@@ -9,8 +9,8 @@
         <a href="/messages/conversation/<%= other_user_id %>?current_user_id=<%= current_user.id %>" class="list-group-item d-flex justify-content-between align-items-center message-item">
 
           <div class="d-flex align-items-center gap-4">
-            <%= image_tag(other_user.avatar.present? ? other_user.avatar : "default_avatar.png", 
-              alt: "#{other_user.first_name}'s avatar", 
+            <%= image_tag(other_user.photo.present? ? other_user.photo : "default_avatar.png", 
+              alt: "#{other_user.first_name}'s photo", 
               class: "rounded-circle", 
               width: 65, 
               height: 65, 

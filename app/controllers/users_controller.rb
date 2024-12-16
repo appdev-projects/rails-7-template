@@ -15,6 +15,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by!(id: params.fetch(:id))
+    current_user_id = current_user.id
+
+    session.store("sender_id", current_user_id)
+    session.store("recipient_id", @user.id)
+
     if current_user
       @message = Message.new(sender_id: current_user.id, recipient_id: @user.id)
     else

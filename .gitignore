@@ -40,3 +40,5 @@ examples.txt
 # Un-ignore SQLite3 db
 !/db/*.sqlite3
 !/db/*.sqlite3-journal
+
+/config/credentials/development.key

@@ -72,6 +72,8 @@
     </div>
   </div>
 
+  <%= image_tag @user.photo if @user.photo.attached? %>
+
   <% if current_user %>
     <% if @message.recipient_id != current_user.id %>
       <hr style="border: 1px solid black; width: 100%; margin: 30px 0px 0px 0px;" />

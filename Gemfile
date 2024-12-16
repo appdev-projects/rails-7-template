@@ -135,3 +135,5 @@ gem "omniauth-github"
 gem "omniauth-rails_csrf_protection"
 
 gem "good_job", "~> 4.6"
+
+gem "aws-sdk-s3", require: false

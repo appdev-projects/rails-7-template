@@ -61,6 +61,12 @@ class User < ApplicationRecord
   validates :facebook_url, format: { with: /\Ahttps:\/\/www\.facebook\.com\// }, allow_blank: true
   validates :video_url, format: { with: /\Ahttps:\/\/www\.youtube\.com\// }, allow_blank: true
 
+  after_create_commit :send_welcome_email
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now
+  end
+
   def self.ransackable_attributes(auth_object = nil)
     [ "age", "budget", "gender", "location", "occupation" ]
   end

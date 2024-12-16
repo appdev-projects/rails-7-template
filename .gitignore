@@ -42,3 +42,5 @@ examples.txt
 !/db/*.sqlite3-journal
 
 /config/credentials/development.key
+
+/config/credentials/production.key

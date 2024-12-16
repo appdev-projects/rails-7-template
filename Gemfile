@@ -133,3 +133,5 @@ gem "meta-tags"
 # Authorization with OmniAuth
 gem "omniauth-github"
 gem "omniauth-rails_csrf_protection"
+
+gem "good_job", "~> 4.6"

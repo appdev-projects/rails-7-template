@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Connect Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-    
+
     <style>
       .hover-card {
         display: flex;
@@ -36,6 +36,75 @@
 
       .card {
         position: relative;
+      }
+
+      .container {
+        margin: 1rem; /* Equivalent to m-4 */
+      }
+
+      .user-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem; /* Space between the cards, equivalent to 'gap-4' */
+        justify-content: center; /* Centers the cards horizontally */
+      }
+
+      .card {
+        width: 18rem;
+        background-color: #fff;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+        overflow: hidden;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+      }
+
+      .card-avatar-container {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .card-avatar {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 16px;
+      }
+
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .card-text {
+        font-size: 0.875rem;
+        margin: 4px 0;
+      }
+
+      .small {
+        font-size: 0.75rem;
+      }
+
+      .text-muted {
+        color: #6c757d;
+      }
+
+      .card-link {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .my-2 {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
       }
     </style>
   </head>

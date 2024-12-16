@@ -1,14 +1,12 @@
-<div class="card hover-card my-2" style="width: 18rem;">
-  <%= link_to user, class: "text-decoration-none text-dark" do %>
-    <div class="position-relative">
-      <div class="card-avatar-container">
-        <%= image_tag user.avatar.present? ? user.avatar : "default_avatar.png", class: "card-avatar img-fluid" %>
-      </div>
+<div class="card hover-card my-2">
+  <%= link_to user, class: "card-link" do %>
+    <div class="card-avatar-container">
+      <%= image_tag user.avatar.present? ? user.avatar : "default_avatar.png", class: "card-avatar" %>
     </div>
 
     <div class="card-body">
       <h5 class="card-title"><%= user.first_name %> <%= user.last_name %></h5>
-      <p class="card-text font-weight-light small text-muted"><%= user.location %></p>
+      <p class="card-text small text-muted"><%= user.location %></p>
       <p class="card-text"><%= user.bio&.truncate_words(15) %></p>
     </div>
   <% end %>

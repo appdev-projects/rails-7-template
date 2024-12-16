@@ -6,15 +6,15 @@
   If you have any questions, comments or concerns, please reply to this email.</p>
 <p>For now I encourage you to check out some of our Perfect Pals:</p>
 
-    <div class="container m-4">
-      <div id="users">
-        <div class="d-flex flex-wrap gap-4 justify-content-center">
-          <% User.take(4).each do |user| %>
-            <%= render "users/mcard", user: user %>
-          <% end %>
-        </div>
-      </div>
+<div class="container m-4">
+  <div id="users">
+    <div class="user-cards">
+      <% User.take(4).each do |user| %>
+        <%= render "users/mcard", user: user %>
+      <% end %>
     </div>
+  </div>
+</div>
 
 <p>Happy searching for trustworthy connections!🧑‍🦰👨‍🦰👩‍🦰</p>
 

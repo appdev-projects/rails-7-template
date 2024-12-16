@@ -3,7 +3,7 @@
 
     <div class="row mx-4">
       <div class="col-12 col-md d-flex justify-content-center">
-        <%= image_tag @user.avatar.present? ? @user.avatar : "default_avatar.png", 
+        <%= image_tag @user.photo.present? ? @user.photo : "default_avatar.png", 
               class: "avatar rounded-circle", 
               width: 250, 
               alt: "photo of #{@user.first_name}" %>
@@ -71,8 +71,6 @@
       </div>
     </div>
   </div>
-
-  <%= image_tag @user.photo if @user.photo.attached? %>
 
   <% if current_user %>
     <% if @message.recipient_id != current_user.id %>

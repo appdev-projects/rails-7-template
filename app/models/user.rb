@@ -5,7 +5,6 @@
 #  id                     :bigint           not null, primary key
 #  admin                  :boolean          default(FALSE), not null
 #  age                    :integer
-#  avatar                 :string
 #  bio                    :text
 #  budget                 :integer
 #  email                  :citext           default(""), not null
@@ -65,7 +64,7 @@ class User < ApplicationRecord
   after_create_commit :send_welcome_email
 
   def send_welcome_email
-    UserMailer.with(user: self).welcome.deliver_later
+    UserMailer.with(user: self).welcome.deliver_now
   end
 
   def self.ransackable_attributes(auth_object = nil)

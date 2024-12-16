@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   def home
-    @users = User.all
+    @users = User.all.includes(photo_attachment: :blob)
   end
 
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result.page(params[:page]).per(8)
+    @users = @q.result.includes(photo_attachment: :blob).page(params[:page]).per(8)
 
     @breadcrumbs = [
       { content: "Home", href: "/" },

@@ -2,7 +2,7 @@
   <%= link_to user, class: "text-decoration-none text-dark" do %>
     <div class="position-relative">
     <div class="card-avatar-container">
-      <%= image_tag user.avatar.present? ? user.avatar : "default_avatar.png", class: "card-avatar img-fluid" %>
+      <%= image_tag user.photo.present? ? user.photo : "default_avatar.png", class: "card-avatar img-fluid" %>
     </div>
       <div class="star-container">
         <%= image_tag 'star.svg', type: 'image/svg', class: "star-icon", width: "50px" %>

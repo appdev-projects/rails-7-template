@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     ]
   end
 
+  #What is this for?
   def underconstruction
   end
 end

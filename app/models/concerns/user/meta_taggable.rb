@@ -1,5 +1,5 @@
 module User::MetaTaggable
-  extend ActiveSupport::Concern
+  extend ActiveSupport::Concern #Good Concern use
 
   # Include helper modules to allow URL generation and asset management.
   # `Rails.application.routes.url_helpers` gives access to route helpers like `rails_blob_url`.

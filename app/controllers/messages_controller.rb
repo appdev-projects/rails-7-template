@@ -24,7 +24,7 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html do
-          if request.headers["Turbo-Frame"]
+          if request.headers["Turbo-Frame"] #Nice use of turbo
             render({ :partial => "messages/message", :locals => { :message => @message } })
           else
             redirect_to "/messages/conversation/#{@message.recipient_id}?current_user_id=#{@message.sender_id}", :notice => "Message was successfully created."

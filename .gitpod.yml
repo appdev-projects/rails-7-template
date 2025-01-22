@@ -30,3 +30,4 @@ vscode:
     - aliariff.vscode-erb-beautify
     - eamodio.gitlens
     - setobiralo.erb-commenter
+    - firstdraft.terminal-clear

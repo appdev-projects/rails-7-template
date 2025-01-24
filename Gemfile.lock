@@ -126,7 +126,7 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
-    csv (3.3.0)
+    csv (3.3.2)
     date (3.3.4)
     debug (1.9.2)
       irb (~> 1.10)
@@ -301,7 +301,7 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
-    rails_db (2.4.4)
+    rails_db (2.4.5)
       activerecord
       csv
       kaminari

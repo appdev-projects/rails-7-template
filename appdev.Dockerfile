@@ -81,6 +81,7 @@ RUN sudo mkdir -p $PGDATA \
     && printf "\n# Auto-start PostgreSQL server.\n[[ \$(pg_ctl status | grep PID) ]] || pg_start > /dev/null\n" >> ~/.bashrc
 ENV PATH="$PATH:$HOME/.pg_ctl/bin" PGHOSTADDR="127.0.0.1" PGDATABASE="postgres"
 
+
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - \
     # Install Node.js and Yarn
     && sudo apt-get install -y nodejs \

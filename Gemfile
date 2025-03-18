@@ -92,7 +92,6 @@ group :development do
   gem "binding_of_caller"
   gem "dev_toolbar"
   gem "draft_generators"
-  gem "grade_runner"
   gem "pry-rails"
   gem "rails_db"
   gem "rails-erd"
@@ -102,6 +101,7 @@ end
 
 group :development, :test do
   gem "rspec-rails", "~> 6.0.0"
+  gem "grade_runner", "~> 0.0.13"
 end
 
 group :test do

@@ -16,7 +16,7 @@ polymorphism: false
 sort: true
 warn: false
 title: false
-exclude: ActiveRecord::InternalMetadata,ActiveRecord::SchemaMigration,ActiveStorage::Attachment,ActiveStorage::Blob,AdminUser,ActiveAdmin::Comment,primary::SchemaMigration
+exclude: ActiveRecord::InternalMetadata,ActiveRecord::SchemaMigration,ActiveStorage::Attachment,ActiveStorage::Blob,AdminUser,ActiveAdmin::Comment,primary::SchemaMigration,SolidQueue::Job,SolidQueue::ScheduledExecution,SolidQueue::RecurringTask,SolidQueue::RecurringExecution,SolidQueue::ReadyExecution,SolidQueue::Pause,SolidQueue::FailedExecution,SolidQueue::Process,SolidQueue::ClaimedExecution,SolidQueue::BlockedExecution,SolidQueue::Semaphore,SolidCache::Entry,SolidCable::Message
 only: null
 only_recursion_depth: null
 prepend_primary: false

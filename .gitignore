@@ -40,3 +40,6 @@ examples.txt
 # Un-ignore SQLite3 db
 !/db/*.sqlite3
 !/db/*.sqlite3-journal
+
+# Ignore public uploads
+/public/uploads/*

@@ -25,6 +25,14 @@ Rails.application.configure do
     config.cache_dir = Rails.root.join("tmp/carrierwave")
   end
 
+  # Configure CarrierWave for testing
+  CarrierWave.configure do |config|
+    config.storage = :file
+    config.enable_processing = false
+    config.root = Rails.root.join("tmp")
+    config.cache_dir = Rails.root.join("tmp/carrierwave")
+  end
+
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
   config.public_file_server.headers = {

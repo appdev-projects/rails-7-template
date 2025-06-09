@@ -90,3 +90,5 @@ Set it to `true` to enable Turbo everywhere, or you can use `data-turbo="true"` 
 - aliariff.vscode-erb-beautify
 - eamodio.gitlens
 - setobiralo.erb-commenter
+
+Some rights reserved — see [LICENSE.txt](LICENSE.txt)

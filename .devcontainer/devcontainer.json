@@ -36,7 +36,8 @@
                      "aliariff.vscode-erb-beautify",
                      "eamodio.gitlens",
                      "setobiralo.erb-commenter",
-                     "firstdraft.terminal-clear"]
+                     "firstdraft.terminal-clear",
+                     "-github.copilot-chat"]
     }
   }
 

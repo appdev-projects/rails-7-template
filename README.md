@@ -91,4 +91,4 @@ Set it to `true` to enable Turbo everywhere, or you can use `data-turbo="true"` 
 - eamodio.gitlens
 - setobiralo.erb-commenter
 
-Some rights reserved — see [LICENSE.txt](LICENSE.txt)
+All files are covered by the MIT license, see [LICENSE.txt](LICENSE.txt).

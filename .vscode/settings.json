@@ -40,8 +40,6 @@
   "terminal.integrated.defaultProfile.linux": "bash",
   "vscode-erb-beautify.keepBlankLines": 1,
   "gitpod.openInStable.neverPrompt": true,
-  "gitlens.showWelcomeOnInstall": false,
-  "gitlens.currentLine.enabled": false,
   "emmet.includeLanguages": {
     "erb": "html"
   },
